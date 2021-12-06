@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVpallet_transaction" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="pallet_transaction_vLst" ToolTip="ttp_pallet_transaction_v" Size="700,450" OnLoad="init" Headingx="pallet_id,60;inv_lot_number_id,60;pallet_quantity,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pallet_transaction_id,60;inv_transaction_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>pallet_transaction_id</Index>
+<DbTable>mes_trace.pallet_transaction p left join mes_trace.pallet p0 on p.pallet_id=p0.pallet_id left join mes_trace.inv_lot_number i on p.inv_lot_number_id=i.inv_lot_number_id join mes_trace.inv_transaction it on (it.status and it.inv_transaction_id=p.inv_transaction_id) join mes_trace.item itm on itm.item_id_m=it.item_id_m</DbTable>
+<Data>document_number,itm.item_number,itm.item_name,itm.item_specification,i.lot_number,p0.bc_label,p.pallet_quantity, p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.pallet_transaction_id,p.inv_lot_number_id,p.pallet_id,it.item_id_m,document_type,p.inv_transaction_id</Data>
+<Order>pallet_transaction_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} where transaction_type_id=%{transtype} and (p.created_by='%{operaid}' or %{role_id}=1) %{where} order by pallet_transaction_id desc limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="0" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="cancel" needconfirm="1"><DbDetails>
+<queryFormat>SELECT if(mes_trace.pallet_trans(%{pallet_transaction_vLst[pallet_id]},%{pallet_transaction_vLst[item_id_m]},%{pallet_transaction_vLst[inv_lot_number_id]},%{transtype},'%{pallet_transaction_vLst[document_type]}','%{pallet_transaction_vLst[document_number]}',if('%{role_id}'=1,-%{pallet_transaction_vLst[pallet_quantity]},0), 'inv_transaction','%{pallet_transaction_vLst[inv_transaction_id]}','%{operaid}','') is not null,'OK','Fail') as cancel;</queryFormat></DbDetails>
+<submit namelist="DbDetails"/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_pallet_transaction" expr="js(%{pallet_transaction_vLst[currentpage]}+1)"/>
+<assign name="pgscb_pallet_transaction" expr="js(%{pallet_transaction_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

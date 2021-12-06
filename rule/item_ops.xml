@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Tables><Table name="item_ops"><Inputs><Attr>make_buy
+</Attr>
+<Value op="1" id="3">Buy
+</Value>
+<Value/>
+<Value/>
+</Inputs>
+<Outputs><Attr>title
+</Attr>
+<Value op="1" id="4">bom_routing;bom;viewbom
+</Value>
+<Value op="1" id="5">x
+</Value>
+<Value/>
+</Outputs>
+<Outputs><Attr>disabled
+</Attr>
+<Value op="1" id="6">true
+</Value>
+<Value op="1" id="6">true
+</Value>
+<Value/>
+</Outputs>
+</Table>
+</Tables>

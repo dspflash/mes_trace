@@ -1,0 +1,41 @@
+﻿<Language name="bc_label_rule">
+<Lang name="bc_label_rule" value="条码规则"/>
+<Lang name="bc_label_rule_v" value="条码规则"/>
+<Lang name="TabEditbc_label_rule" value="bc_label_rule Edit"/>
+<Lang name="TabViewbc_label_rule" value="bc_label_rule View"/>
+<Lang name="bc_label_rule_code" value="规则编码"/>
+<Lang name="ttp_bc_label_rule_code" value=""/>
+<Lang name="bc_label_rule_name" value="规则名称"/>
+<Lang name="ttp_bc_label_rule_name" value=""/>
+<Lang name="code_len" value="码长"/>
+<Lang name="ttp_code_len" value=""/>
+<Lang name="description" value="说明"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="status" value="启用"/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="bc_label_rule_id" value=""/>
+<Lang name="ttp_bc_label_rule_id" value=""/>
+<Lang name="ttp_operationbc_label_rule" value=""/>
+<Lang name="ttp_createbc_label_rule" value=""/>
+<Lang name="ttp_modifybc_label_rule" value=""/>
+<Lang name="ttp_resetbc_label_rule" value=""/>
+<Lang name="ttp_deletebc_label_rule" value=""/>
+<Lang name="ttp_refreshbc_label_rule" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

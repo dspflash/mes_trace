@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbc_label_rule_detail"><Ctrls>
+<ListCtrl Heading="bc_label_rule_detail_name,125;start_pos,20;data_len,20;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bc_label_rule_id,60;bc_label_rule_detail_id,60;" loadedclick="0" ToolTip="ttp_bc_label_rule_detail" Name="bc_label_rule_detailLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>bc_label_rule_detail_id</Index>
+<DbTable>mes_trace.bc_label_rule_detail</DbTable>
+<Data>bc_label_rule_detail_name,start_pos,data_len,description,status,created_by,creation_date,last_update_by,last_update_date,bc_label_rule_id,bc_label_rule_detail_id</Data>
+<Order>bc_label_rule_detail_id</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op mustselected="0" text="addone"><if cond="!%{bc_label_rule_id}"><alert expr="bc_label_rule_id is Empty!"/><else/><submit next="$parent.bc_label_rule_detail.GBDEDITbc_label_rule_detail" function="reset"/><assign name="$parent.bc_label_rule_detail.bc_label_rule_id" expr="%{bc_label_rule_id}"/><assign name="$parent.bc_label_rule_detail.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>bc_label_rule_detail_id='%{bc_label_rule_detail_vLst[bc_label_rule_detail_id]}'</Where></DbDetails><submit next="$parent.bc_label_rule_detail.bc_label_rule_detailLst" namelist="DbDetails"/><assign name="$parent.bc_label_rule_detail.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>mes_trace.bc_label_rule_detail</DbTable>
+<Where>bc_label_rule_detail_id='%{bc_label_rule_detail_vLst[bc_label_rule_detail_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

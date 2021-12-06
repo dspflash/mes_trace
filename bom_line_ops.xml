@@ -1,0 +1,9 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="addone" mustselected="0"><if cond="!%{bom_header_id}"><alert expr="bom_header_id is Empty!"/><else/><submit next="$parent.bom_line.GBDEDITbom_line" function="reset"/><assign name="$parent.bom_line.bom_header_id" expr="%{bom_header_id}"/><assign name="$parent.bom_line.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><assign name="$parent.bom_line.bom_header_id" expr="%{bom_header_id}"/><DbDetails><Where>bom_line_id='%{bom_line_vLst[bom_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.bom_line.bom_lineLst"/><DbDetails><Where>item_id_m=(select component_item_id_m from mes_trace.bom_line where bom_line_id='%{bom_line_vLst[bom_line_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$parent.bom_line.component_item_id_m" delay="2000"/><assign name="$parent.bom_line.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>mes_trace.bom_line</DbTable>
+<Where>bom_line_id='%{bom_line_vLst[bom_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where} and %{role_id}=1</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

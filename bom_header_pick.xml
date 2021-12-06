@@ -1,0 +1,22 @@
+﻿<WndTap Name="bom_header_pick" Text="bom_header_Pick">
+<var name="searchtmpl"><created_by format="(b.created_by like '%%{opvalue}%')"/><creation_date format="(b.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(b.last_update_by like '%%{opvalue}%')"/><last_update_date format="(b.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><bom_header_id format="(b.bom_header_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_header.xml"/>
+<Ctrls><GroupBox  Name="GBbom_header" id="bom_header" Text="bom_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_header_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVbom_header" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetbom_header" Name="resetbom_header" Size="50,20">	<OnClick>	<submit next="GBDEDITbom_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchbom_header" Name="gsearchbom_header" Size="50,20">	<OnClick>	
+<search next="bom_header_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbom_header" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVbom_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_header_vLst" ToolTip="ttp_bom_header_v" Size="700,450" Heading="created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_header_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>bom_header_id</Index>
+<DbTable>mes_trace.bom_header b</DbTable>
+<Data>b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_header_id</Data>
+<Order>bom_header_id</Order></DbDetails>
+<OnClick><if cond="%{bom_header_vLst[bom_header_id]}"><DbDetails><Where>bom_header_id='%{bom_header_vLst[bom_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

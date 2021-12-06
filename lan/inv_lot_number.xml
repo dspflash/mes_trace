@@ -1,0 +1,46 @@
+﻿<Language name="inv_lot_number">
+<Lang name="inv_lot_number" value="inv_lot_number"/>
+<Lang name="TabEditinv_lot_number" value="inv_lot_number Edit"/>
+<Lang name="TabViewinv_lot_number" value="inv_lot_number View"/>
+<Lang name="item_id_m" value=""/>
+<Lang name="ttp_item_id_m" value=""/>
+<Lang name="lot_number" value=""/>
+<Lang name="ttp_lot_number" value=""/>
+<Lang name="quantity" value=""/>
+<Lang name="ttp_quantity" value=""/>
+<Lang name="origination_type" value=""/>
+<Lang name="ttp_origination_type" value=""/>
+<Lang name="origination_date" value=""/>
+<Lang name="ttp_origination_date" value=""/>
+<Lang name="country_of_origin" value=""/>
+<Lang name="ttp_country_of_origin" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="inv_lot_number_id" value=""/>
+<Lang name="ttp_inv_lot_number_id" value=""/>
+<Lang name="ttp_operationinv_lot_number" value=""/>
+<Lang name="ttp_createinv_lot_number" value=""/>
+<Lang name="ttp_modifyinv_lot_number" value=""/>
+<Lang name="ttp_resetinv_lot_number" value=""/>
+<Lang name="ttp_deleteinv_lot_number" value=""/>
+<Lang name="ttp_refreshinv_lot_number" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

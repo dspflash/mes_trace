@@ -1,0 +1,11 @@
+﻿<Language name="pallet_transaction">
+<Lang name="pallet_po_v" value="采购入库"/>
+<Lang name="pallet_transaction" value="采购入库"/>
+<Lang name="item_bc" value="物料条码（1）"/>
+<Lang name="doc_no" value="采 购 单（0）"/>
+<Lang name="document_number" value="采购单号"/>
+<Lang name="item_name" value="物料名称"/>
+<Lang name="lot_number_id" value="批    次"/>
+<Lang name="pallet_quantity" value="数    量(3)"/>
+<Lang name="pallet_label" value="容器条码（2）"/>
+</Language>

@@ -1,0 +1,13 @@
+﻿<WndTap Name="pallet_specification" Text="pallet_specification" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="specification_name,specification,max_units"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\pallet_specification.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBpallet_specification" id="pallet_specification" Text="pallet_specification" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_specification_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_specification_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_specification_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertpallet_specification" Visible="1"/><SetVisible name="modifypallet_specification" Visible="0"/></OnActivate>
+</WndTap>

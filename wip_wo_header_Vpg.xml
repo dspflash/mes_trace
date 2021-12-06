@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGwip_wo_header"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_wip_wo_header" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>wip_wo_header_id</Index>
+<DbTable>mes_trace.wip_wo_header w left join mes_trace.item i on w.item_id_m=i.item_id_m left join mes_trace.option_line o on w.wo_type=o.option_line_id left join mes_trace.option_line o0 on w.wo_status=o0.option_line_id left join mes_trace.bom_routing_header b on w.reference_routing_item_id_m=b.bom_routing_header_id left join mes_trace.bom_header b0 on w.reference_bom_item_id_m=b0.bom_header_id</DbTable>
+<Data>count(*) records</Data>
+<Order>wip_wo_header_id</Order><Queryformat>select %{data} from (select w.wip_wo_header_id from %{dbtable} %{where} GROUP BY w.wip_wo_header_id  ORDER BY w.wip_wo_header_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_wip_wo_header" expr="js(Math.ceil(%{records_wip_wo_header}/%{wip_wo_header_vLst[countsperpage]}))"/>
+<assign name="pgscb_wip_wo_header" expr="js('1~'+Math.ceil(%{records_wip_wo_header}/%{wip_wo_header_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_wip_wo_header" Size="60,20"><OnSelEndOK><submit next="wip_wo_header_vLst" function="GetPage(%{pgscb_wip_wo_header}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_wip_wo_header" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_wip_wo_header" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagewip_wo_header_vLst" Size="50,20"><OnClick><submit next="wip_wo_header_vLst" function="GetPage(%{pgcur_wip_wo_header}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

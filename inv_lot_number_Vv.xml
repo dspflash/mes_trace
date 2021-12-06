@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVinv_lot_number" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_lot_number_vLst" ToolTip="ttp_inv_lot_number_v" Size="700,450" OnLoad="init" Heading="item_id_m,60;lot_number,250;quantity,100;origination_type,120;origination_date,90;country_of_origin,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;inv_lot_number_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>inv_lot_number_id</Index>
+<DbTable>mes_trace.inv_lot_number i left join mes_trace.item i0 on i.item_id_m=i0.item_id_m left join mes_trace.country c on i.country_of_origin=c.country_id</DbTable>
+<Data>i0.item_number item_id_m,i.lot_number,i.quantity,i.origination_type,i.origination_date,c.namecn country_of_origin,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.org_id,i.inv_lot_number_id</Data>
+<Order>inv_lot_number_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>inv_lot_number_id='%{inv_lot_number_vLst[inv_lot_number_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_lot_number.inv_lot_numberLst"/><assign name="$this.inv_lot_number.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>mes_trace.inv_lot_number</DbTable>
+<Where>inv_lot_number_id='%{inv_lot_number_vLst[inv_lot_number_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_inv_lot_number" expr="js(%{inv_lot_number_vLst[currentpage]}+1)"/>
+<assign name="pgscb_inv_lot_number" expr="js(%{inv_lot_number_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

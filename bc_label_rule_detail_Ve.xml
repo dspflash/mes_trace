@@ -1,0 +1,13 @@
+﻿<WndTap Name="bc_label_rule_detail" Text="bc_label_rule_detail" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\bc_label_rule_detail.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBbc_label_rule_detail" id="bc_label_rule_detail" Text="bc_label_rule_detail" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bc_label_rule_detail_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bc_label_rule_detail_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bc_label_rule_detail_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertbc_label_rule_detail" Visible="1"/><SetVisible name="modifybc_label_rule_detail" Visible="0"/></OnActivate>
+</WndTap>

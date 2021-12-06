@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDVwip_move_transaction" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="wip_move_transaction_vLst" ToolTip="ttp_wip_move_transaction_v" Size="700,450" OnLoad="init" Heading="" loadedclick="0">
+	<DbDetails >
+<Index>wip_move_transaction_id</Index>
+<DbTable>mes_trace.wip_wo_routing_v</DbTable>
+<Data>w0.wo_number wip_wo_header_id,i.item_number item_id_m,w.from_routing_sequence,w.from_operation_step,w.to_routing_sequence,w.to_operation_step,w.move_quantity,w.transaction_type,w.transaction_date,w.reason,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_move_transaction_id,w.org_id</Data>
+<Order>wip_move_transaction_id</Order></DbDetails>
+<DbDetails>  <Index>bom_department_id</Index> <Data>*</Data> <Order>start_date,build_sequence,scheduling_priority desc,wip_wo_header_id,wip_wo_routing_line_id</Order> <Where>and wo_status=370 and (CURDATE() BETWEEN start_date AND completion_date)</Where> <queryFormat>select %{data} from %{dbtable} where wo_status in (370,372,373,374) %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_wip_move_transaction" expr="js(%{wip_move_transaction_vLst[currentpage]}+1)"/>
+<assign name="pgscb_wip_move_transaction" expr="js(%{wip_move_transaction_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

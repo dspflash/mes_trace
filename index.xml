@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd>
+	<DbDetails>
+		<SubDriver>MySQL ODBC 3.51 Driver</SubDriver>
+		<Host>localhost</Host>
+		<database>mes_trace</database>
+		<sqlMode>NO_BACKSLASH_ESCAPES</sqlMode>
+		<User>i3u</User>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="pass" href="config/db.xml"/>
+		<config>SELECT PASSWORD,role_layout layout,role_id,user_id AS operaid FROM USER u JOIN user_role r ON r.role_id=u.user_role where username='%{UserName}';</config>
+		</DbDetails>
+</XI3uWnd>

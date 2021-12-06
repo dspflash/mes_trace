@@ -1,0 +1,6 @@
+﻿<GroupBox Name="GBDEDITwip_move_transaction" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_wip_wo_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_wip_wo_header_id" Size="60,20" Text="wip_wo_header_id" Align="Right"/>
+<TextBox Name="wip_wo_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_wip_wo_header_id"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

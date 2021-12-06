@@ -1,0 +1,20 @@
+﻿<WndTap Name="wip_wo_header_v" Text="wip_wo_header_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><wo_number format="w.wo_number='%{opvalue}'"/><item_id_m format="w.item_id_m='%{opvalue}'"/><wo_type format="w.wo_type='%{opvalue}'"/><quantity format="(w.quantity like '%%{opvalue}%')"/><completed_quantity format="(w.completed_quantity like '%%{opvalue}%')"/><scrapped_quantity format="(w.scrapped_quantity like '%%{opvalue}%')"/><wo_status format="w.wo_status='%{opvalue}'"/><released_date format="(w.released_date between '%{released_date[datetime]}' and '%{released_date[datetime2]}')"/><reference_routing_item_id_m format="w.reference_routing_item_id_m='%{opvalue}'"/><reference_bom_item_id_m format="w.reference_bom_item_id_m='%{opvalue}'"/><first_unit_completed_date format="(w.first_unit_completed_date between '%{first_unit_completed_date[datetime]}' and '%{first_unit_completed_date[datetime2]}')"/><last_unit_completed_date format="(w.last_unit_completed_date between '%{last_unit_completed_date[datetime]}' and '%{last_unit_completed_date[datetime2]}')"/><closed_date format="(w.closed_date between '%{closed_date[datetime]}' and '%{closed_date[datetime2]}')"/><created_by format="(w.created_by like '%%{opvalue}%')"/><creation_date format="(w.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(w.last_update_by like '%%{opvalue}%')"/><last_update_date format="(w.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><wip_wo_header_id format="(w.wip_wo_header_id like '%%{opvalue}%')"/><parent_wo_id format="(w.parent_wo_id like '%%{opvalue}%')"/><primary_wo_id format="(w.primary_wo_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+<Ctrls><GroupBox  Name="GBwip_wo_header" id="wip_wo_header" Text="wip_wo_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVwip_wo_header" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.wip_wo_header.GBDEDITwip_wo_header" function="reset"/><assign name="$this.wip_wo_header.frmwndctrl" expr="%{$this.wip_wo_header_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetwip_wo_header" Name="resetwip_wo_header" Size="50,20">	<OnClick>	<submit next="GBDEDITwip_wo_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchwip_wo_header" Name="gsearchwip_wo_header" Size="50,20">	<OnClick>	
+<search next="wip_wo_header_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITwip_wo_header" namelist="search" function="search"/>	
+<search next="records_wip_wo_header" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITwip_wo_header" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

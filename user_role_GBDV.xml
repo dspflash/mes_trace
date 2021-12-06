@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVuser_role"><Ctrls>
+<ListCtrl Heading="role_name_cn,100;role_name_eng,250;role_layout,500;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;role_id,20;" loadedclick="0" ToolTip="ttp_user_role" Name="user_roleLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>role_id</Index>
+<DbTable>mes_trace.user_role</DbTable>
+<Data>role_name_cn,role_name_eng,role_layout,created_by,creation_date,last_update_by,last_update_date,role_id</Data>
+<Order>role_id</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>role_id='%{user_role_vLst[role_id]}'</Where></DbDetails><submit next="$this.user_role.user_roleLst" namelist="DbDetails"/><assign name="$this.user_role.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>mes_trace.user_role</DbTable>
+<Where>role_id='%{user_role_vLst[role_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

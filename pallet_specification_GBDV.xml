@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpallet_specification"><Ctrls>
+<ListCtrl Heading="specification_name,250;bc_label,250;specification,125;max_units,75;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;specification_id,60;structure,640;" loadedclick="0" ToolTip="ttp_pallet_specification" Name="pallet_specificationLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>specification_id</Index>
+<DbTable>mes_trace.pallet_specification</DbTable>
+<Data>specification_name,bc_label,specification,max_units,created_by,creation_date,last_update_by,last_update_date,specification_id,structure</Data>
+<Order>specification_id</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>specification_id='%{pallet_specification_vLst[specification_id]}'</Where></DbDetails><submit next="$this.pallet_specification.pallet_specificationLst" namelist="DbDetails"/><assign name="$this.pallet_specification.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>mes_trace.pallet_specification</DbTable>
+<Where>specification_id='%{pallet_specification_vLst[specification_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

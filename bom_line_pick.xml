@@ -1,0 +1,24 @@
+﻿<WndTap Name="bom_line_pick" Text="bom_line_Pick">
+<var name="searchtmpl"><bom_sequence format="(b.bom_sequence like '%%{opvalue}%')"/><routing_sequence format="b.routing_sequence='%{opvalue}'"/><component_item_id_m format="b.component_item_id_m='%{opvalue}'"/><usage_basis format="b.usage_basis='%{opvalue}'"/><usage_quantity format="(b.usage_quantity like '%%{opvalue}%')"/><created_by format="(b.created_by like '%%{opvalue}%')"/><creation_date format="(b.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(b.last_update_by like '%%{opvalue}%')"/><last_update_date format="(b.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><bom_line_id format="(b.bom_line_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_line.xml"/>
+<Ctrls><GroupBox  Name="GBbom_line" id="bom_line" Text="bom_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVbom_line" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetbom_line" Name="resetbom_line" Size="50,20">	<OnClick>	<submit next="GBDEDITbom_line" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchbom_line" Name="gsearchbom_line" Size="50,20">	<OnClick>	
+<search next="bom_line_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbom_line" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVbom_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_line_vLst" ToolTip="ttp_bom_line_v" Size="700,450" Heading="bom_sequence,120;routing_sequence,120;component_item_id_m,55;usage_basis,120;usage_quantity,75;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;bom_line_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>bom_line_id</Index>
+<DbTable>mes_trace.bom_line b JOIN bom_header bh ON bh.bom_header_id=b.bom_header_id LEFT JOIN mes_trace.bom_routing_line b0 ON (b.routing_sequence=b0.routing_sequence AND b0.routing_seq_num=b.routing_seq_num) JOIN bom_routing_header rh ON (rh.bom_routing_header_id=b0.bom_routing_header_id AND (bh.item_id_m=rh.item_id_m AND bh.org_id=rh.org_id)) LEFT JOIN mes_trace.item i ON b.component_item_id_m=i.item_id_m and i.org_id=bh.org_id left join uom on i.uom_id=uom.uom_id LEFT JOIN mes_trace.option_line o ON b.usage_basis=o.option_line_id LEFT JOIN mes_trace.option_line o0 ON b.wip_supply_type=o0.option_line_id LEFT JOIN mes_trace.subinventory s ON b.supply_sub_inventory=s.subinventory_id LEFT JOIN mes_trace.locator l ON b.supply_locator=l.locator_id JOIN mes_trace.bom_standard_operation bso ON b0.standard_operation_id=bso.bom_standard_operation_id</DbTable>
+<Data>b.bom_sequence,b0.routing_sequence routing_sequence,i.item_number component_item_id_m,o.option_line_value usage_basis,b.usage_quantity,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_line_id</Data>
+<Order>bom_line_id</Order></DbDetails>
+<DbDetails>
+</DbDetails><OnClick><if cond="'%{bom_lineLst[component_item_id_m]}'"><DbDetails><Where>and item_number='%{bom_lineLst[component_item_id_m]}'</Where></DbDetails><submit next="component_item_id_m" namelist="DbDetails"/></if></OnClick>
+<OnClick><if cond="%{bom_line_vLst[bom_line_id]}"><DbDetails><Where>bom_line_id='%{bom_line_vLst[bom_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

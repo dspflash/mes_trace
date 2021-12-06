@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbc_label_rule_detail"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialbc_label_rule_detail" Size="50,20">
+<OnClick><submit next="bc_label_rule_detail_vLst" function="initial"/><submit next="records_bc_label_rule_detail" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPbc_label_rule_detail_vLst" Size="50,20">
+<OnClick><submit next="bc_label_rule_detail_vLst" function="GetPage(first)"/><submit next="records_bc_label_rule_detail"/></OnClick></Button>
+<Button Text="prepage" Name="PREbc_label_rule_detail_vLst" Size="50,20">
+<OnClick><submit next="bc_label_rule_detail_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPbc_label_rule_detail_vLst" Size="50,20">
+<OnClick><submit next="bc_label_rule_detail_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEpallet_specification" Size="100,100"><Ctrls>
+<Button sqlpkinsert="specification_id" Text="create" ToolTip="ttp_createpallet_specification" Name="insertpallet_specification" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>mes_trace.pallet_specification</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>specification_name,bc_label,specification,max_units,structure</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{operaid}',now(),'%{operaid}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertpallet_specification[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="pallet_specificationLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.pallet_specification_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypallet_specification" Name="modifypallet_specification" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>mes_trace.pallet_specification</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>specification_name,bc_label,specification,max_units,structure</Data>
+<DataEx>last_update_by,last_update_date;'%{operaid}',now()</DataEx>
+<Where>specification_id='%{specification_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifypallet_specification[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="pallet_specificationLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.pallet_specification_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpallet_specification" Name="resetpallet_specification" Size="50,20">
+<OnClick>
+<submit next="GBDEDITpallet_specification" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchpallet_specification" Name="gsearchpallet_specification" Size="50,20" visible="false">
+<OnClick>
+<search next="pallet_specificationLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITpallet_specification" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

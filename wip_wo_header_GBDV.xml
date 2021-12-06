@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVwip_wo_header"><Ctrls>
+<ListCtrl Heading="wo_number,250;item_id_m,60;item_name,60;wo_type,120;quantity,100;completed_quantity,100;scrapped_quantity,100;wo_status,120;released_date,90;reference_routing_item_id_m,120;reference_bom_item_id_m,120;first_unit_completed_date,90;last_unit_completed_date,90;closed_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;wip_wo_header_id,60;parent_wo_id,55;primary_wo_id,55;" loadedclick="0" ToolTip="ttp_wip_wo_header" Name="wip_wo_headerLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>wip_wo_header_id</Index>
+<DbTable>mes_trace.wip_wo_header w left join mes_trace.item i on w.item_id_m=i.item_id_m left join mes_trace.option_line o on w.wo_type=o.option_line_id left join mes_trace.option_line o0 on w.wo_status=o0.option_line_id left join mes_trace.bom_routing_header b on w.reference_routing_item_id_m=b.bom_routing_header_id left join mes_trace.bom_header b0 on w.reference_bom_item_id_m=b0.bom_header_id</DbTable>
+<Data>w.wo_number,i.item_number item_id_m,item_name,o.option_line_value wo_type,w.quantity,w.completed_quantity,w.scrapped_quantity,o0.option_line_value wo_status,w.released_date,b.routing_revision reference_routing_item_id_m,b0.bom_revision reference_bom_item_id_m,w.first_unit_completed_date,w.last_unit_completed_date,w.closed_date,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_wo_header_id,w.parent_wo_id,w.primary_wo_id</Data>
+<Order>wip_wo_header_id</Order></DbDetails>%{}
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

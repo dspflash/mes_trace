@@ -1,0 +1,15 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<EvalTbl rules="" table="item_ops">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/item_ops.xml"/></rules>
+<inputs make_buy="%{item_vLst[make_buy]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="modify"><DbDetails><Where>item_id='%{item_vLst[item_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.item.itemLst"/><assign name="$this.item.frmwndctrl" expr="%{this}"/></op>
+<op text="bom_routing"><DbDetails><queryFormat>select mes_trace.GetItemBomRouting('%{item_vLst[item_id_m]}',1,'%{operaid}')</queryFormat></DbDetails><submit namelist="DbDetails" next="$this.bom_routing_header.bom_routing_header_id"/><assign name="$this.bom_routing_header.frmwndctrl" expr="%{this}"/></op>
+<op text="bom"><DbDetails><queryFormat>select mes_trace.GetItemBom('%{item_vLst[item_id_m]}',1,'%{operaid}')</queryFormat></DbDetails><submit namelist="DbDetails" next="$this.bom_header.bom_header_id"/><assign name="$this.bom_header.frmwndctrl" expr="%{this}"/></op>
+<op text="viewbom" icon="xi-diagram-3"><submit next="$this.bom_line_view.bom_line_vLst" function="resetcontent"/><assign name="$this.bom_line_view.item_id_m" expr="%{item_vLst[item_id_m]}"/><assign name="$this.bom_line_view.org_id" expr="0"/><submit next="$this.bom_line_view.bom_line_vLst"/><submit next="$this.bom_line_view.BomTree"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>mes_trace.item</DbTable>
+<Where>item_id='%{item_vLst[item_id]}'</Where>
+<queryFormat>delete from %{table} where %{where} and %{role_id}=1</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

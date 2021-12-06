@@ -1,0 +1,42 @@
+﻿<Language name="bc_label_rule_detail">
+<Lang name="bc_label_rule_detail" value="bc_label_rule_detail"/>
+<Lang name="TabEditbc_label_rule_detail" value="bc_label_rule_detail Edit"/>
+<Lang name="TabViewbc_label_rule_detail" value="bc_label_rule_detail View"/>
+<Lang name="bc_label_rule_detail_name" value=""/>
+<Lang name="ttp_bc_label_rule_detail_name" value=""/>
+<Lang name="start_pos" value=""/>
+<Lang name="ttp_start_pos" value=""/>
+<Lang name="data_len" value=""/>
+<Lang name="ttp_data_len" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="bc_label_rule_id" value=""/>
+<Lang name="ttp_bc_label_rule_id" value=""/>
+<Lang name="bc_label_rule_detail_id" value=""/>
+<Lang name="ttp_bc_label_rule_detail_id" value=""/>
+<Lang name="ttp_operationbc_label_rule_detail" value=""/>
+<Lang name="ttp_createbc_label_rule_detail" value=""/>
+<Lang name="ttp_modifybc_label_rule_detail" value=""/>
+<Lang name="ttp_resetbc_label_rule_detail" value=""/>
+<Lang name="ttp_deletebc_label_rule_detail" value=""/>
+<Lang name="ttp_refreshbc_label_rule_detail" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

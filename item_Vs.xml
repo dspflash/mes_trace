@@ -1,0 +1,32 @@
+﻿<GroupBox Name="GBDEDITitem" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_item_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_number" Size="60,20" Text="item_number" Align="Right"/>
+<TextBox Name="item_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_name" Size="60,20" Text="item_name" Align="Right"/>
+<TextBox Name="item_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_specification" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_specification" Size="60,20" Text="item_specification" Align="Right"/>
+<TextBox Name="item_specification" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_specification"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_make_buy" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_make_buy" Size="60,20" Text="make_buy" Align="Right" selectedIndex="1"/>
+<ComboBox Name="make_buy" Size="170,100" Text="" Weight="170" Items="Make|Buy" ToolTip="ttp_make_buy" selectedIndex="1"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bc_label" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bc_label" Size="60,20" Text="bc_label" Align="Right"/>
+<TextBox Name="bc_label" Size="170,20" Text="" Weight="170" ToolTip="ttp_bc_label"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_status" Size="60,20" Text="item_status" Align="Right" onload="init" selectedIndex="0"/>
+<ComboBox Name="item_status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_item_status" onload="init" selectedIndex="0">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>mes_trace.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=123</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

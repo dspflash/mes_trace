@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><WndTap Text="bc_label_rule" Name="bc_label_rule" Ver="2">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bc_label_rule.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bc_label_rule_detail.xml"/>
+<Ctrls>
+<GroupBox Text="bc_label_rule" Name="GBbc_label_rule" id="bc_label_rule" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bc_label_rule_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bc_label_rule_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bc_label_rule_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bc_label_rule_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

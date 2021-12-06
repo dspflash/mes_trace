@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVpallet_transaction" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="pallet_transaction_vLst" ToolTip="ttp_pallet_transaction_v" Size="700,450" OnLoad="init" Heading="pallet_id,60;inv_lot_number_id,100;pallet_quantity,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pallet_transaction_id,60;inv_transaction_id,60;inv_lot_transaction_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>pallet_transaction_id</Index>
+<DbTable>mes_trace.pallet_transaction p left join mes_trace.pallet p0 on p.pallet_id=p0.pallet_id left join mes_trace.inv_lot_number i on p.inv_lot_number_id=i.inv_lot_number_id join mes_trace.inv_transaction it on (it.status and it.inv_transaction_id=p.inv_transaction_id)</DbTable>
+<Data>p0.bc_label pallet_id,i.lot_number inv_lot_number_id,p.pallet_quantity,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.pallet_transaction_id,p.inv_transaction_id,p.inv_lot_transaction_id</Data>
+<Order>pallet_transaction_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} where transaction_type_id=%{transtype} and (p.created_by='%{operaid}' or %{role_id}=1) %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>pallet_transaction_id='%{pallet_transaction_vLst[pallet_transaction_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.pallet_transaction.pallet_transactionLst"/><assign name="$this.pallet_transaction.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>mes_trace.pallet_transaction</DbTable>
+<Where>pallet_transaction_id='%{pallet_transaction_vLst[pallet_transaction_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_pallet_transaction" expr="js(%{pallet_transaction_vLst[currentpage]}+1)"/>
+<assign name="pgscb_pallet_transaction" expr="js(%{pallet_transaction_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

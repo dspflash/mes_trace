@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEpallet" Size="100,100"><Ctrls>
+<Button sqlpkinsert="pallet_id" Text="create" ToolTip="ttp_createpallet" Name="insertpallet" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>mes_trace.pallet</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bc_label,specification[specification_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{operaid}',now(),'%{operaid}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertpallet[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="palletLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.pallet_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypallet" Name="modifypallet" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>mes_trace.pallet</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bc_label,specification[specification_id]</Data>
+<DataEx>last_update_by,last_update_date;'%{operaid}',now()</DataEx>
+<Where>pallet_id='%{pallet_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifypallet[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="palletLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.pallet_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpallet" Name="resetpallet" Size="50,20">
+<OnClick>
+<submit next="GBDEDITpallet" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchpallet" Name="gsearchpallet" Size="50,20" visible="false">
+<OnClick>
+<search next="palletLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITpallet" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

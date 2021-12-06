@@ -1,0 +1,31 @@
+﻿<WndTap Name="pallet_wo_v" Text="pallet_wo_v">WO21112100001
+<var name="doc_type" expr="wo"/>341414142111162	
+<var name="transtype" expr="11"/>54233625
+<var name="dataRequired" expr="pallet_id[pallet_id],item_id_m[item_id_m],lot_number_id,doc_type,doc_no,pallet_quantity,wo_id[wip_wo_header_id]"/>
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_transaction_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><doc_no format="document_number='%{opvalue}'"/><!--pallet_label format="p.pallet_id=(select pallet_id from mes_trace.pallet where bc_label='%{opvalue}')"/--></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\pallet_transaction_wo.xml"/>
+<Ctrls><GroupBox  Name="GBpallet_transaction" id="pallet_transaction" Text="pallet_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_transaction_GBDEDITx.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVpallet_transaction" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="save" ToolTip="ttp_save" Name="save" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<Data>pallet_id[pallet_id],item_id_m[item_id_m],lot_number_id,doc_type,doc_no,pallet_quantity,'%{operaid}',wo_id[wip_wo_header_id]</Data><Required>%{dataRequired}</Required>
+<queryFormat>SELECT mes_trace.pallet_trans(%{pallet_id[pallet_id]},%{item_id_m[item_id_m]},%{lot_number_id[lot_id]},%{transtype},'%{doc_type}','%{doc_no}',%{pallet_quantity},'wip_wo_header','%{wo_id[wip_wo_header_id]}','%{operaid}','');</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit delay="500" next="gsearchpallet_transaction" function="click"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetpallet_transaction" Name="resetpallet_transaction" Size="50,20">	<OnClick>	<submit next="GBDEDITpallet_transaction" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchpallet_transaction" Name="gsearchpallet_transaction" Size="50,20">	<OnClick>	
+<search next="pallet_transaction_vLst" listed="1" prefixwhere="0" prefixand="1" inputed="0">%{searchtmpl}</search><submit next="GBDEDITpallet_transaction" namelist="search" function="search"/>	
+<search next="records_pallet_transaction" listed="1" prefixwhere="0" prefixand="1"  inputed="0">%{searchtmpl}</search><submit next="GBDEDITpallet_transaction" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_transaction_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_transaction_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_po_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls><OnActivate>
+<SetVisible name="GB_wo_routing" Visible="0"/><SetVisible name="GB_refk" Visible="0"/><SetVisible name="GB_product_name" Visible="0"/><SetVisible name="GB_wo_bom_qtyneed" Visible="0"/><SetVisible name="pallet_onhand" Visible="0"/></OnActivate>
+<OnChanged><if cond="%{pallet_id[IsDataChanged]}>0"><if cond="'%{pallet_id[pallet_onhand]}'!=''"><notify expr="name:%{pallet_id[item_name]};qty:%{pallet_id[pallet_onhand]}"/></if></if></OnChanged>
+</WndTap>

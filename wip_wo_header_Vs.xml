@@ -1,0 +1,32 @@
+﻿<GroupBox Name="GBDEDITwip_wo_header" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_wo_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_wo_number" Size="60,20" Text="wo_number" Align="Right"/>
+<TextBox Name="wo_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_wo_number">
+	<DbDetails>
+<Index>wo_number</Index>
+<DbTable>mes_trace.wip_wo_header</DbTable>
+<Data>wo_number</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_id_m" Size="60,20" Text="item_id_m" Align="Right"/>
+<TextBox Name="item_id_m" Size="150,20" Text="" Weight="150" ToolTip="ttp_item_id_m">
+	<DbDetails>
+<Index>item_id_m</Index>
+<DbTable>mes_trace.item</DbTable>
+<Data>item_number,receipt_sub_inventory,item_id_m</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnEnChange><submit next="reference_bom_item_id_m"/><submit next="reference_routing_item_id_m"/><submit next="completion_sub_inventory"/></OnEnChange></TextBox>
+<MagicCtrl Name="pickitem_id_m" Link="tip:Pick" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="$this.item_pick.frmwndctrl" expr="item_id_m"/><assign name="$this.item_pick.org_id" expr="%{orgid}"/><assign name="$this.item_pick.make_buy" expr="Make" function="SetSel"/><submit next="$this.item_pick.itemLst"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_wo_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_wo_type" Size="60,20" Text="wo_type" Align="Right" onload="init" selectedIndex="2"/>
+<ComboBox Name="wo_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_wo_type" onload="init" selectedIndex="2">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>mes_trace.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=142</Where>
+<queryFormat></queryFormat></DbDetails><OnSELENDOK><submit next="wip_accounting_group_id"/></OnSELENDOK></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

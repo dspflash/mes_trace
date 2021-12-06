@@ -1,0 +1,41 @@
+﻿<Language name="pallet_specification">
+<Lang name="pallet_specification" value="箱规"/>
+<Lang name="pallet_specification_v" value="箱规"/>
+<Lang name="TabEditpallet_specification" value="pallet_specification Edit"/>
+<Lang name="TabViewpallet_specification" value="pallet_specification View"/>
+<Lang name="specification_name" value="箱规名称"/>
+<Lang name="ttp_specification_name" value=""/>
+<Lang name="bc_label" value=""/>
+<Lang name="ttp_bc_label" value=""/>
+<Lang name="specification" value="规格说明"/>
+<Lang name="ttp_specification" value=""/>
+<Lang name="max_units" value="最大容量"/>
+<Lang name="ttp_max_units" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="specification_id" value=""/>
+<Lang name="ttp_specification_id" value=""/>
+<Lang name="structure" value=""/>
+<Lang name="ttp_structure" value=""/>
+<Lang name="ttp_operationpallet_specification" value=""/>
+<Lang name="ttp_createpallet_specification" value=""/>
+<Lang name="ttp_modifypallet_specification" value=""/>
+<Lang name="ttp_resetpallet_specification" value=""/>
+<Lang name="ttp_deletepallet_specification" value=""/>
+<Lang name="ttp_refreshpallet_specification" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

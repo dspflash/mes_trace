@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbc_label_rule" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletebc_label_rule" Name="deletebc_label_rule" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>mes_trace.bc_label_rule</DbTable>
+<Where>bc_label_rule_id='%{bc_label_ruleLst[bc_label_rule_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbc_label_rule" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshbc_label_rule" Name="searchbc_label_rule" Size="50,20">
+			  <OnClick><submit next="bc_label_ruleLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPbc_label_ruleLst" OnClick="(bc_label_ruleLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREbc_label_ruleLst" OnClick="(bc_label_ruleLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPbc_label_ruleLst" OnClick="(bc_label_ruleLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

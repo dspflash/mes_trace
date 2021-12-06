@@ -1,0 +1,22 @@
+﻿<WndTap Name="bc_label_rule_pick" Text="bc_label_rule_Pick">
+<var name="searchtmpl"><bc_label_rule_code format="(b.bc_label_rule_code like '%%{opvalue}%')"/><bc_label_rule_name format="(b.bc_label_rule_name like '%%{opvalue}%')"/><code_len format="(b.code_len like '%%{opvalue}%')"/><description format="(b.description like '%%{opvalue}%')"/><status format="b.status is %{opvalue}"/><created_by format="(b.created_by like '%%{opvalue}%')"/><creation_date format="(b.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(b.last_update_by like '%%{opvalue}%')"/><last_update_date format="(b.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><bc_label_rule_id format="(b.bc_label_rule_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bc_label_rule.xml"/>
+<Ctrls><GroupBox  Name="GBbc_label_rule" id="bc_label_rule" Text="bc_label_rule" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bc_label_rule_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVbc_label_rule" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetbc_label_rule" Name="resetbc_label_rule" Size="50,20">	<OnClick>	<submit next="GBDEDITbc_label_rule" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchbc_label_rule" Name="gsearchbc_label_rule" Size="50,20">	<OnClick>	
+<search next="bc_label_rule_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbc_label_rule" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVbc_label_rule" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bc_label_rule_vLst" ToolTip="ttp_bc_label_rule_v" Size="700,450" Heading="bc_label_rule_code,25;bc_label_rule_name,125;code_len,55;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bc_label_rule_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>bc_label_rule_id</Index>
+<DbTable>mes_trace.bc_label_rule b</DbTable>
+<Data>b.bc_label_rule_code,b.bc_label_rule_name,b.code_len,b.description,b.status,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bc_label_rule_id</Data>
+<Order>bc_label_rule_id</Order></DbDetails>
+<OnClick><if cond="%{bc_label_rule_vLst[bc_label_rule_id]}"><DbDetails><Where>bc_label_rule_id='%{bc_label_rule_vLst[bc_label_rule_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

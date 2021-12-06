@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd navtype="tab" debug="1" Title="Mes Trace" icons="http://3ucs.com/biz/theme/delight-vtiger/vtiger/style.css">
+	<DbDetails>
+		<SubDriver>MySQL ODBC 3.51 Driver</SubDriver>
+		<Host>localhost</Host>
+		<database>mes_trace</database>
+		<sqlMode>NO_BACKSLASH_ESCAPES</sqlMode>
+		<User>i3u</User>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="pass" href="config/db.xml"/>
+		</DbDetails>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>	
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_standard_operation_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bc_label_rule_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_vm.xml"/>
+	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_po_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_wip_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_wo_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_so_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_specification_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_v.xml"></xi:include>
+	</WndTaps>
+</XI3uWnd>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVwip_move_transaction" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="wip_move_transactionLst" ToolTip="ttp_wip_move_transaction" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>wip_move_transaction_id</Index>
+<DbTable>mes_trace.wip_move_transaction</DbTable>
+<Data>wip_wo_header_id,item_id_m,from_routing_sequence,from_operation_step,to_routing_sequence,to_operation_step,move_quantity,transaction_type,transaction_date,reason,created_by,creation_date,last_update_by,last_update_date,wip_move_transaction_id,org_id</Data>
+<Order>wip_move_transaction_id</Order></DbDetails>
+<OnClick><assign name="wip_wo_header_id[wip_wo_header_id]" expr="%{wip_move_transactionLst[wip_wo_header_id]}" function="SetSel"/><assign name="item_id_m[item_id_m]" expr="%{wip_move_transactionLst[item_id_m]}" function="SetSel"/>
+<if cond="'%{wip_move_transaction_id}'"><SetVisible name="insertwip_move_transaction" Visible="0"/><SetVisible name="modifywip_move_transaction" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

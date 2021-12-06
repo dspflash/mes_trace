@@ -1,0 +1,23 @@
+﻿<WndTap Name="inv_lot_number_pick" Text="inv_lot_number_Pick">
+<var name="searchtmpl"><item_id_m format="i.item_id_m='%{opvalue}'"/><lot_number format="(i.lot_number like '%%{opvalue}%')"/><quantity format="(i.quantity like '%%{opvalue}%')"/><origination_type format="(i.origination_type like '%%{opvalue}%')"/><origination_date format="(i.origination_date between '%{origination_date[datetime]}' and '%{origination_date[datetime2]}')"/><country_of_origin format="i.country_of_origin='%{opvalue}'"/><description format="(i.description like '%%{opvalue}%')"/><created_by format="(i.created_by like '%%{opvalue}%')"/><creation_date format="(i.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(i.last_update_by like '%%{opvalue}%')"/><last_update_date format="(i.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><org_id format="(i.org_id like '%%{opvalue}%')"/><inv_lot_number_id format="(i.inv_lot_number_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_lot_number.xml"/>
+<Ctrls><GroupBox  Name="GBinv_lot_number" id="inv_lot_number" Text="inv_lot_number" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_lot_number_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVinv_lot_number" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetinv_lot_number" Name="resetinv_lot_number" Size="50,20">	<OnClick>	<submit next="GBDEDITinv_lot_number" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchinv_lot_number" Name="gsearchinv_lot_number" Size="50,20">	<OnClick>	
+<search next="inv_lot_number_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITinv_lot_number" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVinv_lot_number" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_lot_number_vLst" ToolTip="ttp_inv_lot_number_v" Size="700,450" Heading="item_id_m,60;lot_number,250;quantity,100;origination_type,120;origination_date,90;country_of_origin,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;inv_lot_number_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>inv_lot_number_id</Index>
+<DbTable>mes_trace.inv_lot_number i left join mes_trace.item i0 on i.item_id_m=i0.item_id_m left join mes_trace.country c on i.country_of_origin=c.country_id</DbTable>
+<Data>i0.item_number item_id_m,i.lot_number,i.quantity,i.origination_type,i.origination_date,c.namecn country_of_origin,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.org_id,i.inv_lot_number_id</Data>
+<Order>inv_lot_number_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<OnClick><if cond="%{inv_lot_number_vLst[inv_lot_number_id]}"><DbDetails><Where>inv_lot_number_id='%{inv_lot_number_vLst[inv_lot_number_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

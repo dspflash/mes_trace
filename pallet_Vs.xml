@@ -1,0 +1,16 @@
+﻿<GroupBox Name="GBDEDITpallet" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_bc_label" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bc_label" Size="60,20" Text="bc_label" Align="Right"/>
+<TextBox Name="bc_label" Size="170,20" Text="" Weight="170" ToolTip="ttp_bc_label"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_specification" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_specification" Size="60,20" Text="specification" Align="Right" onload="init"/>
+<ComboBox Name="specification" Size="150,100" Text="" Weight="150"  ToolTip="ttp_specification" onload="init">
+	<DbDetails>
+<Index>specification_id</Index>
+<DbTable>mes_trace.pallet_specification</DbTable>
+<Data>specification_name,specification_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20" Name="refreshspecification"><OnClick><submit next="specification"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+</Ctrls></GroupBox>

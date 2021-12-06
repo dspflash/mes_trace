@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGwip_move_transaction"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_wip_move_transaction" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>wip_move_transaction_id</Index>
+<DbTable>mes_trace.wip_wo_routing_v</DbTable><Where>and wo_status=370 and (CURDATE() BETWEEN start_date AND completion_date)</Where>
+<Data>count(*) records</Data>
+<Order>wip_move_transaction_id</Order><Queryformat>select %{data} from (select wip_wo_routing_line_id from %{dbtable} where wo_status in (370,372,373,374) %{where} GROUP BY wip_wo_routing_line_id  ORDER BY wip_wo_routing_line_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_wip_move_transaction" expr="js(Math.ceil(%{records_wip_move_transaction}/%{wip_move_transaction_vLst[countsperpage]}))"/>
+<assign name="pgscb_wip_move_transaction" expr="js('1~'+Math.ceil(%{records_wip_move_transaction}/%{wip_move_transaction_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_wip_move_transaction" Size="60,20"><OnSelEndOK><submit next="wip_move_transaction_vLst" function="GetPage(%{pgscb_wip_move_transaction}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_wip_move_transaction" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_wip_move_transaction" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagewip_move_transaction_vLst" Size="50,20"><OnClick><submit next="wip_move_transaction_vLst" function="GetPage(%{pgcur_wip_move_transaction}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

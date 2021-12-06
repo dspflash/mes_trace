@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Tables><Table name="xrulelayout"><Inputs><Attr>servername
+</Attr>
+<Value/>
+<Value/>
+<Value/>
+<Value/>
+</Inputs>
+<Outputs><Attr>layout
+</Attr>
+<Value op="1" id="3">layout/ucin/mes_trace/index.xml
+</Value>
+<Value/>
+<Value/>
+<Value/>
+</Outputs>
+</Table>
+</Tables>

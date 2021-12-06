@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVuser_role"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialuser_role" Size="50,20">
+<OnClick><submit next="user_role_vLst" function="initial"/><submit next="records_user_role" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPuser_role_vLst" Size="50,20">
+<OnClick><submit next="user_role_vLst" function="GetPage(first)"/><submit next="records_user_role"/></OnClick></Button>
+<Button Text="prepage" Name="PREuser_role_vLst" Size="50,20">
+<OnClick><submit next="user_role_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPuser_role_vLst" Size="50,20">
+<OnClick><submit next="user_role_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

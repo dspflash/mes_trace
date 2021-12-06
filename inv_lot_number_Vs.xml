@@ -1,0 +1,42 @@
+﻿<GroupBox Name="GBDEDITinv_lot_number" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_id_m" Size="60,20" Text="item_id_m" Align="Right"/>
+<TextBox Name="item_id_m" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_id_m">
+	<DbDetails>
+<Index>item_id_m</Index>
+<DbTable>mes_trace.item</DbTable>
+<Data>item_number,item_id_m</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_lot_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_lot_number" Size="60,20" Text="lot_number" Align="Right"/>
+<TextBox Name="lot_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_lot_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_quantity" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_quantity" Size="60,20" Text="quantity" Align="Right"/>
+<TextBox Name="quantity" Size="170,20" Text="" Weight="170" ToolTip="ttp_quantity"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_origination_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_origination_type" Size="60,20" Text="origination_type" Align="Right"/>
+<ComboBox Name="origination_type" Size="170,100" Text="" Weight="170" Items="Inventory|WIP_COMPLETION|RECEVING|SHIPMENT|MANUAL|SYS_GEN" ToolTip="ttp_origination_type"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_origination_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_origination_date" Size="60,20" Text="origination_date" Align="Right"/>
+<DateTime Name="origination_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_origination_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_country_of_origin" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_country_of_origin" Size="60,20" Text="country_of_origin" Align="Right" onload="init"/>
+<ComboBox Name="country_of_origin" Size="170,100" Text="" Weight="170"  ToolTip="ttp_country_of_origin" onload="init">
+	<DbDetails>
+<Index>country_id</Index>
+<DbTable>mes_trace.country</DbTable>
+<Data>namecn,country_id</Data>
+<Where>namecn is not null</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

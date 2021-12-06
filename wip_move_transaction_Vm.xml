@@ -1,0 +1,22 @@
+﻿<WndTap Name="wip_move_transaction_v" Text="wip_move_transaction_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><wip_wo_header_id format="wo_number='%{opvalue}'"/><item_id_m format="w.item_id_m='%{opvalue}'"/><from_routing_sequence format="(w.from_routing_sequence like '%%{opvalue}%')"/><from_operation_step format="(w.from_operation_step like '%%{opvalue}%')"/><to_routing_sequence format="(w.to_routing_sequence like '%%{opvalue}%')"/><to_operation_step format="(w.to_operation_step like '%%{opvalue}%')"/><move_quantity format="(w.move_quantity like '%%{opvalue}%')"/><transaction_type format="(w.transaction_type like '%%{opvalue}%')"/><transaction_date format="(w.transaction_date between '%{transaction_date[datetime]}' and '%{transaction_date[datetime2]}')"/><reason format="(w.reason like '%%{opvalue}%')"/><created_by format="(w.created_by like '%%{opvalue}%')"/><creation_date format="(w.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(w.last_update_by like '%%{opvalue}%')"/><last_update_date format="(w.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><wip_move_transaction_id format="(w.wip_move_transaction_id like '%%{opvalue}%')"/><org_id format="(w.org_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_move_transaction.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_routing_line.xml"/>
+<Ctrls><GroupBox  Name="GBwip_move_transaction" id="wip_move_transaction" Text="wip_move_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVwip_move_transaction" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.wip_move_transaction.GBDEDITwip_move_transaction" function="reset"/><assign name="$this.wip_move_transaction.frmwndctrl" expr="%{$this.wip_move_transaction_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetwip_move_transaction" Name="resetwip_move_transaction" Size="50,20">	<OnClick>	<submit next="GBDEDITwip_move_transaction" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchwip_move_transaction" Name="gsearchwip_move_transaction" Size="50,20">	<OnClick>	
+<search next="wip_move_transaction_vLst" listed="0" prefixwhere="0" prefixand="1" inputed="1">%{searchtmpl}</search><submit next="GBDEDITwip_move_transaction" namelist="search" function="search"/>	
+<search next="records_wip_move_transaction" listed="0" prefixwhere="0" prefixand="1"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITwip_move_transaction" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_Vpgm.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

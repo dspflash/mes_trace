@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVuser_role" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="user_role_vLst" ToolTip="ttp_user_role_v" Size="700,450" OnLoad="init" Heading="role_name_cn,100;role_name_eng,250;role_layout,500;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;role_id,20;" loadedclick="0">
+	<DbDetails >
+<Index>role_id</Index>
+<DbTable>mes_trace.user_role u</DbTable>
+<Data>u.role_name_cn,u.role_name_eng,u.role_layout,u.created_by,u.creation_date,u.last_update_by,u.last_update_date,u.role_id</Data>
+<Order>role_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>role_id='%{user_role_vLst[role_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.user_role.user_roleLst"/><assign name="$this.user_role.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>mes_trace.user_role</DbTable>
+<Where>role_id='%{user_role_vLst[role_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_user_role" expr="js(%{user_role_vLst[currentpage]}+1)"/>
+<assign name="pgscb_user_role" expr="js(%{user_role_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

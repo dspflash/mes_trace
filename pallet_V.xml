@@ -1,0 +1,20 @@
+﻿<WndTap Name="pallet_v" Text="pallet_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><bc_label format="(p.bc_label like '%%{opvalue}%')"/><specification format="p.specification='%{opvalue}'"/><created_by format="(p.created_by like '%%{opvalue}%')"/><creation_date format="(p.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(p.last_update_by like '%%{opvalue}%')"/><last_update_date format="(p.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><pallet_id format="(p.pallet_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\pallet.xml"/>
+<Ctrls><GroupBox  Name="GBpallet" id="pallet" Text="pallet" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVpallet" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.pallet.GBDEDITpallet" function="reset"/><assign name="$this.pallet.frmwndctrl" expr="%{$this.pallet_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetpallet" Name="resetpallet" Size="50,20">	<OnClick>	<submit next="GBDEDITpallet" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchpallet" Name="gsearchpallet" Size="50,20">	<OnClick>	
+<search next="pallet_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITpallet" namelist="search" function="search"/>	
+<search next="records_pallet" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITpallet" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

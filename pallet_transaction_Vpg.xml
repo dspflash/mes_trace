@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGpallet_transaction"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_pallet_transaction" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>pallet_transaction_id</Index>
+<DbTable>mes_trace.pallet_transaction p left join mes_trace.pallet p0 on p.pallet_id=p0.pallet_id left join mes_trace.inv_lot_number i on p.inv_lot_number_id=i.inv_lot_number_id join mes_trace.inv_transaction it on (it.status and it.inv_transaction_id=p.inv_transaction_id)</DbTable>
+<Data>count(*) records</Data>
+<Order>pallet_transaction_id</Order><Queryformat>select %{data} from (select p.pallet_transaction_id from %{dbtable} where transaction_type_id=%{transtype} and (p.created_by='%{operaid}' or %{role_id}=1) %{where} GROUP BY p.pallet_transaction_id  ORDER BY p.pallet_transaction_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_pallet_transaction" expr="js(Math.ceil(%{records_pallet_transaction}/%{pallet_transaction_vLst[countsperpage]}))"/>
+<assign name="pgscb_pallet_transaction" expr="js('1~'+Math.ceil(%{records_pallet_transaction}/%{pallet_transaction_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_pallet_transaction" Size="60,20"><OnSelEndOK><submit next="pallet_transaction_vLst" function="GetPage(%{pgscb_pallet_transaction}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_pallet_transaction" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_pallet_transaction" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagepallet_transaction_vLst" Size="50,20"><OnClick><submit next="pallet_transaction_vLst" function="GetPage(%{pgcur_pallet_transaction}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,38 @@
+﻿<Language name="pallet_transaction">
+<Lang name="pallet_transaction" value="入箱出箱记录"/>
+<Lang name="TabEditpallet_transaction" value="pallet_transaction Edit"/>
+<Lang name="TabViewpallet_transaction" value="pallet_transaction View"/>
+<Lang name="pallet_id" value=""/>
+<Lang name="ttp_pallet_id" value=""/>
+<Lang name="inv_lot_number_id" value=""/>
+<Lang name="ttp_inv_lot_number_id" value=""/>
+<Lang name="pallet_quantity" value=""/>
+<Lang name="ttp_pallet_quantity" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="pallet_transaction_id" value=""/>
+<Lang name="ttp_pallet_transaction_id" value=""/>
+<Lang name="inv_transaction_id" value=""/>
+<Lang name="ttp_inv_transaction_id" value=""/>
+<Lang name="ttp_operationpallet_transaction" value=""/>
+<Lang name="ttp_createpallet_transaction" value=""/>
+<Lang name="ttp_modifypallet_transaction" value=""/>
+<Lang name="ttp_resetpallet_transaction" value=""/>
+<Lang name="ttp_deletepallet_transaction" value=""/>
+<Lang name="ttp_refreshpallet_transaction" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

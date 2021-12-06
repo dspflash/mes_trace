@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVpallet_specification"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialpallet_specification" Size="50,20">
+<OnClick><submit next="pallet_specification_vLst" function="initial"/><submit next="records_pallet_specification" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPpallet_specification_vLst" Size="50,20">
+<OnClick><submit next="pallet_specification_vLst" function="GetPage(first)"/><submit next="records_pallet_specification"/></OnClick></Button>
+<Button Text="prepage" Name="PREpallet_specification_vLst" Size="50,20">
+<OnClick><submit next="pallet_specification_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPpallet_specification_vLst" Size="50,20">
+<OnClick><submit next="pallet_specification_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

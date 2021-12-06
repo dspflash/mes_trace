@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVpallet" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="palletLst" ToolTip="ttp_pallet" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>pallet_id</Index>
+<DbTable>mes_trace.pallet</DbTable>
+<Data>bc_label,specification,created_by,creation_date,last_update_by,last_update_date,pallet_id</Data>
+<Order>pallet_id</Order></DbDetails>
+<OnClick><assign name="specification[specification_id]" expr="%{palletLst[specification]}" function="SetSel"/>
+<if cond="'%{pallet_id}'"><SetVisible name="insertpallet" Visible="0"/><SetVisible name="modifypallet" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

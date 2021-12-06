@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbc_label_rule" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bc_label_ruleLst" ToolTip="ttp_bc_label_rule" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bc_label_rule_id</Index>
+<DbTable>mes_trace.bc_label_rule</DbTable>
+<Data>bc_label_rule_code,bc_label_rule_name,code_len,description,status,created_by,creation_date,last_update_by,last_update_date,bc_label_rule_id</Data>
+<Order>bc_label_rule_id</Order></DbDetails>
+<OnClick>
+<if cond="'%{bc_label_rule_id}'"><SetVisible name="insertbc_label_rule" Visible="0"/><SetVisible name="modifybc_label_rule" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

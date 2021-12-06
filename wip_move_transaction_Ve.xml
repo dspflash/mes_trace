@@ -1,0 +1,13 @@
+﻿<WndTap Name="wip_move_transaction" Text="wip_move_transaction" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\wip_move_transaction.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBwip_move_transaction" id="wip_move_transaction" Text="wip_move_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertwip_move_transaction" Visible="1"/><SetVisible name="modifywip_move_transaction" Visible="0"/></OnActivate>
+</WndTap>

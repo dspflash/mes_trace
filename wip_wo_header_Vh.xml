@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVwip_wo_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="wip_wo_headerLst" ToolTip="ttp_wip_wo_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>wip_wo_header_id</Index>
+<DbTable>mes_trace.wip_wo_header</DbTable>
+<Data>wo_number,item_id_m,wo_type,quantity,completed_quantity,scrapped_quantity,wo_status,released_date,reference_routing_item_id_m,reference_bom_item_id_m,first_unit_completed_date,last_unit_completed_date,closed_date,created_by,creation_date,last_update_by,last_update_date,wip_wo_header_id,parent_wo_id,primary_wo_id</Data>
+<Order>wip_wo_header_id</Order></DbDetails>
+<OnClick><assign name="wo_number[wo_number]" expr="%{wip_wo_headerLst[wo_number]}" function="SetSel"/><assign name="item_id_m[item_id_m]" expr="%{wip_wo_headerLst[item_id_m]}" function="SetSel"/><assign name="wo_type[option_line_id]" expr="%{wip_wo_headerLst[wo_type]}" function="SetSel"/><assign name="wo_status[option_line_id]" expr="%{wip_wo_headerLst[wo_status]}" function="SetSel"/><assign name="reference_routing_item_id_m[bom_routing_header_id]" expr="%{wip_wo_headerLst[reference_routing_item_id_m]}" function="SetSel"/><assign name="reference_bom_item_id_m[bom_header_id]" expr="%{wip_wo_headerLst[reference_bom_item_id_m]}" function="SetSel"/>
+<if cond="'%{wip_wo_header_id}'"><SetVisible name="insertwip_wo_header" Visible="0"/><SetVisible name="modifywip_wo_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

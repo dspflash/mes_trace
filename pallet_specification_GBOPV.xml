@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVpallet_specification" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepallet_specification" Name="deletepallet_specification" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>mes_trace.pallet_specification</DbTable>
+<Where>specification_id='%{pallet_specificationLst[specification_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpallet_specification" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpallet_specification" Name="searchpallet_specification" Size="50,20">
+			  <OnClick><submit next="pallet_specificationLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPpallet_specificationLst" OnClick="(pallet_specificationLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREpallet_specificationLst" OnClick="(pallet_specificationLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPpallet_specificationLst" OnClick="(pallet_specificationLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

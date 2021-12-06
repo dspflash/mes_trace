@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDVbom_routing_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_routing_line_vLst" ToolTip="ttp_bom_routing_line_v" Size="700,450" Heading="standard_operation_id,120;routing_sequence,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_routing_line_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>bom_routing_line_id</Index>
+<DbTable>mes_trace.bom_routing_line b left join mes_trace.bom_standard_operation b0 on b.standard_operation_id=b0.bom_standard_operation_id</DbTable>
+<Data>b0.standard_operation standard_operation_id,b.routing_sequence,b.description,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_routing_line_id</Data>
+<Order>bom_routing_line_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_line_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

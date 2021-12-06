@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEwip_move_transaction" Size="100,100"><Ctrls>
+<Button sqlpkinsert="wip_move_transaction_id" Text="create" ToolTip="ttp_createwip_move_transaction" Name="insertwip_move_transaction" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>mes_trace.wip_move_transaction</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>wip_wo_header_id[wip_wo_header_id],item_id_m[item_id_m],from_routing_sequence,from_operation_step,to_routing_sequence,to_operation_step,move_quantity,reason</Data>
+<DataEx>transaction_type,transaction_date,created_by,creation_date,last_update_by,last_update_date,org_id;'WIP_MOVE',now(),'%{operaid}',now(),'%{operaid}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertwip_move_transaction[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="wip_move_transactionLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.wip_move_transaction_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifywip_move_transaction" Name="modifywip_move_transaction" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>mes_trace.wip_move_transaction</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>wip_wo_header_id[wip_wo_header_id],item_id_m[item_id_m],from_routing_sequence,from_operation_step,to_routing_sequence,to_operation_step,move_quantity,reason</Data>
+<DataEx>transaction_date,last_update_by,last_update_date;now(),'%{operaid}',now()</DataEx>
+<Where>wip_move_transaction_id='%{wip_move_transaction_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifywip_move_transaction[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="wip_move_transactionLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.wip_move_transaction_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetwip_move_transaction" Name="resetwip_move_transaction" Size="50,20">
+<OnClick>
+<submit next="GBDEDITwip_move_transaction" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchwip_move_transaction" Name="gsearchwip_move_transaction" Size="50,20" visible="false">
+<OnClick>
+<search next="wip_move_transactionLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITwip_move_transaction" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

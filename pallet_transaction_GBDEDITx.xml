@@ -1,0 +1,123 @@
+﻿<GroupBox Name="GBDEDITpallet_transaction"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_doc_no"><Ctrls>
+<Label Align="Right" Text="doc_no" Name="lb_doc_nod" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_doc_no" Name="doc_no" EnChangeDelay="100" Size="170,20">
+<OnEnChange><if cond="'%{doc_no}'&&('%{doc_type}'=='wo'||'%{doc_type}'=='wip')"><submit next="wo_id"/><else/><submit next="wo_id" function="resetcontent"/></if></OnEnChange></TextBox>
+<TextBox Weight="170" Text="" ToolTip="ttp_wo_id" Name="wo_id"  overlap="pre" visible="0" Size="170,20">
+<DbDetails >
+<queryFormat>SELECT item_id_m,wip_wo_header_id FROM mes_trace.wip_wo_header WHERE wo_number='%{doc_no}'
+</queryFormat></DbDetails>
+<OnEnChange><if cond="'%{wo_id}'&&('%{doc_type}'=='wip')"><submit next="wo_routing"/><submit next="product_name"/><else/><submit next="wo_routing" function="resetcontent"/></if></OnEnChange>
+</TextBox>
+</Ctrls></GroupBox>
+
+<!--GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_wo_routing"><Ctrls> <Label Align="Right" Text="wo_routing" Name="lb_wo_routing" readonly="true" Size="120,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_wo_routing" Name="wo_routing" readonly="true" Size="170,100" selectedIndex="0">
+<DbDetails> <Index>wip_wo_routing_line_id</Index>
+<queryFormat>SELECT standard_operation,wip_wo_routing_line_id FROM mes_trace.wip_wo_routing_line wrl
+ JOIN mes_trace.wip_wo_header wh ON wh.wip_wo_header_id=wrl.wip_wo_header_id JOIN mes_trace.bom_standard_operation bsh ON wrl.standard_operation_id=bsh.bom_standard_operation_id 
+ WHERE wo_number='%{doc_no}'
+</queryFormat></DbDetails>
+<OnSelEndOk><if cond="'%{wo_routing}'"><submit next="refk"/><else/><submit next="refk" function="resetcontent"/></if></OnSelEndOk></ComboBox> </Ctrls></GroupBox-->
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_refk"><Ctrls> <Label Align="Right" Text="refk" Name="lb_refk" readonly="true" Size="120,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_refk" Name="refk" readonly="true" Size="170,20" selectedIndex="0">
+<DbDetails fcsm="1"> <Index>wip_wo_bom_id</Index>
+<queryFormat>SELECT standard_operation,wip_wo_routing_line_id,required_quantity,required_quantity-issued_quantity wo_bom_qtyneed,'wip_wo_bom' kn,wip_wo_bom_id kv 
+FROM mes_trace.wip_wo_routing_line wrl
+ JOIN mes_trace.wip_wo_header wh ON wh.wip_wo_header_id=wrl.wip_wo_header_id 
+ JOIN mes_trace.wip_wo_bom wb ON (wrl.wip_wo_header_id=wb.wip_wo_header_id AND wrl.routing_sequence=wb.routing_sequence AND wrl.routing_seq_num=wb.routing_seq_num)
+ JOIN mes_trace.bom_standard_operation bsh ON wrl.standard_operation_id=bsh.bom_standard_operation_id 
+ WHERE wo_number='%{doc_no}' AND component_item_id_m='%{item_id_m[item_id_m]}'
+</queryFormat></DbDetails></TextBox> </Ctrls></GroupBox>
+
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_product_name"><Ctrls> <Label Align="Right" Text="product_name" Name="lb_product_name" readonly="true" Size="120,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_product_name" Name="product_name" readonly="true" Size="150,20">
+<DbDetails> <Index>item_id_m</Index> <DbTable>mes_trace.item</DbTable> <Data>item_name,item_number,pallet_specification,receipt_sub_inventory,item_id_m</Data> <Where>item_id_m='%{wo_id[item_id_m]}'</Where> <queryFormat/></DbDetails>
+</TextBox> </Ctrls></GroupBox>
+
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_bc"><Ctrls>
+<Label Align="Right" Text="item_bc" Name="lb_item_bc" readonly="true" Size="120,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_item_scancode" Name="item_scancode" EnChangeDelay="100" Size="150,20">
+<OnEnChange><if cond="('%{item_scancode}').length&gt;=15">
+<submit next="item_bc"/><else/><submit next="item_bc" function="resetcontent"/></if></OnEnChange></TextBox>
+<TextBox Weight="150" Text="" ToolTip="ttp_itemitem_bc" Name="item_bc" Size="150,20" overlap="pre" visible="false"> 
+<DbDetails fcsm="1"> <Index>bc_label_rule_id</Index> <DbTable>mes_trace.bc_label_rule lr JOIN mes_trace.bc_label_rule_detail lrd ON lr.bc_label_rule_id=lrd.bc_label_rule_id</DbTable>
+<Data>'%{item_scancode}',GROUP_CONCAT(IF(bc_label_rule_detail_id=1,SUBSTR('%{item_scancode}',start_pos,data_len),'') SEPARATOR '') AS d1,
+GROUP_CONCAT(IF(bc_label_rule_detail_id=2,SUBSTR('%{item_scancode}',start_pos,data_len),'') SEPARATOR '') AS d2</Data>
+<Where>code_len=LENGTH('%{item_scancode}') GROUP BY lr.bc_label_rule_id</Where><queryFormat/></DbDetails> 
+<OnEnChange><if cond="'%{item_bc}'"><DbDetails fcsm="1"><Where>bc_label='%{item_bc[d1]}'</Where></DbDetails><submit namelist="DbDetails" next="item_id_m"/><else/><submit next="item_id_m" function="resetcontent"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pallet_id"><Ctrls>
+<Label Align="Right" Text="pallet_label" Name="lb_pallet_id" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" Name="pallet_label" EnChangeDelay="100" Size="170,20">
+<OnEnChange><submit next="pallet_id"/><!--submit next="gsearchpallet_transaction" function="click"/--></OnEnChange></TextBox>
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" Name="pallet_id"  overlap="pre" visible="0" Size="170,20">
+<DbDetails >SELECT pallet_id FROM mes_trace.pallet p WHERE bc_label='%{pallet_label}'
+<queryFormat>SELECT p.pallet_id,item_number,item_name,pallet_specification,i.item_id_m,lot_number,poh.inv_lot_number_id,pallet_quantity pallet_onhand FROM (SELECT mes_trace.GetPallet('%{pallet_label}','%{item_id_m[pallet_specification]}','%{operaid}') as pallet_id) p LEFT JOIN mes_trace.pallet_onhand poh ON (poh.pallet_id=p.pallet_id and poh.pallet_quantity!=0) LEFT JOIN mes_trace.inv_lot_number lt ON lt.inv_lot_number_id=poh.inv_lot_number_id LEFT JOIN mes_trace.item i ON lt.item_id_m=i.item_id_m
+</queryFormat></DbDetails>
+<OnChanged><if cond="('%{doc_type}'=='so'||'%{doc_type}'=='wip')">
+<DbDetails fcsm="1"><Where>item_id_m='%{pallet_id[item_id_m]}'</Where> <queryFormat/></DbDetails>
+<submit namelist="DbDetails" next="item_id_m"/></if>
+<if cond="'%{pallet_id[pallet_onhand]}'"><info expr="name:%{pallet_id[item_name]};pallet_onhand:%{pallet_id[pallet_onhand]}"/></if><assign name="pallet_onhand" expr="%{pallet_id[pallet_onhand]}"/></OnChanged>
+</TextBox>
+</Ctrls></GroupBox>
+
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_name"><Ctrls>
+<Label Align="Right" Text="item_name" Name="lb_item_name" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_name" Name="item_name" readonly="1" Size="170,20"/>
+</Ctrls></GroupBox>
+
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_wo_bom_qtyneed"><Ctrls>
+<Label Align="Right" Text="wo_bom_qtyneed" Name="lb_wo_bom_qtyneed" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_required_quantity" Name="required_quantity" readonly="1" Size="170,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_quantity" Name="wo_bom_qtyneed" readonly="1" Size="170,20"/>
+</Ctrls></GroupBox>
+
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_inv_lot_number_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="inv_lot_number_id" overlap="pre" Name="lb_inv_lot_number_id" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_inv_lot_number_id" overlap="pre" Name="inv_lot_number_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls> <Label Align="Right" Text="item_id_m" Name="lb_item_id_m" readonly="true" Size="120,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_item_id_m" Name="item_id_m" readonly="true" Size="150,20">
+<DbDetails fcsm="1"> <Index>item_id_m</Index> <DbTable>mes_trace.item</DbTable> <Data>item_number,item_name,pallet_specification,receipt_sub_inventory,item_id_m</Data> <Where>bc_label='%{item_bc[d1]}'</Where> <queryFormat/></DbDetails>
+<OnChanged>
+<if cond="'%{doc_type}'=='wip'"><if cond="'%{doc_no}'"><submit next="refk"/></if></if>
+<submit next="lot_number_id"/></OnChanged></TextBox> </Ctrls></GroupBox>
+
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_lot_number_id"><Ctrls> <Label Align="Right" Text="lot_number_id" Name="lb_lot_number_id" readonly="true" Size="120,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_lot_number_id" Name="lot_number_id" readonly="true" Size="150,20">
+<DbDetails> <Index>lot_number_id</Index>
+<queryFormat>SELECT if('%{item_bc}'='','%{pallet_id[lot_number]}','%{item_bc[d2]}' ) bc_label, if('%{item_bc}'='','%{pallet_id[inv_lot_number_id]}',mes_trace.GetLotNumberId('%{item_bc[d2]}','%{item_id_m[item_id_m]}','%{operaid}')) lot_id;
+</queryFormat></DbDetails></TextBox> </Ctrls></GroupBox>
+
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pallet_quantity"><Ctrls>
+<Label Align="Right" Text="pallet_quantity" Name="lb_pallet_quantity" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_quantity" Name="pallet_onhand" readonly="true" Size="170,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_quantity" Name="pallet_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="120,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="120,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_pallet_transaction_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="pallet_transaction_id" overlap="pre" Name="lb_pallet_transaction_id" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_transaction_id" overlap="pre" Name="pallet_transaction_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{pallet_transaction_id}'"><SetVisible name="insertpallet_transaction" Visible="0"/><SetVisible name="modifypallet_transaction" Visible="1"/><else/><SetVisible name="insertpallet_transaction" Visible="1"/><SetVisible name="modifypallet_transaction" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_inv_transaction_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="inv_transaction_id" overlap="pre" Name="lb_inv_transaction_id" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_inv_transaction_id" overlap="pre" Name="inv_transaction_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

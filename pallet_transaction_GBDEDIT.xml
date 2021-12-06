@@ -1,0 +1,54 @@
+﻿<GroupBox Name="GBDEDITpallet_transaction"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pallet_id"><Ctrls>
+<Label Align="Right" Text="pallet_id" Name="lb_pallet_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" Name="pallet_id" Size="170,20">
+	<DbDetails>
+<Index>pallet_id</Index>
+<DbTable>mes_trace.pallet</DbTable>
+<Data>bc_label,pallet_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls> <Label Align="Right" Text="item_bc" Name="lb_item_bc" readonly="true" Size="60,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_itemitem_bc" Name="item_bc" Size="150,20"> <OnEnChange><if cond="'%{item_bc}'"><submit next="item_id_m"/></if></OnEnChange></TextBox> </Ctrls></GroupBox><GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_inv_lot_number_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="inv_lot_number_id" overlap="pre" Name="lb_inv_lot_number_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_inv_lot_number_id" overlap="pre" Name="inv_lot_number_id" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>inv_lot_number_id</Index>
+<DbTable>mes_trace.inv_lot_number</DbTable>
+<Data>lot_number,inv_lot_number_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pallet_quantity"><Ctrls>
+<Label Align="Right" Text="pallet_quantity" Name="lb_pallet_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_quantity" Name="pallet_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls> <Label Align="Right" Text="item_id_m" Name="lb_item_id_m" readonly="true" Size="60,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_item_id_m" Name="item_id_m" readonly="true" Size="150,20">  <DbDetails> <Index>item_id_m</Index> <DbTable>mes_trace.item</DbTable> <Data>item_number,receipt_sub_inventory,item_id_m</Data> <Where>bc_label='%{item_bc}'</Where> <queryFormat/></DbDetails><OnEnChange><submit next="reference_bom_item_id_m"/><submit next="reference_routing_item_id_m"/><submit next="completion_sub_inventory"/></OnEnChange></TextBox> </Ctrls></GroupBox><BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_pallet_transaction_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="pallet_transaction_id" overlap="pre" Name="lb_pallet_transaction_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_transaction_id" overlap="pre" Name="pallet_transaction_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{pallet_transaction_id}'"><SetVisible name="insertpallet_transaction" Visible="0"/><SetVisible name="modifypallet_transaction" Visible="1"/><else/><SetVisible name="insertpallet_transaction" Visible="1"/><SetVisible name="modifypallet_transaction" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_inv_transaction_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="inv_transaction_id" overlap="pre" Name="lb_inv_transaction_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_inv_transaction_id" overlap="pre" Name="inv_transaction_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_inv_lot_transaction_id"><Ctrls>
+<Label Align="Right" Text="inv_lot_transaction_id" Name="lb_inv_lot_transaction_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_inv_lot_transaction_id" Name="inv_lot_transaction_id" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

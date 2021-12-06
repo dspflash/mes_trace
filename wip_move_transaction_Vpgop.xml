@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVwip_move_transaction"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialwip_move_transaction" Size="50,20">
+<OnClick><submit next="wip_move_transaction_vLst" function="initial"/><submit next="records_wip_move_transaction" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPwip_move_transaction_vLst" Size="50,20">
+<OnClick><submit next="wip_move_transaction_vLst" function="GetPage(first)"/><submit next="records_wip_move_transaction"/></OnClick></Button>
+<Button Text="prepage" Name="PREwip_move_transaction_vLst" Size="50,20">
+<OnClick><submit next="wip_move_transaction_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPwip_move_transaction_vLst" Size="50,20">
+<OnClick><submit next="wip_move_transaction_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

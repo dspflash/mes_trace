@@ -1,0 +1,23 @@
+﻿<WndTap Name="wip_move_transaction_pick" Text="wip_move_transaction_Pick">
+<var name="searchtmpl"><wip_wo_header_id format="w.wip_wo_header_id='%{opvalue}'"/><item_id_m format="w.item_id_m='%{opvalue}'"/><from_routing_sequence format="(w.from_routing_sequence like '%%{opvalue}%')"/><from_operation_step format="(w.from_operation_step like '%%{opvalue}%')"/><to_routing_sequence format="(w.to_routing_sequence like '%%{opvalue}%')"/><to_operation_step format="(w.to_operation_step like '%%{opvalue}%')"/><move_quantity format="(w.move_quantity like '%%{opvalue}%')"/><transaction_type format="(w.transaction_type like '%%{opvalue}%')"/><transaction_date format="(w.transaction_date between '%{transaction_date[datetime]}' and '%{transaction_date[datetime2]}')"/><reason format="(w.reason like '%%{opvalue}%')"/><created_by format="(w.created_by like '%%{opvalue}%')"/><creation_date format="(w.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(w.last_update_by like '%%{opvalue}%')"/><last_update_date format="(w.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><wip_move_transaction_id format="(w.wip_move_transaction_id like '%%{opvalue}%')"/><org_id format="(w.org_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_move_transaction.xml"/>
+<Ctrls><GroupBox  Name="GBwip_move_transaction" id="wip_move_transaction" Text="wip_move_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVwip_move_transaction" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetwip_move_transaction" Name="resetwip_move_transaction" Size="50,20">	<OnClick>	<submit next="GBDEDITwip_move_transaction" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchwip_move_transaction" Name="gsearchwip_move_transaction" Size="50,20">	<OnClick>	
+<search next="wip_move_transaction_vLst" listed="0" prefixwhere="0" prefixand="1" inputed="1">%{searchtmpl}</search><submit next="GBDEDITwip_move_transaction" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVwip_move_transaction" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="wip_move_transaction_vLst" ToolTip="ttp_wip_move_transaction_v" Size="700,450" Heading="" loadedclick="0">
+	<DbDetails >
+<Index>wip_move_transaction_id</Index>
+<DbTable>mes_trace.wip_wo_routing_v</DbTable>
+<Data>w0.wo_number wip_wo_header_id,i.item_number item_id_m,w.from_routing_sequence,w.from_operation_step,w.to_routing_sequence,w.to_operation_step,w.move_quantity,w.transaction_type,w.transaction_date,w.reason,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_move_transaction_id,w.org_id</Data>
+<Order>wip_move_transaction_id</Order></DbDetails>
+<DbDetails>  <Index>bom_department_id</Index> <Data>*</Data> <Order>start_date,build_sequence,scheduling_priority desc,wip_wo_header_id,wip_wo_routing_line_id</Order> <Where>and wo_status=370 and (CURDATE() BETWEEN start_date AND completion_date)</Where> <queryFormat>select %{data} from %{dbtable} where wo_status in (370,372,373,374) %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<OnClick><if cond="%{wip_move_transaction_vLst[wip_move_transaction_id]}"><DbDetails><Where>wip_move_transaction_id='%{wip_move_transaction_vLst[wip_move_transaction_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

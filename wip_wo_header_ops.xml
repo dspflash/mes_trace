@@ -1,0 +1,18 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_header.wip_wo_headerLst"/>
+<DbDetails><Where>item_id_m=(select item_id_m from mes_trace.wip_wo_header where wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_header.item_id_m" delay="2000"/><assign name="$this.wip_wo_header.frmwndctrl" expr="%{this}"/></op>
+<op text="release" needconfirm="1"><assign name="topmost" expr="sql:call mes_trace.wipwoRelease('%{wip_wo_header_vLst[wip_wo_header_id]}','%{operaid}','%{orgid}')"/><submit/></op>
+<op text="print">
+<DbDetails><Where>wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_print.wip_wo_headerLst"/>
+<setvisible name="$this.wip_wo_print.print" visible="1"/>
+<assign name="vWip.wip_wo_print.woid" expr="%{wip_wo_header_vLst[wip_wo_header_id]}"/>
+<submit namelist="DbDetails" next="$this.wip_wo_print.wip_wo_bomLst"/>
+<DbDetails><Where>item_id_m=(select item_id_m from wip_wo_header where wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_print.item_id_m" dely="2000"/>
+</op>
+<op text="close" needconfirm="1"><assign name="topmost" expr="sql:update mes_trace.wip_wo_header set wo_status=374,closed_date=now() where wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}' or primary_wo_id=%{wip_wo_header_vLst[wip_wo_header_id]}"/><submit/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>mes_trace.wip_wo_header</DbTable>
+<Where>wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
