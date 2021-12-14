@@ -2,7 +2,9 @@
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_doc_no"><Ctrls>
 <Label Align="Right" Text="doc_no" Name="lb_doc_nod" Size="120,20"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_doc_no" Name="doc_no" EnChangeDelay="100" Size="170,20">
-<OnEnChange><if cond="'%{doc_no}'&&('%{doc_type}'=='wo'||'%{doc_type}'=='wip')"><submit next="wo_id"/><else/><submit next="wo_id" function="resetcontent"/></if></OnEnChange></TextBox>
+<OnEnChange><if cond="'%{doc_no}'&&('%{doc_type}'=='wo'||'%{doc_type}'=='wip')"><submit next="wo_id"/><else/><submit next="wo_id" function="resetcontent"/></if></OnEnChange>
+<OnEnterKey><if cond="'%{doc_no}'&&('%{doc_type}'=='wo'||'%{doc_type}'=='po')"><setfocus name="item_scancode" expr="1" delay="500"/><else/><setfocus name="pallet_label" expr="1" delay="500"/></if></OnEnterKey>
+</TextBox>
 <TextBox Weight="170" Text="" ToolTip="ttp_wo_id" Name="wo_id"  overlap="pre" visible="0" Size="170,20">
 <DbDetails >
 <queryFormat>SELECT item_id_m,wip_wo_header_id FROM mes_trace.wip_wo_header WHERE wo_number='%{doc_no}'
@@ -39,7 +41,9 @@ FROM mes_trace.wip_wo_routing_line wrl
 <Label Align="Right" Text="item_bc" Name="lb_item_bc" readonly="true" Size="120,20"/>
 <TextBox Weight="150" Text="" ToolTip="ttp_item_scancode" Name="item_scancode" EnChangeDelay="100" Size="150,20">
 <OnEnChange><if cond="('%{item_scancode}').length&gt;=15">
-<submit next="item_bc"/><else/><submit next="item_bc" function="resetcontent"/></if></OnEnChange></TextBox>
+<submit next="item_bc"/><else/><submit next="item_bc" function="resetcontent"/></if></OnEnChange>
+<OnEnterKey><setfocus name="pallet_label" expr="1" delay="500"/></OnEnterKey>
+</TextBox>
 <TextBox Weight="150" Text="" ToolTip="ttp_itemitem_bc" Name="item_bc" Size="150,20" overlap="pre" visible="false"> 
 <DbDetails fcsm="1"> <Index>bc_label_rule_id</Index> <DbTable>mes_trace.bc_label_rule lr JOIN mes_trace.bc_label_rule_detail lrd ON lr.bc_label_rule_id=lrd.bc_label_rule_id</DbTable>
 <Data>'%{item_scancode}',GROUP_CONCAT(IF(bc_label_rule_detail_id=1,SUBSTR('%{item_scancode}',start_pos,data_len),'') SEPARATOR '') AS d1,
@@ -51,7 +55,9 @@ GROUP_CONCAT(IF(bc_label_rule_detail_id=2,SUBSTR('%{item_scancode}',start_pos,da
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pallet_id"><Ctrls>
 <Label Align="Right" Text="pallet_label" Name="lb_pallet_id" Size="120,20"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" Name="pallet_label" EnChangeDelay="100" Size="170,20">
-<OnEnChange><submit next="pallet_id"/><!--submit next="gsearchpallet_transaction" function="click"/--></OnEnChange></TextBox>
+<OnEnChange><submit next="pallet_id"/><!--submit next="gsearchpallet_transaction" function="click"/--></OnEnChange>
+<OnEnterKey><setfocus name="pallet_quantity" expr="1" delay="500"/></OnEnterKey>
+</TextBox>
 <TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" Name="pallet_id"  overlap="pre" visible="0" Size="170,20">
 <DbDetails >SELECT pallet_id FROM mes_trace.pallet p WHERE bc_label='%{pallet_label}'
 <queryFormat>SELECT p.pallet_id,item_number,item_name,pallet_specification,i.item_id_m,lot_number,poh.inv_lot_number_id,pallet_quantity pallet_onhand FROM (SELECT mes_trace.GetPallet('%{pallet_label}','%{item_id_m[pallet_specification]}','%{operaid}') as pallet_id) p LEFT JOIN mes_trace.pallet_onhand poh ON (poh.pallet_id=p.pallet_id and poh.pallet_quantity!=0) LEFT JOIN mes_trace.inv_lot_number lt ON lt.inv_lot_number_id=poh.inv_lot_number_id LEFT JOIN mes_trace.item i ON lt.item_id_m=i.item_id_m

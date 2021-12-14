@@ -167,6 +167,8 @@
 <Lang name="receipt_day_action" value="接收日异动动作"/>
 <Lang name="ttp_receipt_day_action" value=""/>
 <Lang name="bom_enabled_cb" value="使能BOM"/>
+<Lang name="bom_routing" value="工艺路线"/>
+<Lang name="viewbom" value="查看BOM"/>
 <Lang name="ttp_bom_enabled_cb" value="Enable the OM check box to indicate that the item is manufactured with a bills of material. To create OM for an item, this checkbox should be enabled. "/>
 <Lang name="bom_type" value="BOM类型"/>
 <Lang name="ttp_bom_type" value=""/>

@@ -14,6 +14,8 @@
 <Lang name="ttp_component_item_id_m" value=""/>
 <Lang name="usage_basis" value="耗用方式"/>
 <Lang name="ttp_usage_basis" value=""/>
+<Lang name="material" value="物料"/>
+<Lang name="required_quantity" value="计划用量"/>
 <Lang name="usage_quantity" value="耗用量"/>
 <Lang name="ttp_usage_quantity" value=""/>
 <Lang name="effective_start_date" value="生效开始日期"/>

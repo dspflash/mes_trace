@@ -1,12 +1,12 @@
 ﻿<Language name="bc_label_rule_detail">
-<Lang name="bc_label_rule_detail" value="bc_label_rule_detail"/>
+<Lang name="bc_label_rule_detail" value="条码规则明细"/>
 <Lang name="TabEditbc_label_rule_detail" value="bc_label_rule_detail Edit"/>
 <Lang name="TabViewbc_label_rule_detail" value="bc_label_rule_detail View"/>
-<Lang name="bc_label_rule_detail_name" value=""/>
+<Lang name="bc_label_rule_detail_name" value="条码规则明细名称"/>
 <Lang name="ttp_bc_label_rule_detail_name" value=""/>
-<Lang name="start_pos" value=""/>
+<Lang name="start_pos" value="起始位置点"/>
 <Lang name="ttp_start_pos" value=""/>
-<Lang name="data_len" value=""/>
+<Lang name="data_len" value="数据长度"/>
 <Lang name="ttp_data_len" value=""/>
 <Lang name="description" value=""/>
 <Lang name="ttp_description" value=""/>

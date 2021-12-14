@@ -5,6 +5,7 @@
 <Lang name="supervisor" value="上司"/>
 <Lang name="emp_email" value="邮件"/>
 <Lang name="user" value="用户"/>
+<Lang name="user_role" value="用户角色"/>
 <Lang name="role" value="角色"/>
 <Lang name="name" value="姓名"/>
 <Lang name="layout" value="应用"/>
@@ -41,7 +42,7 @@
 <Lang name="ttp_last_update_by" value=""/>
 <Lang name="last_update_date" value=""/>
 <Lang name="ttp_last_update_date" value=""/>
-<Lang name="last_visit_date" value=""/>
+<Lang name="last_visit_date" value="最后访问时间"/>
 <Lang name="ttp_last_visit_date" value=""/>
 <Lang name="xerp_user_id" value="用户编号"/>
 <Lang name="ttp_xerp_user_id" value=""/>
