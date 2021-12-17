@@ -41,6 +41,10 @@
 <Label Align="Right" Text="usage_quantity" Name="lb_usage_quantity" Size="60,20"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_usage_quantity" Name="usage_quantity" Size="170,20"/>
 </Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_yield"><Ctrls>
+<Label Align="Right" Text="yield" Name="lb_yield" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_yield" Name="yield" Size="170,20"/>
+</Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
 <Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>

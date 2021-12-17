@@ -78,7 +78,7 @@
 <Lang name="ttp_item_type" value="Select an item type from all the available options. System provides few seeded item types but you can create new item types from item type option. Item type is reporting field and shows the type of item. "/>
 <Lang name="product_line_percentage" value="产品线占比"/>
 <Lang name="ttp_product_line_percentage" value="If the same item is used in more than 1 product line, then you can enter a  of usage of the major product line selected in item master "/>
-<Lang name="long_description" value="详述"/>
+<Lang name="long_description" value="客户料号"/>
 <Lang name="ttp_long_description" value="Long description is a free text field and can be used for entering a detailed description for the item. "/>
 <Lang name="stockable_cb" value="可贮存 "/>
 <Lang name="ttp_stockable_cb" value="Enable the stockable check box to indicate that the item is a stockable item. This attribute must be enabled for all the items that you want to stock, track and transact."/>
@@ -150,7 +150,7 @@
 <Lang name="ttp_use_asl_cb" value="Enable the ASL sage Mandatory check box to indicate that the item is purchased only from approved suppliers. "/>
 <Lang name="sourcing_rule_id" value="采购规则"/>
 <Lang name="ttp_sourcing_rule_id" value=""/>
-<Lang name="default_buyer" value="默认买方"/>
+<Lang name="default_buyer" value="客户"/>
 <Lang name="ttp_default_buyer" value="Enter the default buyer for the item in default buyer field. You can enter different buyers names in different organizations for the same item "/>
 <Lang name="receipt_routing" value="接收路径"/>
 <Lang name="ttp_receipt_routing" value=""/>

@@ -18,6 +18,8 @@
 <Lang name="ttp_usage_basis" value=""/>
 <Lang name="usage_quantity" value="耗用量"/>
 <Lang name="ttp_usage_quantity" value=""/>
+<Lang name="yield" value="利用率"/>
+<Lang name="ttp_yield" value="100-损耗率"/>
 <Lang name="wip_supply_type" value="工单供应方式"/>
 <Lang name="ttp_wip_supply_type" value=""/>
 <Lang name="supply_sub_inventory" value="供应仓库"/>

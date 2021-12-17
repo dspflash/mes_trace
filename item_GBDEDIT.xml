@@ -25,11 +25,19 @@
 <Label Align="Right" Text="make_buy" Name="lb_make_buy" Size="60,20" selectedIndex="1"/>
 <ComboBox Weight="170" Text="" ToolTip="ttp_make_buy" Items="Make|Buy" Name="make_buy" Size="170,100" selectedIndex="1"/>
 </Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_long_description"><Ctrls>
+<Label Align="Right" Text="long_description" Name="lb_long_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_long_description" Name="long_description" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_default_buyer"><Ctrls>
+<Label Align="Right" Text="default_buyer" Name="lb_default_buyer" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_default_buyer" Name="default_buyer" Size="170,20"/>
+</Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bc_label"><Ctrls>
 <Label Align="Right" Text="bc_label" Name="lb_bc_label" Size="60,20"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_bc_label" Name="bc_label" Size="170,20"/>
 </Ctrls></GroupBox>
-<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pallet_specification"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pallet_specification"><Ctrls>
 <Label Align="Right" Text="pallet_specification" onload="init" Name="lb_pallet_specification" Size="60,20"/>
 <ComboBox Weight="150" Text="" ToolTip="ttp_pallet_specification" onload="init" Name="pallet_specification" Size="150,100">
 	<DbDetails>
@@ -39,7 +47,7 @@
 <Where/>
 <queryFormat/></DbDetails></ComboBox>
 <MagicCtrl Name="refreshpallet_specification" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="pallet_specification"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_status"><Ctrls>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_status"><Ctrls>
 <Label Align="Right" Text="item_status" onload="init" Name="lb_item_status" Size="60,20" selectedIndex="0"/>
 <ComboBox Weight="170" Text="" ToolTip="ttp_item_status" onload="init" Name="item_status" Size="170,100" selectedIndex="0">
 	<DbDetails>

@@ -5,7 +5,7 @@
 <DbTable>mes_trace.bom_line</DbTable>
 <Required>%{dataRequired}</Required>
 <Requireless>%{dataRequireless}</Requireless>
-<Data>bom_sequence,routing_sequence[routing_sequence],bom_header_id,component_item_id_m[item_id_m],usage_basis[option_line_id],usage_quantity</Data>
+<Data>bom_sequence,routing_sequence[routing_sequence],bom_header_id,component_item_id_m[item_id_m],usage_basis[option_line_id],usage_quantity,yield</Data>
 <DataEx>created_by,creation_date,last_update_by,last_update_date;'%{operaid}',now(),'%{operaid}',now()</DataEx>
 <queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
 <submit namelist="DbDetails"/><if cond="!%{insertbom_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bom_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bom_line_vLst" delay="1000"/></if></if></if></if>
@@ -17,7 +17,7 @@
 <DbTable>mes_trace.bom_line</DbTable>
 <Required>%{dataRequired}</Required>
 <Requireless>%{dataRequireless}</Requireless>
-<Data>bom_sequence,routing_sequence[routing_sequence],bom_header_id,component_item_id_m[item_id_m],usage_basis[option_line_id],usage_quantity</Data>
+<Data>bom_sequence,routing_sequence[routing_sequence],bom_header_id,component_item_id_m[item_id_m],usage_basis[option_line_id],usage_quantity,yield</Data>
 <DataEx>last_update_by,last_update_date;'%{operaid}',now()</DataEx>
 <Where>bom_line_id='%{bom_line_id}'</Where>
 <queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>

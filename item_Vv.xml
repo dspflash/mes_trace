@@ -1,9 +1,9 @@
 ﻿<GroupBox Name="GBDVitem" cols="xs12 sm12 md12 lg12"><Ctrls>
-<ListCtrl Name="item_vLst" ToolTip="ttp_item_v" Size="700,450" OnLoad="init" Heading="item_number,250;item_name,250;item_specification,250;uom_id,120;make_buy,120;bc_label,250;pallet_specification,120;item_status,120;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;item_id_m,55;item_id,55;" loadedclick="0">
+<ListCtrl Name="item_vLst" ToolTip="ttp_item_v" Size="700,450" OnLoad="init" Heading="item_number,250;item_name,250;item_specification,250;uom_id,120;make_buy,120;long_description,170;default_buyer,55;bc_label,250;pallet_specification,120;item_status,120;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;item_id_m,55;item_id,55;" loadedclick="0">
 	<DbDetails >
 <Index>item_id</Index>
 <DbTable>mes_trace.item i left join mes_trace.uom u on i.uom_id=u.uom_id left join mes_trace.pallet_specification p on i.pallet_specification=p.specification_id left join mes_trace.option_line o on i.item_status=o.option_line_id</DbTable>
-<Data>i.item_number,i.item_name,i.item_specification,u.uom_name uom_id,i.make_buy,i.bc_label,p.specification_name pallet_specification,o.option_line_value item_status,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.item_id_m,i.item_id</Data>
+<Data>i.item_number,i.item_name,i.item_specification,u.uom_name uom_id,i.make_buy,i.long_description,i.default_buyer,i.bc_label,p.specification_name pallet_specification,o.option_line_value item_status,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.item_id_m,i.item_id</Data>
 <Order>item_id</Order></DbDetails>
 <DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} where i.org_id='%{orgid}' %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_ops.xml"/>

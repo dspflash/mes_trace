@@ -3,7 +3,7 @@
 	<DbDetails fcsm="1">
 <Index>item_id</Index>
 <DbTable>mes_trace.item</DbTable>
-<Data>item_number,item_name,item_specification,uom_id,make_buy,bc_label,pallet_specification,item_status,created_by,creation_date,last_update_by,last_update_date,item_id_m,item_id</Data>
+<Data>item_number,item_name,item_specification,uom_id,make_buy,long_description,default_buyer,bc_label,pallet_specification,item_status,created_by,creation_date,last_update_by,last_update_date,item_id_m,item_id</Data>
 <Order>item_id</Order></DbDetails>
 <OnClick><assign name="uom_id[uom_id]" expr="%{itemLst[uom_id]}" function="SetSel"/><assign name="pallet_specification[specification_id]" expr="%{itemLst[pallet_specification]}" function="SetSel"/><assign name="item_status[option_line_id]" expr="%{itemLst[item_status]}" function="SetSel"/>
 <if cond="'%{item_id}'"><SetVisible name="insertitem" Visible="0"/><SetVisible name="modifyitem" Visible="1"/></if>
