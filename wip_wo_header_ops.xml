@@ -1,6 +1,6 @@
 ﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
 <op text="modify"><DbDetails><Where>wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_header.wip_wo_headerLst"/>
-<DbDetails><Where>item_id_m=(select item_id_m from mes_trace.wip_wo_header where wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_header.item_id_m" delay="2000"/><assign name="$this.wip_wo_header.frmwndctrl" expr="%{this}"/></op>
+<DbDetails><Where>item_id_m=(select item_id_m from mes_trace.wip_wo_header where wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_header.item_id_m"/><assign name="$this.wip_wo_header.frmwndctrl" expr="%{this}"/></op>
 <op text="release" needconfirm="1"><assign name="topmost" expr="sql:call mes_trace.wipwoRelease('%{wip_wo_header_vLst[wip_wo_header_id]}','%{operaid}','%{orgid}')"/><submit/></op>
 <op text="print">
 <DbDetails><Where>wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_print.wip_wo_headerLst"/>
