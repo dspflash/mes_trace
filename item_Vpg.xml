@@ -3,7 +3,7 @@
 <TextBox Weight="30" ToolTip="ttp_records" Name="records_item" Size="40,20" OnLoad="init" readonly="1">
 	<DbDetails fcsm="1">
 <Index>item_id</Index>
-<DbTable>mes_trace.item i left join mes_trace.uom u on i.uom_id=u.uom_id left join mes_trace.pallet_specification p on i.pallet_specification=p.specification_id left join mes_trace.option_line o on i.item_status=o.option_line_id</DbTable>
+<DbTable>mes_trace.item i left join mes_trace.category c on i.item_category=c.category_id left join mes_trace.uom u on i.uom_id=u.uom_id left join mes_trace.ar_customer a on i.default_buyer=a.ar_customer_id left join mes_trace.pallet_specification p on i.pallet_specification=p.specification_id left join mes_trace.option_line o on i.item_status=o.option_line_id</DbTable>
 <Data>count(*) records</Data>
 <Order>item_id</Order><Queryformat>select %{data} from (select i.item_id from %{dbtable} where i.org_id='%{orgid}' %{where} GROUP BY i.item_id  ORDER BY i.item_id) t</Queryformat></DbDetails>
 <OnEnchange>

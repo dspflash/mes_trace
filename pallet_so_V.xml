@@ -24,10 +24,11 @@
 <search next="records_pallet_transaction" listed="1" prefixwhere="0" prefixand="1"  inputed="0">%{searchtmpl}</search><submit next="GBDEDITpallet_transaction" namelist="search" function="search"/>	
 </OnClick></Button><TAB/>
 <Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20">	<OnClick>
-	<submit next="$this.so_inv_print.GBwip_wo_header" function="resetcontent"/>
+	<submit next="$this.so_inv_print.item_name" function="resetcontent"/>
+	<submit next="$this.so_inv_print.lot_number_id" function="resetcontent"/>
 	<DbDetails><Where>item_id_m='%{item_id_m[item_id_m]}'</Where></DbDetails>
 	<submit namelist="DbDetails" next="$this.so_inv_print.item_name"/>
-	<DbDetails fcsm="1"><queryFormat>SELECT lot_number,creation_date,inv_lot_number_id FROM mes_trace.inv_lot_number WHERE inv_lot_number_id='%{lot_number_id[lot_id]}'</queryFormat></DbDetails>
+	<DbDetails fcsm="1"><queryFormat>SELECT lot_number,creation_date completion_date,inv_lot_number_id FROM mes_trace.inv_lot_number WHERE inv_lot_number_id='%{lot_number_id[lot_id]}'</queryFormat></DbDetails>
 	<submit namelist="DbDetails" next="$this.so_inv_print.lot_number_id"/>
 	</OnClick>	</Button><TAB/>	
 </Ctrls></GroupBox>

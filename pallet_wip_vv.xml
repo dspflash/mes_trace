@@ -1,5 +1,5 @@
 ﻿<GroupBox Name="GBDVpallet_transaction" cols="xs12 sm12 md12 lg12"><Ctrls>
-<ListCtrl Name="pallet_transaction_vLst" ToolTip="ttp_pallet_transaction_v" Size="700,450" OnLoad="init" Headingx="pallet_id,60;inv_lot_number_id,60;pallet_quantity,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pallet_transaction_id,60;inv_transaction_id,60;" loadedclick="0">
+<ListCtrl Name="pallet_transaction_vLst" ToolTip="ttp_pallet_transaction_v" Size="700,450" OnLoad="init" Headingx="pallet_id,60;inv_lot_number_id,60;pallet_quantity,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pallet_transaction_id,60;inv_transaction_id,60;" loadedclick="0" PageSize="1000">
 	<DbDetails >
 <Index>pallet_transaction_id</Index>
 <DbTable>mes_trace.pallet_transaction p 

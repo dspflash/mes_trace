@@ -9,7 +9,7 @@
 <search next="bc_label_rule_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbc_label_rule" namelist="search" function="search"/>	
 </OnClick></Button><TAB/></Ctrls></GroupBox>
 <BR AutoHeight="1"/><GroupBox Name="GBDVbc_label_rule" cols="xs12 sm12 md12 lg12"><Ctrls>
-<ListCtrl Name="bc_label_rule_vLst" ToolTip="ttp_bc_label_rule_v" Size="700,450" Heading="bc_label_rule_code,25;bc_label_rule_name,125;code_len,55;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bc_label_rule_id,60;" loadedclick="0">
+<ListCtrl Name="bc_label_rule_vLst" ToolTip="ttp_bc_label_rule_v" Size="700,450" Heading="bc_label_rule_code,25;bc_label_rule_name,125;code_len,55;description,580;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bc_label_rule_id,60;" loadedclick="0">
 	<DbDetails >
 <Index>bc_label_rule_id</Index>
 <DbTable>mes_trace.bc_label_rule b</DbTable>

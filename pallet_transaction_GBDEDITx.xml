@@ -9,7 +9,7 @@
 <DbDetails >
 <queryFormat>SELECT item_id_m,wip_wo_header_id FROM mes_trace.wip_wo_header WHERE wo_number='%{doc_no}'
 </queryFormat></DbDetails>
-<OnEnChange><if cond="'%{wo_id}'&&('%{doc_type}'=='wip')"><submit next="wo_routing"/><submit next="product_name"/><else/><submit next="wo_routing" function="resetcontent"/></if></OnEnChange>
+<OnEnChange><if cond="'%{wo_id}'&&('%{doc_type}'=='wip')"><submit next="wo_routing"/><submit next="product_name"/><else/><submit next="wo_routing" function="resetcontent"/><DbDetails><Where>item_id_m='%{wo_id[item_id_m]}'</Where> <queryFormat/></DbDetails><submit namelist="DbDetails" next="item_id_m"/></if></OnEnChange>
 </TextBox>
 </Ctrls></GroupBox>
 
@@ -42,10 +42,16 @@ FROM mes_trace.wip_wo_routing_line wrl
 <TextBox Weight="150" Text="" ToolTip="ttp_item_scancode" Name="item_scancode" EnChangeDelay="100" Size="150,20">
 <OnEnChange><if cond="('%{item_scancode}').length&gt;=15">
 <submit next="item_bc"/><else/><submit next="item_bc" function="resetcontent"/></if></OnEnChange>
-<OnEnterKey><setfocus name="pallet_label" expr="1" delay="500"/></OnEnterKey>
+<OnEnterKey><if cond="'%{doc_no}'&&('%{doc_type}'=='wo')">
+<DbDetails>
+<queryFormat>SELECT '%{item_scancode}',mes_trace.GetLotNumberId('%{item_scancode}','%{item_id_m[item_id_m]}','%{operaid}') lot_id;
+</queryFormat></DbDetails><submit namelist="DbDetails" next="lot_number_id"/>
+<else/>
+<submit next="item_bc"/></if>
+<setfocus name="pallet_label" expr="1" delay="500"/></OnEnterKey>
 </TextBox>
 <TextBox Weight="150" Text="" ToolTip="ttp_itemitem_bc" Name="item_bc" Size="150,20" overlap="pre" visible="false"> 
-<DbDetails fcsm="1"> <Index>bc_label_rule_id</Index> <DbTable>mes_trace.bc_label_rule lr JOIN mes_trace.bc_label_rule_detail lrd ON lr.bc_label_rule_id=lrd.bc_label_rule_id</DbTable>
+<DbDetails fcsm="1"> <Index>bc_label_rule_id</Index> <DbTable>mes_trace.bc_label_rule lr JOIN mes_trace.bc_label_rule_detail lrd ON (lr.status and lr.bc_label_rule_id=lrd.bc_label_rule_id)</DbTable>
 <Data>'%{item_scancode}',GROUP_CONCAT(IF(bc_label_rule_detail_id=1,SUBSTR('%{item_scancode}',start_pos,data_len),'') SEPARATOR '') AS d1,
 GROUP_CONCAT(IF(bc_label_rule_detail_id=2,SUBSTR('%{item_scancode}',start_pos,data_len),'') SEPARATOR '') AS d2</Data>
 <Where>code_len=LENGTH('%{item_scancode}') GROUP BY lr.bc_label_rule_id</Where><queryFormat/></DbDetails> 

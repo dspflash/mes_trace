@@ -3,7 +3,7 @@
 <rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/item_ops.xml"/></rules>
 <inputs make_buy="%{item_vLst[make_buy]}"/>
 <outputs title="text" disabled="disabled"/></EvalTbl>
-<op text="modify"><DbDetails><Where>item_id='%{item_vLst[item_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.item.itemLst"/><assign name="$this.item.frmwndctrl" expr="%{this}"/></op>
+<op text="modify"><DbDetails><Where>item_id='%{item_vLst[item_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.item.itemLst"/><DbDetails><Where>ar_customer_id=(select default_buyer from mes_trace.item where item_id='%{item_vLst[item_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.item.default_buyer" delay0="1000"/><assign name="$this.item.frmwndctrl" expr="%{this}"/></op>
 <op text="bom_routing"><DbDetails><queryFormat>select mes_trace.GetItemBomRouting('%{item_vLst[item_id_m]}',1,'%{operaid}')</queryFormat></DbDetails><submit namelist="DbDetails" next="$this.bom_routing_header.bom_routing_header_id"/><assign name="$this.bom_routing_header.frmwndctrl" expr="%{this}"/></op>
 <op text="bom"><DbDetails><queryFormat>select mes_trace.GetItemBom('%{item_vLst[item_id_m]}',1,'%{operaid}')</queryFormat></DbDetails><submit namelist="DbDetails" next="$this.bom_header.bom_header_id"/><assign name="$this.bom_header.frmwndctrl" expr="%{this}"/></op>
 <op text="viewbom" icon="xi-diagram-3"><submit next="$this.bom_line_view.bom_line_vLst" function="resetcontent"/><assign name="$this.bom_line_view.item_id_m" expr="%{item_vLst[item_id_m]}"/><assign name="$this.bom_line_view.org_id" expr="0"/><submit next="$this.bom_line_view.bom_line_vLst"/><submit next="$this.bom_line_view.BomTree"/></op>

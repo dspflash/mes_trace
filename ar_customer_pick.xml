@@ -1,0 +1,22 @@
+﻿<WndTap Name="ar_customer_pick" Text="ar_customer_Pick">
+<var name="searchtmpl"><customer_number format="(a.customer_number like '%%{opvalue}%')"/><customer_name format="(a.customer_name like '%%{opvalue}%')"/><customer_relationship format="a.customer_relationship='%{opvalue}'"/><customer_category format="a.customer_category='%{opvalue}'"/><customer_credit_class format="a.customer_credit_class='%{opvalue}'"/><status format="a.status is %{opvalue}"/><created_by format="(a.created_by like '%%{opvalue}%')"/><creation_date format="(a.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(a.last_update_by like '%%{opvalue}%')"/><last_update_date format="(a.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><ar_customer_id format="(a.ar_customer_id like '%%{opvalue}%')"/><org_id format="(a.org_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+<Ctrls><GroupBox  Name="GBar_customer" id="ar_customer" Text="ar_customer" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVar_customer" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetar_customer" Name="resetar_customer" Size="50,20">	<OnClick>	<submit next="GBDEDITar_customer" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchar_customer" Name="gsearchar_customer" Size="50,20">	<OnClick>	
+<search next="ar_customer_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITar_customer" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVar_customer" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="ar_customer_vLst" ToolTip="ttp_ar_customer_v" Size="700,450" Heading="customer_number,125;customer_name,300;customer_relationship,120;customer_category,120;customer_credit_class,120;status,60;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;ar_customer_id,55;org_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>ar_customer_id</Index>
+<DbTable>mes_trace.ar_customer a left join mes_trace.option_line o on a.customer_relationship=o.option_line_id left join mes_trace.option_line o0 on a.customer_category=o0.option_line_id left join mes_trace.option_line o1 on a.customer_credit_class=o1.option_line_id</DbTable>
+<Data>a.customer_number,a.customer_name,o.option_line_value customer_relationship,o0.option_line_value customer_category,o1.option_line_value customer_credit_class,a.status,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ar_customer_id,a.org_id</Data>
+<Order>ar_customer_id</Order></DbDetails>
+<OnClick><if cond="%{ar_customer_vLst[ar_customer_id]}"><DbDetails><Where>ar_customer_id='%{ar_customer_vLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

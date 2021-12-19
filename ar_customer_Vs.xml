@@ -1,0 +1,13 @@
+﻿<GroupBox Name="GBDEDITar_customer" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_customer_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_customer_number" Size="60,20" Text="customer_number" Align="Right"/>
+<TextBox Name="customer_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_customer_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_customer_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_customer_name" Size="60,20" Text="customer_name" Align="Right"/>
+<TextBox Name="customer_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_customer_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

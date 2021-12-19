@@ -1,21 +1,21 @@
 ﻿<GroupBox Name="GBDEDITbc_label_rule_detail" text="Search" toggle="1"><Ctrls>
 <GroupBox Name="GB_bc_label_rule_detail_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
-<Label Name="lb_bc_label_rule_detail_name" Size="60,20" Text="bc_label_rule_detail_name" Align="Right"/>
-<TextBox Name="bc_label_rule_detail_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_bc_label_rule_detail_name"></TextBox>
+<Label Name="lb_bc_label_rule_detail_name" Size="120,20" Text="bc_label_rule_detail_name" Align="Right"/>
+<TextBox Name="bc_label_rule_detail_name" Size="110,20" Text="" Weight="110" ToolTip="ttp_bc_label_rule_detail_name"></TextBox>
 </Ctrls></GroupBox>
 <GroupBox Name="GB_start_pos" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
-<Label Name="lb_start_pos" Size="60,20" Text="start_pos" Align="Right"/>
-<TextBox Name="start_pos" Size="170,20" Text="" Weight="170" ToolTip="ttp_start_pos"></TextBox>
+<Label Name="lb_start_pos" Size="120,20" Text="start_pos" Align="Right"/>
+<TextBox Name="start_pos" Size="110,20" Text="" Weight="110" ToolTip="ttp_start_pos"></TextBox>
 </Ctrls></GroupBox>
 <GroupBox Name="GB_data_len" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
-<Label Name="lb_data_len" Size="60,20" Text="data_len" Align="Right"/>
-<TextBox Name="data_len" Size="170,20" Text="" Weight="170" ToolTip="ttp_data_len"></TextBox>
+<Label Name="lb_data_len" Size="120,20" Text="data_len" Align="Right"/>
+<TextBox Name="data_len" Size="110,20" Text="" Weight="110" ToolTip="ttp_data_len"></TextBox>
 </Ctrls></GroupBox>
 <BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
-<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
-<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+<Label Name="lb_description" Size="120,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="110,20" Text="" Weight="110" ToolTip="ttp_description"></TextBox>
 </Ctrls></GroupBox>
 <GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
-<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"></CheckBox>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"  checked="true"></CheckBox>
 </Ctrls></GroupBox>
 </Ctrls></GroupBox>

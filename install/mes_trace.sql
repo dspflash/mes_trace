@@ -24,6 +24,58 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `mes_trace` /*!40100 DEFAULT CHARACTER 
 USE `mes_trace`;
 
 --
+-- Table structure for table `ar_customer`
+--
+
+DROP TABLE IF EXISTS `ar_customer`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `ar_customer` (
+  `ar_customer_id` int(11) NOT NULL auto_increment,
+  `customer_number` varchar(25) NOT NULL,
+  `customer_name` varchar(60) NOT NULL,
+  `customer_relationship` int(11) default NULL,
+  `alt_name` varchar(50) character set utf8 collate utf8_unicode_ci default NULL,
+  `supplier_id` int(11) default NULL,
+  `customer_type` int(11) default '389',
+  `customer_category` int(11) default NULL,
+  `currency` int(11) default NULL,
+  `payment_term_id` int(11) default NULL,
+  `tax_country` int(11) default NULL,
+  `tax_reg_no` varchar(40) default NULL,
+  `tax_payer_id` varchar(40) default NULL,
+  `ship_to_id` int(11) default NULL,
+  `bill_to_id` int(11) default NULL,
+  `customer_contact_id` int(11) default NULL,
+  `customer_credit_class` int(11) default NULL,
+  `profile_name` varchar(25) default NULL,
+  `status` tinyint(1) default '1',
+  `rev_enabled_cb` tinyint(1) default NULL,
+  `rev_number` int(11) default NULL,
+  `org_id` int(11) default NULL,
+  `created_by` int(11) NOT NULL,
+  `creation_date` datetime default NULL,
+  `last_update_by` int(11) NOT NULL,
+  `last_update_date` datetime default NULL,
+  PRIMARY KEY  (`ar_customer_id`),
+  UNIQUE KEY `customer_number` (`customer_number`),
+  UNIQUE KEY `customer_name` (`customer_name`),
+  KEY `status` (`status`),
+  KEY `org_id` (`org_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `ar_customer`
+--
+
+LOCK TABLES `ar_customer` WRITE;
+/*!40000 ALTER TABLE `ar_customer` DISABLE KEYS */;
+INSERT INTO `ar_customer` VALUES (1,'100001','3ucs',1206,NULL,NULL,389,1176,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,390,NULL,1,NULL,NULL,0,0,'2021-12-19 09:15:35',0,'2021-12-19 09:15:35');
+/*!40000 ALTER TABLE `ar_customer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `bc_label_rule`
 --
 
@@ -44,7 +96,7 @@ CREATE TABLE `bc_label_rule` (
   PRIMARY KEY  (`bc_label_rule_id`),
   UNIQUE KEY `name` (`bc_label_rule_code`),
   KEY `bc_label_rule_name` (`bc_label_rule_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -53,7 +105,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `bc_label_rule` WRITE;
 /*!40000 ALTER TABLE `bc_label_rule` DISABLE KEYS */;
-INSERT INTO `bc_label_rule` VALUES (1,'afadf','fasfsaf',15,'',0,0,'2021-11-14 09:14:43',0,'2021-11-14 09:14:43');
+INSERT INTO `bc_label_rule` VALUES (1,'afadf','fasfsaf',16,'',1,0,'2021-11-14 09:14:43',1,'2021-12-12 16:33:53'),(2,'10000','批次',8,'',1,1,'2021-12-19 11:04:18',1,'2021-12-19 11:04:18');
 /*!40000 ALTER TABLE `bc_label_rule` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,7 +131,7 @@ CREATE TABLE `bc_label_rule_detail` (
   `last_update_date` datetime default NULL,
   PRIMARY KEY  (`bc_label_rule_detail_id`),
   KEY `bc_label_rule_name` (`bc_label_rule_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -88,7 +140,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `bc_label_rule_detail` WRITE;
 /*!40000 ALTER TABLE `bc_label_rule_detail` DISABLE KEYS */;
-INSERT INTO `bc_label_rule_detail` VALUES (1,1,'ytulk','hhjjhj',1,8,'',1,0,'2021-11-14 09:17:46',0,'2021-11-16 14:37:05'),(2,1,'jjjkk','eer',9,7,'',1,0,'2021-11-14 09:18:05',0,'2021-11-16 14:37:17');
+INSERT INTO `bc_label_rule_detail` VALUES (1,1,'ytulk','hhjjhj',1,8,'',1,0,'2021-11-14 09:17:46',0,'2021-11-16 14:37:05'),(2,1,'jjjkk','eer',9,8,'',1,0,'2021-11-14 09:18:05',1,'2021-12-12 16:09:11'),(3,2,'7',NULL,0,0,'',1,1,'2021-12-19 11:04:37',1,'2021-12-19 11:04:37'),(4,2,'8',NULL,1,8,'',1,1,'2021-12-19 11:04:55',1,'2021-12-19 11:04:55');
 /*!40000 ALTER TABLE `bc_label_rule_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +227,7 @@ CREATE TABLE `bom_header` (
   PRIMARY KEY  (`bom_header_id`),
   UNIQUE KEY `item_id` (`item_id_m`,`org_id`),
   UNIQUE KEY `item_id_2` (`item_id_m`,`alternate_bom`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -184,6 +236,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `bom_header` WRITE;
 /*!40000 ALTER TABLE `bom_header` DISABLE KEYS */;
+INSERT INTO `bom_header` VALUES (1,1,NULL,0,'1',NULL,NULL,NULL,NULL,1,'2021-11-24 16:06:04',1,'2021-11-24 16:06:04'),(2,4,NULL,0,'1',NULL,NULL,NULL,NULL,1,'2021-11-28 15:31:27',1,'2021-11-28 15:31:27');
 /*!40000 ALTER TABLE `bom_header` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,7 +278,7 @@ CREATE TABLE `bom_line` (
   UNIQUE KEY `bom_header_id_2` (`bom_header_id`,`routing_sequence`,`component_item_id_m`,`routing_seq_num`),
   KEY `bom_header_idx` (`bom_header_id`),
   KEY `component_item_id_m` (`component_item_id_m`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -234,6 +287,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `bom_line` WRITE;
 /*!40000 ALTER TABLE `bom_line` DISABLE KEYS */;
+INSERT INTO `bom_line` VALUES (1,1,10,10,0,3,NULL,351,'10.00000',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,1,'2021-11-24 16:06:20',1,'2021-11-24 16:06:20'),(2,1,20,20,0,5,NULL,351,'8.00000',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,1,'2021-11-24 16:06:35',1,'2021-11-24 16:06:35'),(3,1,30,10,0,2,NULL,351,'6.00000',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,2,'2021-11-25 10:55:58',2,'2021-11-25 10:55:58'),(4,2,10,10,0,2,NULL,351,'3.00000',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,1,'2021-11-28 15:31:46',1,'2021-11-28 15:31:46'),(5,2,20,20,0,3,NULL,351,'5.00000',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,1,'2021-11-28 15:32:26',1,'2021-11-28 15:32:26');
 /*!40000 ALTER TABLE `bom_line` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,7 +356,7 @@ CREATE TABLE `bom_routing_header` (
   PRIMARY KEY  (`bom_routing_header_id`),
   UNIQUE KEY `item_id` (`item_id_m`,`org_id`),
   UNIQUE KEY `item_id_2` (`item_id_m`,`alternate_routing`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -311,6 +365,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `bom_routing_header` WRITE;
 /*!40000 ALTER TABLE `bom_routing_header` DISABLE KEYS */;
+INSERT INTO `bom_routing_header` VALUES (1,1,NULL,0,'1',NULL,NULL,NULL,NULL,NULL,NULL,1,'2021-11-24 16:05:42',1,'2021-11-24 16:05:42'),(2,4,NULL,0,'1',NULL,NULL,NULL,NULL,NULL,NULL,1,'2021-11-28 15:30:55',1,'2021-11-28 15:30:55');
 /*!40000 ALTER TABLE `bom_routing_header` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -350,7 +405,7 @@ CREATE TABLE `bom_routing_line` (
   PRIMARY KEY  (`bom_routing_line_id`),
   UNIQUE KEY `bom_header_id` (`bom_routing_header_id`,`routing_sequence`,`routing_seq_num`),
   UNIQUE KEY `bom_header_id_2` (`bom_routing_header_id`,`department_id`,`standard_operation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -359,6 +414,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `bom_routing_line` WRITE;
 /*!40000 ALTER TABLE `bom_routing_line` DISABLE KEYS */;
+INSERT INTO `bom_routing_line` VALUES (1,1,10,0,1,0,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,'2021-11-24 16:05:47',1,'2021-11-24 16:05:47'),(2,1,20,0,2,0,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,'2021-11-24 16:05:57',1,'2021-11-24 16:05:57'),(3,2,10,0,1,0,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,'2021-11-28 15:31:01',1,'2021-11-28 15:31:01'),(4,2,20,0,2,0,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,'2021-11-28 15:31:11',1,'2021-11-28 15:31:11'),(5,2,30,0,3,0,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,'2021-11-28 15:31:19',1,'2021-11-28 15:31:19');
 /*!40000 ALTER TABLE `bom_routing_line` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,7 +441,7 @@ CREATE TABLE `bom_standard_operation` (
   `last_update_by` int(12) NOT NULL,
   `last_update_date` datetime default NULL,
   PRIMARY KEY  (`bom_standard_operation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -394,7 +450,49 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `bom_standard_operation` WRITE;
 /*!40000 ALTER TABLE `bom_standard_operation` DISABLE KEYS */;
+INSERT INTO `bom_standard_operation` VALUES (1,'ytutu',0,0,'',NULL,NULL,NULL,1,NULL,1,'2021-11-24 10:51:33',1,'2021-11-24 11:47:09'),(2,'fafasfa',0,0,'',NULL,NULL,NULL,1,NULL,1,'2021-11-24 11:36:00',1,'2021-11-24 11:36:00'),(3,'tyjkhk',0,0,'',NULL,NULL,NULL,1,NULL,1,'2021-11-24 11:37:59',1,'2021-11-24 11:37:59'),(4,'hjgjgj',0,0,'',NULL,NULL,NULL,1,NULL,2,'2021-11-24 11:46:25',2,'2021-11-24 11:46:25');
 /*!40000 ALTER TABLE `bom_standard_operation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `category` (
+  `category_id` int(12) NOT NULL auto_increment,
+  `major_category_id` int(12) default NULL,
+  `parent_id` int(12) default NULL,
+  `category` varchar(50) NOT NULL default 'none',
+  `category_type` int(11) default NULL,
+  `content_relation` varchar(25) default NULL,
+  `priority` int(5) default NULL,
+  `description` varchar(512) default NULL,
+  `image_file_id` int(12) default NULL,
+  `long_description` text,
+  `content_block_id` int(12) default NULL,
+  `filter_catalog_id` int(12) default NULL,
+  `primary_cb` float default '0',
+  `created_by` int(12) NOT NULL,
+  `creation_date` datetime default NULL,
+  `last_update_by` int(12) NOT NULL,
+  `last_update_date` datetime default NULL,
+  PRIMARY KEY  (`category_id`),
+  UNIQUE KEY `parent_id` (`parent_id`,`category`),
+  KEY `category_type` (`category_type`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `category`
+--
+
+LOCK TABLES `category` WRITE;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,NULL,0,'喷漆品',99,NULL,NULL,'',NULL,NULL,NULL,NULL,0,0,'2021-12-19 11:31:39',0,'2021-12-19 11:31:39');
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1015,7 +1113,7 @@ CREATE TABLE `item` (
   KEY `item_status` (`item_status`),
   KEY `item_name` (`item_name`),
   KEY `item_specification` (`item_specification`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -1024,6 +1122,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
+INSERT INTO `item` VALUES (1,1,0,'jhhg','gjhg','jhhh',NULL,'34141414',1,NULL,NULL,0,NULL,1,'客户料号',38,NULL,NULL,NULL,277,1,1,1,1,0,1,0,0,0,1,0,NULL,0,0,0,0,0,0,NULL,NULL,NULL,1,NULL,NULL,NULL,1,1,1,302,1,'0.00000',NULL,0,1,0,NULL,0,0,NULL,299,NULL,0,NULL,0,NULL,0,0,0,0,0,NULL,NULL,'Make',1,NULL,0,0,0,0,0,0,0,0,'0.00000','0.00000',0,'0.00000',NULL,NULL,0,0,0,0,0,0,0,0,0,1,337,1,1,1,1,1,NULL,0,0,NULL,NULL,0,0,0,0,0,0,0,'0.00000',0,595,0,NULL,NULL,NULL,NULL,NULL,0,NULL,2,'2021-11-24 10:36:21',1,'2021-12-19 13:24:20'),(2,2,0,'tut65','ytutu','6788',NULL,'78865544',1,NULL,NULL,0,NULL,1,NULL,38,NULL,NULL,NULL,277,NULL,1,1,1,0,1,0,0,0,1,0,NULL,0,0,0,0,0,0,NULL,NULL,NULL,1,NULL,NULL,NULL,1,1,1,302,NULL,'0.00000',NULL,0,1,0,NULL,0,0,NULL,299,NULL,0,NULL,0,NULL,0,0,0,0,0,NULL,NULL,'Buy',1,NULL,0,0,0,0,0,0,0,0,'0.00000','0.00000',0,'0.00000',NULL,NULL,0,0,0,0,0,0,0,0,0,1,337,1,1,1,1,1,NULL,0,0,NULL,NULL,0,0,0,0,0,0,0,'0.00000',0,595,0,NULL,NULL,NULL,NULL,NULL,0,NULL,2,'2021-11-24 10:37:35',2,'2021-11-24 10:37:35'),(3,3,0,'tytr','ytyutut','5665',NULL,'76866868',1,NULL,NULL,0,NULL,1,NULL,38,NULL,NULL,NULL,277,NULL,1,1,1,0,1,0,0,0,1,0,NULL,0,0,0,0,0,0,NULL,NULL,NULL,1,NULL,NULL,NULL,1,1,1,302,NULL,'0.00000',NULL,0,1,0,NULL,0,0,NULL,299,NULL,0,NULL,0,NULL,0,0,0,0,0,NULL,NULL,'Buy',1,NULL,0,0,0,0,0,0,0,0,'0.00000','0.00000',0,'0.00000',NULL,NULL,0,0,0,0,0,0,0,0,0,1,337,1,1,1,1,1,NULL,0,0,NULL,NULL,0,0,0,0,0,0,0,'0.00000',0,595,0,NULL,NULL,NULL,NULL,NULL,0,NULL,2,'2021-11-24 10:46:55',2,'2021-11-24 10:46:55'),(4,4,0,'hgjgj','567ytu','hjgjg',NULL,'87654321',1,NULL,NULL,0,NULL,1,NULL,38,NULL,NULL,NULL,277,NULL,1,1,1,0,1,0,0,0,1,0,NULL,0,0,0,0,0,0,NULL,NULL,NULL,1,NULL,NULL,NULL,1,1,1,302,NULL,'0.00000',NULL,0,1,0,NULL,0,0,NULL,299,NULL,0,NULL,0,NULL,0,0,0,0,0,NULL,NULL,'Make',1,NULL,0,0,0,0,0,0,0,0,'0.00000','0.00000',0,'0.00000',NULL,NULL,0,0,0,0,0,0,0,0,0,1,337,1,1,1,1,1,NULL,0,0,NULL,NULL,0,0,0,0,0,0,0,'0.00000',0,595,0,NULL,NULL,NULL,NULL,NULL,0,NULL,2,'2021-11-24 10:48:24',2,'2021-11-25 10:52:34'),(5,5,0,'rtu','tytuyut','ytt',NULL,'345351531',1,NULL,NULL,0,NULL,1,NULL,38,NULL,NULL,NULL,277,NULL,1,1,1,0,1,0,0,0,1,0,NULL,0,0,0,0,0,0,NULL,NULL,NULL,1,NULL,NULL,NULL,1,1,1,302,NULL,'0.00000',NULL,0,1,0,NULL,0,0,NULL,299,NULL,0,NULL,0,NULL,0,0,0,0,0,NULL,NULL,'Buy',1,NULL,0,0,0,0,0,0,0,0,'0.00000','0.00000',0,'0.00000',NULL,NULL,0,0,0,0,0,0,0,0,0,1,337,1,1,1,1,1,NULL,0,0,NULL,NULL,0,0,0,0,0,0,0,'0.00000',0,595,0,NULL,NULL,NULL,NULL,NULL,0,NULL,2,'2021-11-24 11:45:21',1,'2021-11-28 15:30:44'),(6,6,0,'fsaf','faf','fafas',NULL,'34351145150',1,NULL,NULL,0,NULL,1,NULL,38,NULL,NULL,NULL,277,NULL,1,1,1,0,1,0,0,0,1,0,NULL,0,0,0,0,0,0,NULL,NULL,NULL,1,NULL,NULL,NULL,1,1,1,302,NULL,'0.00000',NULL,0,1,0,NULL,0,0,NULL,299,NULL,0,NULL,0,NULL,0,0,0,0,0,NULL,NULL,'Buy',1,NULL,0,0,0,0,0,0,0,0,'0.00000','0.00000',0,'0.00000',NULL,NULL,0,0,0,0,0,0,0,0,0,1,337,1,1,1,1,1,NULL,0,0,NULL,NULL,0,0,0,0,0,0,0,'0.00000',0,595,0,NULL,NULL,NULL,NULL,NULL,0,NULL,1,'2021-11-28 15:30:14',1,'2021-11-28 15:30:26');
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2413,4 +2512,4 @@ USE `mes_trace`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-22  7:12:31
+-- Dump completed on 2021-12-19  6:24:55

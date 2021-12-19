@@ -5,7 +5,7 @@
 <DbTable>mes_trace.item</DbTable>
 <Required>%{dataRequired}</Required>
 <Requireless>%{dataRequireless}</Requireless>
-<Data>item_number,item_name,item_specification,uom_id[uom_id],make_buy,long_description,default_buyer,bc_label,pallet_specification[specification_id],item_status[option_line_id]</Data>
+<Data>item_number,item_name,item_specification,item_category[category_id],uom_id[uom_id],make_buy,long_description,default_buyer[ar_customer_id],bc_label,pallet_specification[specification_id],item_status[option_line_id]</Data>
 <DataEx>created_by,creation_date,last_update_by,last_update_date;'%{operaid}',now(),'%{operaid}',now()</DataEx>
 <queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
 <submit namelist="DbDetails"/><if cond="!%{insertitem[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="itemLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.item_vLst" delay="1000"/></if></if></if></if>
@@ -17,7 +17,7 @@
 <DbTable>mes_trace.item</DbTable>
 <Required>%{dataRequired}</Required>
 <Requireless>%{dataRequireless}</Requireless>
-<Data>item_number,item_name,item_specification,uom_id[uom_id],make_buy,long_description,default_buyer,bc_label,pallet_specification[specification_id],item_status[option_line_id]</Data>
+<Data>item_number,item_name,item_specification,item_category[category_id],uom_id[uom_id],make_buy,long_description,default_buyer[ar_customer_id],bc_label,pallet_specification[specification_id],item_status[option_line_id]</Data>
 <DataEx>last_update_by,last_update_date;'%{operaid}',now()</DataEx>
 <Where>item_id='%{item_id}'</Where>
 <queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>

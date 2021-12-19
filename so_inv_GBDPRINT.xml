@@ -1,13 +1,13 @@
 ﻿<GroupBox Name="GBDEDITwip_wo_header"><Ctrls>
-<GroupBox cols="xs12 sm6" Multiline="0" Name="GB_item_name"><Ctrls>
-<Label Align="Right" Text="" Name="lb_item_name" Size="120,20" Weight="20" />
-<Label Align="Right" Text="苏州博亚科技有限公司" Name="lb_item_name" Size="120,20" Weight="120" />
+<GroupBox cols="xs12 sm6" Multiline="0" Name="GB_org_name"><Ctrls>
+<Label Align="Right" Text="" Name="lb_org_name" Size="120,20" Weight="20" />
+<Label Align="Right" Text="苏州博亚科技有限公司" Name="lb_org_name" Size="120,20" Weight="120" />
 </Ctrls></GroupBox>
 
 <BR AutoHeight="1"/><GroupBox cols="xs12 sm6" Multiline="0" Name="GB_long_description"><Ctrls>
 <Label Align="Right" Text="long_description" Name="lb_long_description" Size="120,20"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_long_description" Name="long_description" Size="170,20"/>
-<TextBox Weight="110" Text="新模" ToolTip="ttp_long_description" Name="long_description" Size="170,20"/>
+<TextBox Weight="110" Text="新模" ToolTip="ttp_model" Name="model" Size="170,20"/>
 </Ctrls></GroupBox>
 
 <BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_default_buyer"><Ctrls>
@@ -19,9 +19,9 @@
 <Label Align="Right" Text="item_name" Name="lb_item_name" Size="120,20"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_item_name" Name="item_name" Size="170,20">
 	<DbDetails fcsm="1">
-<DbTable>mes_trace.item</DbTable>
+<DbTable>mes_trace.item i left join mes_trace.category cg on i.item_category=cg.category_id left join mes_trace.ar_customer c on i.default_buyer=c.ar_customer_id</DbTable>
 <Index>item_id_m</Index>
-<Data>item_name,item_number,long_description,item_id_m</Data>
+<Data>item_name,customer_name default_buyer,category item_tp,item_number,i.long_description,item_id_m</Data>
 <Where>item_type=99</Where>
 <queryFormat/></DbDetails>
 </TextBox>
@@ -29,7 +29,7 @@
 
 <BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_tp"><Ctrls>
 <Label Align="Right" Text="料别" Name="lb_item_tp" Size="120,20"/>
-<TextBox Weight="170" Text="喷漆品" ToolTip="ttp_item_tp" Name="item_tp" Size="170,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_tp" Name="item_tp" Size="170,20"/>
 </Ctrls></GroupBox>
 
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
@@ -39,8 +39,8 @@
 </Ctrls></GroupBox>
 
 <BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_material_lot"><Ctrls>
-<Label Align="Right" Text="莫仕来料批号" Name="lb_item_tp" Size="120,20"/>
-<TextBox Weight="170" Text="喷漆品" ToolTip="ttp_item_tp" Name="item_tp" Size="170,20"/>
+<Label Align="Right" Text="莫仕来料批号" Name="lb_material_lot" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_material_lot" Name="material_lot" Size="170,20"/>
 </Ctrls></GroupBox>
 
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_lot_number_id"><Ctrls>

@@ -21,7 +21,10 @@
 <Button Text="Search" ToolTip="ttp_gsearchpallet_transaction" Name="gsearchpallet_transaction" Size="50,20">	<OnClick>	
 <search next="pallet_transaction_vLst" listed="1" prefixwhere="0" prefixand="1" inputed="0">%{searchtmpl}</search><submit next="GBDEDITpallet_transaction" namelist="search" function="search"/>	
 <search next="records_pallet_transaction" listed="1" prefixwhere="0" prefixand="1"  inputed="0">%{searchtmpl}</search><submit next="GBDEDITpallet_transaction" namelist="search" function="search"/>	
-</OnClick></Button><TAB/></Ctrls></GroupBox>
+</OnClick></Button><TAB/>
+<Button Name="export" Size="50,20" Text="导出">
+	<OnClick><Save selected="0" columns="0,1,2,4,5,6,7,8,10"></Save><submit next="pallet_transaction_vLst" namelist="Save" function="savetofile"/></OnClick></Button><TAB/>
+</Ctrls></GroupBox>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_transaction_Vpg.xml"/>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_transaction_Vpgop.xml"/>
 <BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_wip_Vv.xml"/>

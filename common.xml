@@ -23,6 +23,8 @@
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_specification_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_vm.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_v.xml"/>
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_v.xml"></xi:include>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_v.xml"></xi:include>
 	</WndTaps>
 </XI3uWnd>

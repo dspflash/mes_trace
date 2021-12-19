@@ -1,41 +1,41 @@
 ﻿<GroupBox Name="GBDEDITbc_label_rule"><Ctrls>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bc_label_rule_code"><Ctrls>
-<Label Align="Right" Text="bc_label_rule_code" Name="lb_bc_label_rule_code" Size="60,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_bc_label_rule_code" Name="bc_label_rule_code" Size="170,20"/>
+<Label Align="Right" Text="bc_label_rule_code" Name="lb_bc_label_rule_code" Size="120,20"/>
+<TextBox Weight="110" Text="" ToolTip="ttp_bc_label_rule_code" Name="bc_label_rule_code" Size="110,20"/>
 </Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bc_label_rule_name"><Ctrls>
-<Label Align="Right" Text="bc_label_rule_name" Name="lb_bc_label_rule_name" Size="60,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_bc_label_rule_name" Name="bc_label_rule_name" Size="170,20"/>
+<Label Align="Right" Text="bc_label_rule_name" Name="lb_bc_label_rule_name" Size="120,20"/>
+<TextBox Weight="110" Text="" ToolTip="ttp_bc_label_rule_name" Name="bc_label_rule_name" Size="110,20"/>
 </Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_code_len"><Ctrls>
-<Label Align="Right" Text="code_len" Name="lb_code_len" Size="60,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_code_len" Name="code_len" Size="170,20"/>
+<Label Align="Right" Text="code_len" Name="lb_code_len" Size="120,20"/>
+<TextBox Weight="110" Text="" ToolTip="ttp_code_len" Name="code_len" Size="110,20"/>
 </Ctrls></GroupBox>
 <BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
-<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+<Label Align="Right" Text="description" Name="lb_description" Size="120,20"/>
+<TextBox Weight="110" Text="" ToolTip="ttp_description" Name="description" Size="110,20"/>
 </Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
-<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20"/>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="true"/>
 </Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
-<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="120,20" Visible="false"/>
+<TextBox Weight="110" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="110,20" Visible="false"/>
 </Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
-<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
-<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="120,20" Visible="false"/>
+<DateTime Weight="110" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="110,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
 </Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
-<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="120,20" Visible="false"/>
+<TextBox Weight="110" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="110,20" Visible="false"/>
 </Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
-<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
-<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="120,20" Visible="false"/>
+<DateTime Weight="110" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="110,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
 </Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_bc_label_rule_id" Visible="false"><Ctrls>
-<Label Align="Right" Text="bc_label_rule_id" overlap="pre" Name="lb_bc_label_rule_id" readonly="true" Size="60,20" Visible="false"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_bc_label_rule_id" overlap="pre" Name="bc_label_rule_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{bc_label_rule_id}'"><SetVisible name="insertbc_label_rule" Visible="0"/><SetVisible name="modifybc_label_rule" Visible="1"/><else/><SetVisible name="insertbc_label_rule" Visible="1"/><SetVisible name="modifybc_label_rule" Visible="0"/></if><if cond="'%{bc_label_rule_id}'"><DbDetails><Where>bc_label_rule_id='%{bc_label_rule_id}'</Where></DbDetails><submit next="bc_label_rule_detail_vLst" namelist="DbDetails"/><else/><submit next="bc_label_rule_detail_vLst" function="resetcontent"/></if></OnEnChange></TextBox>
+<Label Align="Right" Text="bc_label_rule_id" overlap="pre" Name="lb_bc_label_rule_id" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="110" Text="" ToolTip="ttp_bc_label_rule_id" overlap="pre" Name="bc_label_rule_id" readonly="true" Size="110,20" Visible="false"><OnEnChange><if cond="'%{bc_label_rule_id}'"><SetVisible name="insertbc_label_rule" Visible="0"/><SetVisible name="modifybc_label_rule" Visible="1"/><else/><SetVisible name="insertbc_label_rule" Visible="1"/><SetVisible name="modifybc_label_rule" Visible="0"/></if><if cond="'%{bc_label_rule_id}'"><DbDetails><Where>bc_label_rule_id='%{bc_label_rule_id}'</Where></DbDetails><submit next="bc_label_rule_detail_vLst" namelist="DbDetails"/><else/><submit next="bc_label_rule_detail_vLst" function="resetcontent"/></if></OnEnChange></TextBox>
 </Ctrls></GroupBox>
 </Ctrls></GroupBox>
