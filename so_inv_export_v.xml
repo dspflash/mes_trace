@@ -1,0 +1,34 @@
+﻿<WndTap Text="so_inv_export" Name="so_inv_export" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\item.xml"/>
+<Language name="bc_label_rule">
+<Lang name="so_number" value="销单号码"/>
+<Lang name="so_qty" value="总数量"/>
+<Lang name="lot_number_id" value="批次号"/>
+<Lang name="item_name" value="品名"/>
+<Lang name="wip_qty" value="数量"/>
+</Language>
+		<Ctrls>
+		<GroupBox Text="" Name="GBwip_wo_header" id="wip_wo_header" Size="100,100"><Ctrls>
+	<Button Name="export" Size="50,20" Text="导出">
+	<OnClick><!--Save selected="0" columns="0,1,2,4,5,6,7,8,10"></Save--><submit next="pallet_transaction_vLst" namelist="Save" function="savetofile"/></OnClick></Button><TAB/>
+	</Ctrls></GroupBox><BR/>
+<GroupBox Name="GBDVpallet_transaction" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="pallet_transaction_vLst" ToolTip="ttp_pallet_transaction_v" Size="700,450" loadedclick="0">
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">SELECT so_number,product_number,product_name,so_qty,i_mat.item_number,i_mat.item_name,mat_lot.lot_number,SUM(p_wip.pallet_quantity) wip_qty
+FROM pallet_transaction p_wip 
+JOIN inv_transaction i_wip ON p_wip.inv_transaction_id = i_wip.inv_transaction_id 
+JOIN item i_mat ON i_mat.item_id_m=i_wip.item_id_m
+JOIN inv_lot_number mat_lot ON p_wip.inv_lot_number_id=mat_lot.inv_lot_number_id 
+JOIN (SELECT i_so.document_number so_number,i_prod.item_number product_number,i_prod.item_name product_name,SUM(i_so.quantity) so_qty,i_wo.document_type,i_wo.document_number wo_number FROM inv_transaction i_wo 
+JOIN pallet_transaction p_wo ON (i_wo.document_type="wo" AND i_wo.inv_transaction_id=p_wo.inv_transaction_id)
+JOIN pallet_transaction p_so ON (p_so.pallet_id=p_wo.pallet_id AND p_so.inv_lot_number_id=p_wo.inv_lot_number_id)
+JOIN inv_transaction i_so  ON (i_so.document_type="so" AND i_so.inv_transaction_id=p_so.inv_transaction_id)
+JOIN item i_prod ON i_so.item_id_m=i_prod.item_id_m GROUP BY i_so.inv_transaction_id) so 
+ON (so.document_type="wo" AND i_wip.document_type="wip" AND so.wo_number=i_wip.document_number)
+ where %{where} GROUP BY p_wip.inv_lot_number_id</queryFormat></DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>	</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertwip_wo_header" Visible="1"/><SetVisible name="modifywip_wo_header" Visible="0"/></OnActivate>
+	</WndTap>

@@ -4,6 +4,7 @@
 <var name="dataRequired" expr="pallet_id[pallet_id],item_id_m[item_id_m],lot_number_id,doc_type,doc_no,pallet_quantity"/>
 <WndTaps>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="so_inv_print_v.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="so_inv_export_v.xml" popup="1"/>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_transaction_Ve.xml" popup="1"/>
 </WndTaps>
 <var name="searchtmpl"><doc_no format="document_number='%{opvalue}'"/><!--pallet_label format="p.pallet_id=(select pallet_id from mes_trace.pallet where bc_label='%{opvalue}')"/--></var>
@@ -30,6 +31,10 @@
 	<submit namelist="DbDetails" next="$this.so_inv_print.item_name"/>
 	<DbDetails fcsm="1"><queryFormat>SELECT lot_number,creation_date completion_date,inv_lot_number_id FROM mes_trace.inv_lot_number WHERE inv_lot_number_id='%{lot_number_id[lot_id]}'</queryFormat></DbDetails>
 	<submit namelist="DbDetails" next="$this.so_inv_print.lot_number_id"/>
+	</OnClick>	</Button><TAB/>	
+<Button Text="export" ToolTip="ttp_export" Name="export" Size="50,20">	<OnClick>
+	<DbDetails><Where>so_number='%{doc_no}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="$this.so_inv_export.pallet_transaction_vLst"/>
 	</OnClick>	</Button><TAB/>	
 </Ctrls></GroupBox>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_transaction_Vpg.xml"/>

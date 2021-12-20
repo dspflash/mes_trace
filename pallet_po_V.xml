@@ -1,5 +1,5 @@
 ﻿<WndTap Name="pallet_po_v" Text="pallet_po_v">po0001
-<var name="doc_type" expr="po"/>322123322111160	453423122111160
+<var name="doc_type" expr="po"/>3221233221111608	4534231221111608
 <var name="transtype" expr="5"/>54233521	54233531
 <var name="dataRequired" expr="pallet_id[pallet_id],item_id_m[item_id_m],lot_number_id,doc_type,pallet_quantity"/>
 <WndTaps>
