@@ -4,13 +4,13 @@
 <Lang name="TabViewscrap" value="scrap View"/>
 <Lang name="scrap_number" value="报废单号"/>
 <Lang name="ttp_scrap_number" value=""/>
-<Lang name="wip_wo_header_id" value="工单"/>
+<Lang name="wip_wo_header_id" value="工单(1)"/>
 <Lang name="ttp_wip_wo_header_id" value=""/>
 <Lang name="wip_wo_bom_id" value="制程"/>
 <Lang name="ttp_wip_wo_bom_id" value=""/>
-<Lang name="item_bc" value="料件条码"/>
-<Lang name="qty" value="数量"/>
-<Lang name="pallet_id" value=""/>
+<Lang name="item_bc" value="料件条码(2)"/>
+<Lang name="qty" value="数量(4)"/>
+<Lang name="pallet_id" value="容器(3)"/>
 <Lang name="ttp_pallet_id" value=""/>
 <Lang name="qty" value=""/>
 <Lang name="ttp_qty" value=""/>

@@ -6,7 +6,7 @@
 <Ctrls>
 <GroupBox Text="scrap" Name="GBscrap" id="scrap" Size="100,100"><Ctrls>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="scrap_GBDEDITm.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="scrap_GBOPE.xml"></xi:include>
-<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="scrap_GBOPV.xml"></xi:include>
+<!--TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="scrap_GBOPV.xml"></xi:include-->
 <BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="scrap_GBDVm.xml"></xi:include></Ctrls></GroupBox>
 </Ctrls>
 	<OnChanged/>

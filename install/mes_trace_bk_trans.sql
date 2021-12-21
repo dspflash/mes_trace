@@ -1,0 +1,1 @@
+--tables inv_lot_number inv_lot_onhand inv_lot_transaction inv_transaction onhand  wip_wo_bom wip_wo_header wip_wo_routing_detail wip_wo_routing_line 

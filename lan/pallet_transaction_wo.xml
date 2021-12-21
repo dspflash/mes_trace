@@ -4,6 +4,7 @@
 <Lang name="doc_no" value="工    单（1）"/>
 <Lang name="document_number" value="工单"/>
 <Lang name="item_bc" value="批次条码（2）"/>
+<Lang name="ttp_item_scancode" value="回车完成输入"/>
 <Lang name="refk" value="制    程"/>
 <Lang name="item_name" value="产品名称"/>
 <Lang name="item_id_m" value="产品料号"/>

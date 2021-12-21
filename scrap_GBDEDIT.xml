@@ -32,7 +32,7 @@
 <Data>bc_label,pallet_id</Data>
 <Where/>
 <queryFormat>SELECT '%{pallet_label}' lb,mes_trace.GetPallet('%{pallet_label}','%{wip_wo_bom_id[pallet_specification]}','%{operaid}') pallet_id</queryFormat></DbDetails></TextBox>
-<TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" Name="pallet_label" Size="170,20" EnChangeDelay="100"> <OnEnChange><submit next="pallet_id"/></OnEnChange> <OnEnterKey><setfocus delay="500" name="pallet_quantity" expr="1"/></OnEnterKey> </TextBox></Ctrls></GroupBox>
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" Name="pallet_label" Size="170,20" EnChangeDelay="100"> <OnEnChange><submit next="pallet_id"/></OnEnChange> <OnEnterKey><setfocus delay="500" name="qty" expr="1"/></OnEnterKey> </TextBox></Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qty"><Ctrls>
 <Label Align="Right" Text="qty" Name="lb_qty" Size="60,20"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_qty" Name="qty" Size="170,20"/>
