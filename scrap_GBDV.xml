@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVscrap"><Ctrls>
+<ListCtrl Heading="scrap_number,250;wip_wo_header_id,55;wip_wo_bom_id,55;pallet_id,55;qty,90;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;scrap_id,55;" loadedclick="0" ToolTip="ttp_scrap" Name="scrapLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>scrap_id</Index>
+<DbTable>mes_trace.scrap s left join mes_trace.wip_wo_header w on s.wip_wo_header_id=w.wip_wo_header_id left join mes_trace.wip_wo_bom w0 on s.wip_wo_bom_id=w0.wip_wo_bom_id left join mes_trace.pallet p on s.pallet_id=p.pallet_id</DbTable>
+<Data>s.scrap_number,w.wo_number wip_wo_header_id,w0.bom_sequence wip_wo_bom_id,p.bc_label pallet_id,s.qty,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.scrap_id</Data>
+<Order>scrap_id</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>scrap_id='%{scrap_vLst[scrap_id]}'</Where></DbDetails><submit next="$this.scrap.scrapLst" namelist="DbDetails"/><assign name="$this.scrap.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>mes_trace.scrap</DbTable>
+<Where>scrap_id='%{scrap_vLst[scrap_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

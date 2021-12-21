@@ -1,0 +1,23 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVscrap"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_scrap" Name="scrapLst" Size="700,450">
+	<DbDetails fcsm="0">
+<Index>scrap_id</Index>
+<DbTable>mes_trace.scrap s 
+LEFT JOIN mes_trace.wip_wo_header w ON s.wip_wo_header_id=w.wip_wo_header_id 
+LEFT JOIN mes_trace.wip_wo_bom wb ON s.wip_wo_bom_id=wb.wip_wo_bom_id 
+LEFT JOIN mes_trace.pallet p ON s.pallet_id=p.pallet_id 
+LEFT JOIN item prod ON w.item_id_m=prod.item_id_m 
+LEFT JOIN wip_wo_routing_line wr ON wr.wip_wo_header_id=wb.wip_wo_header_id AND wr.routing_sequence=wb.routing_sequence AND wr.routing_seq_num=wb.routing_seq_num JOIN item i ON wb.component_item_id_m=i.item_id_m 
+LEFT JOIN bom_standard_operation bso ON bso.bom_standard_operation_id=wr.standard_operation_id </DbTable>
+<Data>s.scrap_number,w.wo_number,prod.item_name product_name,standard_operation,i.item_name material,p.bc_label pallet_id,s.qty,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.scrap_id</Data>
+<Order>scrap_id</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>scrap_id='%{scrap_vLst[scrap_id]}'</Where></DbDetails><submit next="$this.scrap.scrapLst" namelist="DbDetails"/><assign name="$this.scrap.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>mes_trace.scrap</DbTable>
+<Where>scrap_id='%{scrap_vLst[scrap_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEscrap" Size="100,100"><Ctrls>
+<Button sqlpkinsert="scrap_id" Text="create" ToolTip="ttp_createscrap" Name="insertscrap" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>mes_trace.scrap</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>wip_wo_header_id[wip_wo_header_id],wip_wo_bom_id[wip_wo_bom_id],pallet_id[pallet_id],qty</Data>
+<DataEx>scrap_number,created_by,creation_date,last_update_by,last_update_date;@odn,'%{operaid}',now(),'%{operaid}',now()</DataEx>
+<queryFormat>SET @seq=0;SELECT SUBSTR(scrap_number,-4)+0 INTO @seq FROM mes_trace.scrap WHERE DATE(creation_date)=CURDATE() ORDER BY scrap_number DESC LIMIT 0,1;SELECT CONCAT('B',  CURDATE() + 0, LPAD((@seq + 1), 4, '0')) INTO @odn;INSERT INTO %{TABLE} %{DATA};UPDATE wip_wo_header SET scrapped_quantity=scrapped_quantity+%{qty} WHERE wip_wo_header_id=%{wip_wo_header_id[wip_wo_header_id]}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertscrap[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="scrapLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.scrap_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyscrap" Name="modifyscrap" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>mes_trace.scrap</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>wip_wo_header_id[wip_wo_header_id],wip_wo_bom_id[wip_wo_bom_id],pallet_id[pallet_id],qty</Data>
+<DataEx>last_update_by,last_update_date;'%{operaid}',now()</DataEx>
+<Where>scrap_id='%{scrap_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyscrap[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="scrapLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.scrap_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetscrap" Name="resetscrap" Size="50,20">
+<OnClick>
+<submit next="GBDEDITscrap" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchscrap" Name="gsearchscrap" Size="50,20" visible="false">
+<OnClick>
+<search next="scrapLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITscrap" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

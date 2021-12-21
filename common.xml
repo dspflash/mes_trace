@@ -18,6 +18,7 @@
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_po_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_wip_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_wo_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="scrapm.xml"></xi:include>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_so_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_specification_v.xml"/>
@@ -25,6 +26,6 @@
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_v.xml"/>
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_v.xml"></xi:include>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_v.xml"/>
 	</WndTaps>
 </XI3uWnd>

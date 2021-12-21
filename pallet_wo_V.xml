@@ -1,4 +1,4 @@
-﻿<WndTap Name="pallet_wo_v" Text="pallet_wo_v">WO21112100001
+﻿<WndTap Name="pallet_wo_v" Text="pallet_wo_v">WO21121900001
 <var name="doc_type" expr="wo"/>2111162	
 <var name="transtype" expr="11"/>54233625
 <var name="dataRequired" expr="pallet_id[pallet_id],item_id_m[item_id_m],lot_number_id,doc_type,doc_no,pallet_quantity,wo_id[wip_wo_header_id]"/>

@@ -1,0 +1,42 @@
+﻿<Language name="scrap">
+<Lang name="scrap" value="报废"/>
+<Lang name="TabEditscrap" value="scrap Edit"/>
+<Lang name="TabViewscrap" value="scrap View"/>
+<Lang name="scrap_number" value="报废单号"/>
+<Lang name="ttp_scrap_number" value=""/>
+<Lang name="wip_wo_header_id" value="工单"/>
+<Lang name="ttp_wip_wo_header_id" value=""/>
+<Lang name="wip_wo_bom_id" value="制程"/>
+<Lang name="ttp_wip_wo_bom_id" value=""/>
+<Lang name="item_bc" value="料件条码"/>
+<Lang name="qty" value="数量"/>
+<Lang name="pallet_id" value=""/>
+<Lang name="ttp_pallet_id" value=""/>
+<Lang name="qty" value=""/>
+<Lang name="ttp_qty" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="scrap_id" value=""/>
+<Lang name="ttp_scrap_id" value=""/>
+<Lang name="ttp_operationscrap" value=""/>
+<Lang name="ttp_createscrap" value=""/>
+<Lang name="ttp_modifyscrap" value=""/>
+<Lang name="ttp_resetscrap" value=""/>
+<Lang name="ttp_deletescrap" value=""/>
+<Lang name="ttp_refreshscrap" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

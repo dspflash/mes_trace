@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?><WndTap Text="category" Name="category" Ver="2">
+﻿<?xml version="1.0" encoding="UTF-8"?><WndTap Text="category" Name="category" Ver="2">
 <var name="refreshAfterEdit" expr="1"/>
 <var name="dataRequired" expr="category,category_type[option_line_id]"/>
 <var name="dataRequireless" expr=""/>

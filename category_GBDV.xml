@@ -1,5 +1,5 @@
 ﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcategory"><Ctrls>
-<ListCtrl Heading="category,250;category_type,120;parent_id,120;description,580;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;category_id,60;" loadedclick="0" ToolTip="ttp_category" Name="categoryLst" Size="700,450">
+<ListCtrl Heading="category,250;category_type,120;parent_id,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;category_id,60;" loadedclick="0" ToolTip="ttp_category" Name="categoryLst" Size="700,450">
 	<DbDetails fcsm="1">
 <Index>category_id</Index>
 <DbTable>mes_trace.category c left join mes_trace.option_line o on c.category_type=o.option_line_id left join mes_trace.category c0 on c.parent_id=c0.category_id</DbTable>

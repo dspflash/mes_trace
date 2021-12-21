@@ -1,11 +1,11 @@
 ﻿<GroupBox Name="GBDEDITcategory" text="Search" toggle="1"><Ctrls>
 <GroupBox Name="GB_category" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
-<Label Name="lb_category" Size="120,20" Text="category" Align="Right"/>
-<TextBox Name="category" Size="110,20" Text="" Weight="110" ToolTip="ttp_category"></TextBox>
+<Label Name="lb_category" Size="60,20" Text="category" Align="Right"/>
+<TextBox Name="category" Size="170,20" Text="" Weight="170" ToolTip="ttp_category"></TextBox>
 </Ctrls></GroupBox>
 <GroupBox Name="GB_category_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
-<Label Name="lb_category_type" Size="120,20" Text="category_type" Align="Right" onload="init"/>
-<ComboBox Name="category_type" Size="110,100" Text="" Weight="110"  ToolTip="ttp_category_type" onload="init">
+<Label Name="lb_category_type" Size="60,20" Text="category_type" Align="Right" onload="init"/>
+<ComboBox Name="category_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_category_type" onload="init">
 	<DbDetails>
 <Index>option_line_id</Index>
 <DbTable>mes_trace.option_line</DbTable>

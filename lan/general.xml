@@ -7,6 +7,7 @@
 <Lang name="item_description" value="说明"/>
 <Lang name="product_number" value="产品料号"/>
 <Lang name="product" value="产品"/>
+<Lang name="product_name" value="产品"/>
 <Lang name="uom_name" value="单位"/>
 <Lang name="release" value="发布"/>
 <Lang name="print" value="列印"/>

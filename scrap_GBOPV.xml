@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVscrap" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletescrap" Name="deletescrap" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>mes_trace.scrap</DbTable>
+<Where>scrap_id='%{scrapLst[scrap_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchscrap" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshscrap" Name="searchscrap" Size="50,20">
+			  <OnClick><submit next="scrapLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPscrapLst" OnClick="(scrapLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREscrapLst" OnClick="(scrapLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPscrapLst" OnClick="(scrapLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>
