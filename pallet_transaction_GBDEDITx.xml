@@ -52,8 +52,8 @@ FROM mes_trace.wip_wo_routing_line wrl
 </TextBox>
 <TextBox Weight="150" Text="" ToolTip="ttp_itemitem_bc" Name="item_bc" Size="150,20" overlap="pre" visible="false"> 
 <DbDetails fcsm="1"> <Index>bc_label_rule_id</Index> <DbTable>mes_trace.bc_label_rule lr JOIN mes_trace.bc_label_rule_detail lrd ON (lr.status and lr.bc_label_rule_id=lrd.bc_label_rule_id)</DbTable>
-<Data>'%{item_scancode}',GROUP_CONCAT(IF(bc_label_rule_detail_id=1,SUBSTR('%{item_scancode}',start_pos,data_len),'') SEPARATOR '') AS d1,
-GROUP_CONCAT(IF(bc_label_rule_detail_id=2,SUBSTR('%{item_scancode}',start_pos,data_len),'') SEPARATOR '') AS d2</Data>
+<Data>'%{item_scancode}',GROUP_CONCAT(IF(rule_type=1,SUBSTR('%{item_scancode}',start_pos,data_len),'') SEPARATOR '') AS d1,
+GROUP_CONCAT(IF(rule_type=2,SUBSTR('%{item_scancode}',start_pos,data_len),'') SEPARATOR '') AS d2</Data>
 <Where>code_len=LENGTH('%{item_scancode}') GROUP BY lr.bc_label_rule_id</Where><queryFormat/></DbDetails> 
 <OnEnChange><if cond="'%{item_bc}'"><DbDetails fcsm="1"><Where>bc_label='%{item_bc[d1]}'</Where></DbDetails><submit namelist="DbDetails" next="item_id_m"/><else/><submit next="item_id_m" function="resetcontent"/></if></OnEnChange></TextBox>
 </Ctrls></GroupBox>

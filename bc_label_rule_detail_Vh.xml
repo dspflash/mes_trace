@@ -3,7 +3,7 @@
 	<DbDetails fcsm="1">
 <Index>bc_label_rule_detail_id</Index>
 <DbTable>mes_trace.bc_label_rule_detail</DbTable>
-<Data>bc_label_rule_detail_name,start_pos,data_len,description,status,created_by,creation_date,last_update_by,last_update_date,bc_label_rule_id,bc_label_rule_detail_id</Data>
+<Data>bc_label_rule_detail_name,rule_type,start_pos,data_len,description,status,created_by,creation_date,last_update_by,last_update_date,bc_label_rule_id,bc_label_rule_detail_id</Data>
 <Order>bc_label_rule_detail_id</Order></DbDetails>
 <OnClick>
 <if cond="'%{bc_label_rule_detail_id}'"><SetVisible name="insertbc_label_rule_detail" Visible="0"/><SetVisible name="modifybc_label_rule_detail" Visible="1"/></if>

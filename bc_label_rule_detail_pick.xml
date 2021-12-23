@@ -1,5 +1,5 @@
 ﻿<WndTap Name="bc_label_rule_detail_pick" Text="bc_label_rule_detail_Pick">
-<var name="searchtmpl"><bc_label_rule_detail_name format="(b.bc_label_rule_detail_name like '%%{opvalue}%')"/><start_pos format="(b.start_pos like '%%{opvalue}%')"/><data_len format="(b.data_len like '%%{opvalue}%')"/><description format="(b.description like '%%{opvalue}%')"/><status format="b.status is %{opvalue}"/><created_by format="(b.created_by like '%%{opvalue}%')"/><creation_date format="(b.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(b.last_update_by like '%%{opvalue}%')"/><last_update_date format="(b.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><bc_label_rule_id format="(b.bc_label_rule_id like '%%{opvalue}%')"/><bc_label_rule_detail_id format="(b.bc_label_rule_detail_id like '%%{opvalue}%')"/></var>
+<var name="searchtmpl"><bc_label_rule_detail_name format="(b.bc_label_rule_detail_name like '%%{opvalue}%')"/><rule_type format="(b.rule_type like '%%{opvalue}%')"/><start_pos format="(b.start_pos like '%%{opvalue}%')"/><data_len format="(b.data_len like '%%{opvalue}%')"/><description format="(b.description like '%%{opvalue}%')"/><status format="b.status is %{opvalue}"/><created_by format="(b.created_by like '%%{opvalue}%')"/><creation_date format="(b.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(b.last_update_by like '%%{opvalue}%')"/><last_update_date format="(b.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><bc_label_rule_id format="(b.bc_label_rule_id like '%%{opvalue}%')"/><bc_label_rule_detail_id format="(b.bc_label_rule_detail_id like '%%{opvalue}%')"/></var>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bc_label_rule_detail.xml"/>
 <Ctrls><GroupBox  Name="GBbc_label_rule_detail" id="bc_label_rule_detail" Text="bc_label_rule_detail" Size="100,100"><Ctrls>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bc_label_rule_detail_Vs.xml"/>
@@ -9,11 +9,11 @@
 <search next="bc_label_rule_detail_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbc_label_rule_detail" namelist="search" function="search"/>	
 </OnClick></Button><TAB/></Ctrls></GroupBox>
 <BR AutoHeight="1"/><GroupBox Name="GBDVbc_label_rule_detail" cols="xs12 sm12 md12 lg12"><Ctrls>
-<ListCtrl Name="bc_label_rule_detail_vLst" ToolTip="ttp_bc_label_rule_detail_v" Size="700,450" Heading="bc_label_rule_detail_name,125;start_pos,20;data_len,20;description,580;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bc_label_rule_id,60;bc_label_rule_detail_id,60;" loadedclick="0">
+<ListCtrl Name="bc_label_rule_detail_vLst" ToolTip="ttp_bc_label_rule_detail_v" Size="700,450" Heading="bc_label_rule_detail_name,125;rule_type,120;start_pos,20;data_len,20;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bc_label_rule_id,60;bc_label_rule_detail_id,60;" loadedclick="0">
 	<DbDetails >
 <Index>bc_label_rule_detail_id</Index>
 <DbTable>mes_trace.bc_label_rule_detail b</DbTable>
-<Data>b.bc_label_rule_detail_name,b.start_pos,b.data_len,b.description,b.status,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bc_label_rule_id,b.bc_label_rule_detail_id</Data>
+<Data>b.bc_label_rule_detail_name,b.rule_type,b.start_pos,b.data_len,b.description,b.status,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bc_label_rule_id,b.bc_label_rule_detail_id</Data>
 <Order>bc_label_rule_detail_id</Order></DbDetails>
 <OnClick><if cond="%{bc_label_rule_detail_vLst[bc_label_rule_detail_id]}"><DbDetails><Where>bc_label_rule_detail_id='%{bc_label_rule_detail_vLst[bc_label_rule_detail_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
 </ListCtrl>

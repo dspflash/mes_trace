@@ -5,7 +5,7 @@
 <DbTable>mes_trace.bc_label_rule_detail</DbTable>
 <Required>%{dataRequired}</Required>
 <Requireless>%{dataRequireless}</Requireless>
-<Data>bc_label_rule_detail_name,start_pos,data_len,description,status,bc_label_rule_id</Data>
+<Data>bc_label_rule_detail_name,rule_type,start_pos,data_len,description,status,bc_label_rule_id</Data>
 <DataEx>created_by,creation_date,last_update_by,last_update_date;'%{operaid}',now(),'%{operaid}',now()</DataEx>
 <queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
 <submit namelist="DbDetails"/><if cond="!%{insertbc_label_rule_detail[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bc_label_rule_detailLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bc_label_rule_detail_vLst" delay="1000"/></if></if></if></if>
@@ -17,7 +17,7 @@
 <DbTable>mes_trace.bc_label_rule_detail</DbTable>
 <Required>%{dataRequired}</Required>
 <Requireless>%{dataRequireless}</Requireless>
-<Data>bc_label_rule_detail_name,start_pos,data_len,description,status</Data>
+<Data>bc_label_rule_detail_name,rule_type,start_pos,data_len,description,status</Data>
 <DataEx>last_update_by,last_update_date;'%{operaid}',now()</DataEx>
 <Where>bc_label_rule_detail_id='%{bc_label_rule_detail_id}'</Where>
 <queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
