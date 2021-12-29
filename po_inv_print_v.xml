@@ -1,4 +1,4 @@
-﻿<WndTap Text="wip_wo_inv_print" Name="wip_wo_inv_print" Ver="2" popup="1">
+﻿<WndTap Text="po_inv_print" Name="po_inv_print" Ver="2" popup="1">
 <Language name="bc_label_rule">
 <Lang name="lot_number_id" value="批次号"/>
 </Language>

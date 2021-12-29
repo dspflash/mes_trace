@@ -1,18 +1,18 @@
 ﻿<GroupBox Name="GBDEDITwip_wo_header"><Ctrls>
-<GroupBox cols="xs6 sm3 md2" Multiline="0" Name="GB_item_name"><Ctrls>
+<GroupBox Multiline="0" Name="GB_item_name"><Ctrls>
 <MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="120,120" OnLoad="init">
-	<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="2.2"/>
+	<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="3.0"/>
 	<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/><submit namelist="DbDetails" next="qr_itemname1"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
 	</MagicCtrl>
 </Ctrls></GroupBox>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_name"><Ctrls><Label Align="Right" Text="item_name" Name="lb_item_name" Size="120,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_item_name" Name="item_name" Size="170,20"/>
+<GroupBox Multiline="0" Name="GB_item_name"><Ctrls><Label Align="Right" Text="item_name" Name="lb_item_name" Size="120,20"/><BR/>
+<TextBox Text="" ToolTip="ttp_item_name" Name="item_name" Size="120,20"/>
 </Ctrls></GroupBox>
-<GroupBox cols="xs6 sm3 md2" Multiline="0" Name="GB_item_name"><Ctrls><MagicCtrl Name="qr_itemname1" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="120,120"/>
+<GroupBox Multiline="0" Name="GB_item_name"><Ctrls><MagicCtrl Name="qr_itemname1" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="120,120"/>
 </Ctrls></GroupBox>
-<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
-<Label Align="Right" Text="item_number" Name="lb_item_id_m" readonly="true" Size="120,20" selectedindex="0"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_item_id_m" Name="item_id_m" readonly="true" Size="170,20" selectedindex="0">
+<BR AutoHeight="1"/><GroupBox Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_number" Name="lb_item_id_m" readonly="true" Size="60,20" selectedindex="0"/>
+<TextBox Text="" ToolTip="ttp_item_id_m" Name="item_id_m" readonly="true" Size="120,20" selectedindex="0">
 	<DbDetails fcsm="1">
 <DbTable>mes_trace.item</DbTable>
 <Index>item_id_m</Index>
@@ -20,25 +20,25 @@
 <Where>item_type=99</Where>
 <queryFormat/></DbDetails><OnSELENDOK><submit next="reference_bom_item_id_m"/><submit next="reference_routing_item_id_m"/><submit next="completion_sub_inventory"/></OnSELENDOK></TextBox>
 </Ctrls></GroupBox>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_lot_number_id"><Ctrls>
-<Label Align="Right" Text="lot_number_id" Name="lb_lot_number_id" readonly="true" Size="120,20"/> 
-<TextBox Weight="150" Text="" ToolTip="ttp_lot_number_id" Name="lot_number_id" readonly="true" Size="150,20">
+<GroupBox Multiline="0" Name="GB_lot_number_id"><Ctrls>
+<Label Align="Right" Text="lot_number_id" Name="lb_lot_number_id" readonly="true" Size="60,20"/> 
+<TextBox Text="" ToolTip="ttp_lot_number_id" Name="lot_number_id" readonly="true" Size="120,20">
 </TextBox> </Ctrls></GroupBox>
-<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_long_description"><Ctrls>
-<Label Align="Right" Text="long_description" Name="lb_long_description" Size="120,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_long_description" Name="long_description" Size="170,20"/>
+<BR AutoHeight="1"/><GroupBox Multiline="0" Name="GB_long_description"><Ctrls>
+<Label Align="Right" Text="long_description" Name="lb_long_description" Size="60,20"/>
+<TextBox Text="" ToolTip="ttp_long_description" Name="long_description" Size="120,20"/>
 </Ctrls></GroupBox>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quantity"><Ctrls>
-<Label Align="Right" Text="quantity" Name="lb_quantity" Size="120,20"/>
-<TextBox Weight="170" Text="" ToolTip="回车生成二维码" Name="quantity" Size="170,20">
+<GroupBox Multiline="0" Name="GB_quantity"><Ctrls>
+<Label Align="Right" Text="quantity" Name="lb_quantity" Size="60,20"/>
+<TextBox Text="" ToolTipx="回车生成二维码" Name="quantity" Size="120,20">
 <OnEnterKey>
 <magicdata filename="data/qr_wip_wo_inv_number.png"><data>%{item_id_m[bc_label]},%{lot_number_id},%{completion_date},%{quantity}</data></magicdata>
 <submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
 </OnEnterKey></TextBox>
 </Ctrls></GroupBox>
 <BR AutoHeight="1"/>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_completion_date"><Ctrls>
-<Label Align="Right" Text="completion_date" Name="lb_completion_date" Size="120,20"/>
-<DateTime Weight="170" ToolTip="ttp_completion_date" Name="completion_date" Size="170,20" Format="yyyy-MM-dd"/>
+<GroupBox  Multiline="0" Name="GB_completion_date"><Ctrls>
+<Label Align="Right" Text="completion_date" Name="lb_completion_date" Size="60,20"/>
+<DateTime ToolTip="ttp_completion_date" Name="completion_date" Size="120,20" Format="yyyy-MM-dd"/>
 </Ctrls></GroupBox>
 </Ctrls></GroupBox>
