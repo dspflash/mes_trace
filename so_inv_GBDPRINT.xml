@@ -1,74 +1,87 @@
-﻿<GroupBox Name="GBDEDITwip_wo_header"><Ctrls>
-<GroupBox cols="xs12 sm6" Multiline="0" Name="GB_org_name"><Ctrls>
-<Label Align="Right" Text="" Name="lb_org_name" Size="120,20" Weight="20" />
-<Label Align="Right" Text="苏州博亚科技有限公司" Name="lb_org_name" Size="120,20" Weight="120" />
+﻿<GroupBox Name="GBDEDITwip_wo_header" printborder="1"><Ctrls>
+<GroupBox Multiline="0" Name="GB_TopLeft" printborder="1"><Ctrls>
+<GroupBox Multiline="0" Name="GB_org_name" printborder="1"><Ctrls>
+<Label Align="Right" Text="" Name="lb_x" Size="30,20"/>
+<Label Align="Right" Text="苏州博亚科技有限公司" Name="lb_org_name" Size="210,20"/>
+<BR/><GroupBox Multiline="0" Name="GB_long_description" printborder="1"><Ctrls>
+<Label Align="Right" Text="long_description" Name="lb_long_description" Size="60,20"/>
+<TextBox Text="" ToolTip="ttp_long_description" Name="long_description" Size="150,20"/>
+<TextBox Text="新模" ToolTip="ttp_model" Name="model" Size="30,20"/>
+</Ctrls></GroupBox>
 </Ctrls></GroupBox>
 
-<BR AutoHeight="1"/><GroupBox cols="xs12 sm6" Multiline="0" Name="GB_long_description"><Ctrls>
-<Label Align="Right" Text="long_description" Name="lb_long_description" Size="120,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_long_description" Name="long_description" Size="170,20"/>
-<TextBox Weight="110" Text="新模" ToolTip="ttp_model" Name="model" Size="170,20"/>
+<BR/>
+<GroupBox Multiline="0" Name="GB_default_buyer" printborder="1"><Ctrls>
+<GroupBox Multiline="0" Name="GB_default_buyerx" printborder="1"><Ctrls>
+<Label Align="Right" Text="default_buyer" Name="lb_default_buyer" Size="60,20"/>
+</Ctrls></GroupBox>
+<TextBox Text="" ToolTip="ttp_default_buyer" Name="default_buyer" Size="180,20"/>
 </Ctrls></GroupBox>
 
-<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_default_buyer"><Ctrls>
-<Label Align="Right" Text="default_buyer" Name="lb_default_buyer" Size="120,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_default_buyer" Name="default_buyer" Size="170,20"/>
+<BR/>
+<GroupBox Multiline="0" Name="GB_item_tpx" printborder="1"><Ctrls>
+<GroupBox Multiline="0" Name="GB_item_tpxx" printborder="1"><Ctrls>
+<Label Align="Right" Text="来料批号" Name="lb_item_tpx" Size="60,20"/>
+</Ctrls></GroupBox>
+<TextBox Text="" ToolTip="ttp_item_tp" Name="item_tpx" Size="180,20"/>
 </Ctrls></GroupBox>
 
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_name"><Ctrls>
-<Label Align="Right" Text="item_name" Name="lb_item_name" Size="120,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_item_name" Name="item_name" Size="170,20">
+<BR/>
+<GroupBox Multiline="0" Name="GB_item_name" printborder="1"><Ctrls>
+<GroupBox Multiline="0" Name="GB_item_namex" printborder="1"><Ctrls>
+<Label Align="Right" Text="品名" Name="lb_item_name" Size="60,20"/>
+</Ctrls></GroupBox>
+<TextBox Text="" ToolTip="ttp_item_name" Name="item_name" Size="180,20">
 	<DbDetails fcsm="1">
 <DbTable>mes_trace.item i left join mes_trace.category cg on i.item_category=cg.category_id left join mes_trace.ar_customer c on i.default_buyer=c.ar_customer_id</DbTable>
 <Index>item_id_m</Index>
-<Data>item_name,customer_name default_buyer,category item_tp,item_number,i.long_description,item_id_m</Data>
+<Data>item_name,customer_name default_buyer,category item_tp,item_number,i.long_description,bc_label,item_id_m</Data>
 <Where>item_type=99</Where>
 <queryFormat/></DbDetails>
 </TextBox>
 </Ctrls></GroupBox>
-
-<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_tp"><Ctrls>
-<Label Align="Right" Text="料别" Name="lb_item_tp" Size="120,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_item_tp" Name="item_tp" Size="170,20"/>
 </Ctrls></GroupBox>
 
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
-<Label Align="Right" Text="产品信息" Name="lb_item_info" readonly="true" Size="120,20" selectedindex="0"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_item_info" Name="item_info" readonly="false" Size="170,20" selectedindex="0">
-</TextBox>
+<GroupBox Multiline="0" Name="GB_qr_item_name" Padding="1,1,1,1"><Ctrls>
+<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="120,120" OnLoad="init">
+	<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="3.0"/>
+	<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/><submit namelist="DbDetails" next="qr_itemname1"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+	</MagicCtrl>
 </Ctrls></GroupBox>
 
-<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_material_lot"><Ctrls>
-<Label Align="Right" Text="莫仕来料批号" Name="lb_material_lot" Size="120,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_material_lot" Name="material_lot" Size="170,20"/>
+<BR/>
+<GroupBox Multiline="0" Name="GB_quantity" printborder="1"><Ctrls>
+<GroupBox Multiline="0" Name="GB_quantityx" printborder="1"><Ctrls>
+<Label Align="Right" Text="quantity" Name="lb_quantity" Size="60,20"/>
+</Ctrls></GroupBox>
+<TextBox Text="" Name="quantity" ToolTip="回车生成二维码" Size="60,20">
+<OnEnterKey>
+<magicdata filename="data/qr_wip_wo_inv_number.png"><data>%{item_name[bc_label]},%{lot_number_id},%{completion_date},%{quantity}</data></magicdata>
+<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+</OnEnterKey></TextBox>
+<Label Align="Right" Text="PCS" Name="lb_quantity" Size="60,20"/>
+<GroupBox Multiline="0" Name="GB_lot_number_idx" printborder="1"><Ctrls>
+<Label Align="Right" Text="生产批号" Name="lb_lot_number_id" readonly="true" Size="60,20"/> 
+</Ctrls></GroupBox>
 </Ctrls></GroupBox>
 
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_lot_number_id"><Ctrls>
-<Label Align="Right" Text="lot_number_id" Name="lb_lot_number_id" readonly="true" Size="120,20"/> 
-<TextBox Weight="150" Text="" ToolTip="ttp_lot_number_id" Name="lot_number_id" readonly="true" Size="150,20">
+<GroupBox Multiline="0" Name="GB_lot_number_id" printborder="1"><Ctrls>
+<TextBox Text="" ToolTip="ttp_lot_number_id" Name="lot_number_id" readonly="true" Size="120,20">
 </TextBox> </Ctrls></GroupBox>
 
-<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quantity"><Ctrls>
-<Label Align="Right" Text="quantity" Name="lb_quantity" Size="120,20"/>
-<TextBox Weight="170" Text="" ToolTip="" Name="quantity" Size="170,20">
-</TextBox>
+<BR/>
+<GroupBox Multiline="0" Name="GB_completion_date" printborder="1"><Ctrls>
+<GroupBox Multiline="0" Name="GB_completion_datex" printborder="1"><Ctrls>
+<Label Align="Right" Text="日期" Name="lb_completion_date" Size="60,20"/>
+</Ctrls></GroupBox>
+<DateTime ToolTip="ttp_completion_date" Name="completion_date" Size="120,20" Format="yyyy-MM-dd"/>
+<GroupBox Multiline="0" Name="GB_qcx" printborder="1"><Ctrls>
+<Label Align="Right" Text="检验员" Name="lb_qc" Size="60,20"/>
+</Ctrls></GroupBox>
 </Ctrls></GroupBox>
 
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_color"><Ctrls>
-<Label Align="Right" Text="color" Name="lb_color" Size="120,20"/>
-<TextBox Weight="170" Text="黑色" ToolTip="" Name="color" Size="170,20">
-</TextBox>
-</Ctrls></GroupBox>
-
-<BR AutoHeight="1"/>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_completion_date"><Ctrls>
-<Label Align="Right" Text="completion_date" Name="lb_completion_date" Size="120,20"/>
-<DateTime Weight="170" ToolTip="ttp_completion_date" Name="completion_date" Size="170,20" Format="yyyy-MM-dd"/>
-</Ctrls></GroupBox>
-
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qc"><Ctrls>
-<Label Align="Right" Text="检验员" Name="lb_qc" Size="120,20"/>
-<TextBox Weight="170" Text="梁宗梅" ToolTip="" Name="qc" Size="170,20">
+<GroupBox Multiline="0" Name="GB_qc" printborder="1"><Ctrls>
+<TextBox Text="梁宗梅" ToolTip="" Name="qc" Size="120,20">
 </TextBox>
 </Ctrls></GroupBox>
 

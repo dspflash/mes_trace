@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd navtype="tab" debug="1" Title="Mes Trace" icons="http://3ucs.com/biz/theme/delight-vtiger/vtiger/style.css">
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd navtype="tab" debug="1" Title="Mes Trace" font-sizex="80" font-familyx="行书" icons="http://3ucs.com/biz/theme/delight-vtiger/vtiger/style.css">
 	<DbDetails>
 		<SubDriver>MySQL ODBC 3.51 Driver</SubDriver>
 		<Host>localhost</Host>

@@ -1,4 +1,5 @@
 ﻿<WndTap Text="so_inv_print" Name="so_inv_print" Ver="2" popup="1">
+<PageCfg PaddingBox="5,5,5,5" PaddingBoxRow="0,0,0,0" PaddingBoxCol="0,0,0,0"/>
 <Language name="bc_label_rule">
 <Lang name="lot_number_id" value="批次号"/>
 </Language>

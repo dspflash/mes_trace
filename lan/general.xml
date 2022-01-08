@@ -1,5 +1,6 @@
 <Language name="general">
 <Lang name="bc_label" value="条码"/>
+<Lang name="CopyBarcode" value="复制条码"/>
 <Lang name="item_name" value="品名"/>
 <Lang name="item_number" value="料号"/>
 <Lang name="item_id_m" value="料号"/>
