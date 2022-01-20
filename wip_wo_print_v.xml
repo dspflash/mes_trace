@@ -8,7 +8,16 @@
 	<DbDetails fcsm="1">
 <DbTable>wip_wo_bom_v</DbTable>
 <Index>wip_wo_bom_id</Index>
-<Data>*</Data>
+<Data>wo_number,
+product,
+product_name,
+material ,
+item_name,
+required_quantity ,
+issued_quantity,
+uom_name ,
+usage_basis ,
+usage_quantity</Data>
 <Order>wip_wo_bom_id</Order></DbDetails>mustselected
 <operator firstpage="1" nextpage="1" refresh="1" prepage="1">
 	<op text="导出"><Save></Save><submit next="wip_wo_bomLst" namelist="Save" function="savetofile"/></op>
