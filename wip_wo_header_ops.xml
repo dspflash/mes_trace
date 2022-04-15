@@ -10,9 +10,9 @@
 <DbDetails><Where>item_id_m=(select item_id_m from wip_wo_header where wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_print.item_id_m" dely="2000"/>
 </op>
 <op text="close" needconfirm="1"><assign name="topmost" expr="sql:update mes_trace.wip_wo_header set wo_status=374,closed_date=now() where wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}' or primary_wo_id=%{wip_wo_header_vLst[wip_wo_header_id]}"/><submit/></op>
-<op text="delete" needconfirm="1"><DbDetails>
+<!--op text="delete" needconfirm="1"><DbDetails>
 <DbTable>mes_trace.wip_wo_header</DbTable>
 <Where>wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}'</Where>
 <queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
-<submit namelist="DbDetails"/><submit/></op>
+<submit namelist="DbDetails"/><submit/></op-->
 </operator>

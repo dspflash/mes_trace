@@ -12,7 +12,9 @@
 <Data>wo_number,wip_wo_header_id</Data>
 <Where/>
 <queryFormat>select wo_number,item_name product_name,wip_wo_header_id from mes_trace.wip_wo_header wo join mes_trace.item i on wo.item_id_m=i.item_id_m where wo_number='%{doc_no}'</queryFormat></DbDetails></TextBox>
-<TextBox Weight="170" Text="" ToolTip="ttp_doc_no" Name="doc_no" Size="170,20" EnChangeDelay="100"> <OnEnChange/> <OnEnterKey><submit next="wip_wo_header_id"/><setfocus delay="500" name="item_scancode" expr="1"/></OnEnterKey> </TextBox></Ctrls></GroupBox>
+<TextBox Weight="170" Text="" ToolTip="ttp_doc_no" Name="doc_no" Size="170,20" EnChangeDelay="100" barcode="2">
+	<OnEnChange/>
+	<OnEnterKey><submit next="wip_wo_header_id"/><setfocus delay="500" name="item_scancode" expr="1"/></OnEnterKey> </TextBox></Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_product_name"><Ctrls> <Label Align="Right" Text="product_name" Name="lb_product_name" readonly="true" Size="120,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_product_name" Name="product_name" readonly="true" Size="150,20"> <DbDetails> <Index>item_id_m</Index> <DbTable>mes_trace.item</DbTable> <Data>item_name,item_number,pallet_specification,receipt_sub_inventory,item_id_m</Data> <Where>item_id_m='%{wo_id[item_id_m]}'</Where> <queryFormat/></DbDetails> </TextBox> </Ctrls></GroupBox><BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_wip_wo_bom_id"><Ctrls>
 <Label Align="Right" Text="wip_wo_bom_id" Name="lb_wip_wo_bom_id" readonly="true" Size="120,20"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_wip_wo_bom_id" Name="wip_wo_bom_id" readonly="true" Size="170,20">
@@ -23,7 +25,10 @@
 <Where/>
 <queryFormat/></DbDetails></TextBox>
 </Ctrls></GroupBox>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_bc"><Ctrls> <Label Align="Right" Text="item_bc" Name="lb_item_bc" readonly="true" Size="120,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_item_scancode" Name="item_scancode" Size="150,20" EnChangeDelay="100"> <OnEnterKey> <DbDetails> <queryFormat>SELECT standard_operation,pallet_specification,item_id_m,wip_wo_bom_id FROM bom_standard_operation bso JOIN wip_wo_routing_line wr ON bso.bom_standard_operation_id=wr.standard_operation_id JOIN wip_wo_bom wb ON wr.wip_wo_header_id=wb.wip_wo_header_id AND wr.routing_sequence=wb.routing_sequence AND wr.routing_seq_num=wb.routing_seq_num JOIN item i ON wb.component_item_id_m=i.item_id_m where bc_label='%{item_scancode}' </queryFormat></DbDetails><submit next="wip_wo_bom_id" namelist="DbDetails"/> <setfocus delay="500" name="pallet_label" expr="1"/></OnEnterKey> </TextBox> </Ctrls></GroupBox><BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pallet_id"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_bc"><Ctrls> 
+<Label Align="Right" Text="item_bc" Name="lb_item_bc" readonly="true" Size="120,20"/> 
+<TextBox Weight="150" Text="" ToolTip="ttp_item_scancode" Name="item_scancode" Size="150,20" EnChangeDelay="100" barcode="2">
+	<OnEnterKey> <DbDetails> <queryFormat>SELECT standard_operation,pallet_specification,item_id_m,wip_wo_bom_id FROM bom_standard_operation bso JOIN wip_wo_routing_line wr ON bso.bom_standard_operation_id=wr.standard_operation_id JOIN wip_wo_bom wb ON wr.wip_wo_header_id=wb.wip_wo_header_id AND wr.routing_sequence=wb.routing_sequence AND wr.routing_seq_num=wb.routing_seq_num JOIN item i ON wb.component_item_id_m=i.item_id_m where bc_label='%{item_scancode}' </queryFormat></DbDetails><submit next="wip_wo_bom_id" namelist="DbDetails"/> <setfocus delay="500" name="pallet_label" expr="1"/></OnEnterKey> </TextBox> </Ctrls></GroupBox><BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pallet_id"><Ctrls>
 <Label Align="Right" Text="pallet_id" Name="lb_pallet_id" readonly="true" Size="120,20"/>
 <TextBox Weight="150" Text="" ToolTip="ttp_pallet_id" Name="pallet_id" readonly="true" Visible="false" Size="150,20">
 	<DbDetails>
@@ -32,7 +37,7 @@
 <Data>bc_label,pallet_id</Data>
 <Where/>
 <queryFormat>SELECT '%{pallet_label}' lb,mes_trace.GetPallet('%{pallet_label}','%{wip_wo_bom_id[pallet_specification]}','%{operaid}') pallet_id</queryFormat></DbDetails></TextBox>
-<TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" Name="pallet_label" Size="170,20" EnChangeDelay="100"> <OnEnChange><submit next="pallet_id"/></OnEnChange> <OnEnterKey><setfocus delay="500" name="qty" expr="1"/></OnEnterKey> </TextBox></Ctrls></GroupBox>
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" Name="pallet_label" Size="170,20" EnChangeDelay="100" barcode="2"> <OnEnChange><submit next="pallet_id"/></OnEnChange> <OnEnterKey><setfocus delay="500" name="qty" expr="1"/></OnEnterKey> </TextBox></Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qty"><Ctrls>
 <Label Align="Right" Text="qty" Name="lb_qty" Size="120,20"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_qty" Name="qty" Size="170,20"/>

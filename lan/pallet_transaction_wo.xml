@@ -1,14 +1,14 @@
 ﻿<Language name="pallet_transaction">
 <Lang name="pallet_wo_v" value="完工入库"/>
 <Lang name="pallet_transaction" value="完工入库"/>
-<Lang name="doc_no" value="工    单（1）"/>
+<Lang name="doc_no" value="工    单(1)"/>
 <Lang name="document_number" value="工单"/>
-<Lang name="item_bc" value="批次条码（2）"/>
+<Lang name="item_bc" value="批次条码(2)"/>
 <Lang name="ttp_item_scancode" value="回车完成输入"/>
 <Lang name="refk" value="制    程"/>
 <Lang name="item_name" value="产品名称"/>
 <Lang name="item_id_m" value="产品料号"/>
 <Lang name="lot_number_id" value="批    次"/>
 <Lang name="pallet_quantity" value="数    量(3)"/>
-<Lang name="pallet_label" value="容器条码（2）"/>
+<Lang name="pallet_label" value="容器条码(2)"/>
 </Language>

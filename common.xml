@@ -14,6 +14,7 @@
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_standard_operation_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bc_label_rule_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vonhand.xml"/>
 	
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_po_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_wip_v.xml"/>

@@ -1,0 +1,65 @@
+<WndTap Name="OnHand" Text="OnHand">
+<Language name="OnHand">
+<Lang name="OnHand" value="库存"/>
+</Language>
+	<WndTaps>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\item.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Material"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_Vs.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="search" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="invOnhandLst" listed="0" prefixand="0" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="export" Size="50,20" Text="导出明细"><TAB/>
+	<OnClick><!--Save selected="1" columns="3,0,7,8,9,11"></Save--><submit next="invOnhandLst" namelist="Save" function="savetofile"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="invOnhandLst" Size="700,420" DataJoin="%{this(item_number,item_name,onhand,uom_name,subinventory,sluggish,locator)}%{this(last_update_date,item_specification,item_description,org)}">
+	<DbDetails>
+<DbTable>(((((`item` `i`
+         LEFT JOIN `onhand` `o`
+           ON ((`o`.`item_id_m` = `i`.`item_id_m`)))
+        LEFT JOIN `uom` `u`
+          ON ((`o`.`uom_id` = `u`.`uom_id`)))
+       LEFT JOIN `subinventory` `s`
+         ON ((`o`.`subinventory_id` = `s`.`subinventory_id`)))
+      LEFT JOIN `locator` `l`
+        ON ((`o`.`locator_id` = `l`.`locator_id`)))
+     LEFT JOIN `inv_lot_number` `i0`
+       ON ((`o`.`lot_id` = `i0`.`inv_lot_number_id`)))</DbTable>
+<Index>item_id_m</Index>
+<Data>  `i`.`item_number`         AS `item_number`,
+  `i`.`item_name`           AS `item_name`,
+  `i`.`item_specification`  AS `item_specification`,
+  `i`.`item_description`    AS `item_description`,
+  `u`.`uom_name`            AS `uom_name`,
+  `o`.`onhand`              AS `onhand`,
+  `o`.`onhand_id`           AS `onhand_id`,
+  `o`.`uom_id`              AS `uom_id`,
+  `i`.`item_id_m`           AS `item_id_m`,
+  `i`.`make_buy`            AS `make_buy`,
+  `i`.`inventory_item_cb`   AS `inventory_item_cb`,
+  `i`.`org_id`              AS `org_id`,
+  `o`.`last_update_date`    AS `last_update_date`,
+  (TO_DAYS(CURDATE()) - TO_DAYS(`o`.`last_update_date`)) AS `sluggish`</Data>
+<Order></Order>
+<Where>item_status!=278 and onhand</Where>
+<queryFormat>select %{data} from %{dbtable} where %{where} %{order} order by item_id_m limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

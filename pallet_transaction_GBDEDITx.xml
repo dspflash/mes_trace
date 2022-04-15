@@ -1,7 +1,7 @@
 ﻿<GroupBox Name="GBDEDITpallet_transaction"><Ctrls>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_doc_no"><Ctrls>
 <Label Align="Right" Text="doc_no" Name="lb_doc_nod" Size="120,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_doc_no" Name="doc_no" EnChangeDelay="1000" Size="170,20">
+<TextBox Weight="170" Text="" ToolTip="ttp_doc_no" Name="doc_no" EnChangeDelay="1000" Size="170,20" barcode="2">
 <OnEnChange><if cond="'%{doc_no}'&&('%{doc_type}'=='wo'||'%{doc_type}'=='wip')"><submit next="wo_id"/><else/><submit next="wo_id" function="resetcontent"/></if></OnEnChange>
 <OnEnterKey><if cond="'%{doc_no}'&&('%{doc_type}'=='wo'||'%{doc_type}'=='po')"><setfocus name="item_scancode" expr="1" delay="500"/><else/><setfocus name="pallet_label" expr="1" delay="500"/></if></OnEnterKey>
 </TextBox>
@@ -32,14 +32,16 @@ FROM mes_trace.wip_wo_routing_line wrl
  WHERE wo_number='%{doc_no}' AND component_item_id_m='%{item_id_m[item_id_m]}'
 </queryFormat></DbDetails></TextBox> </Ctrls></GroupBox>
 
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_product_name"><Ctrls> <Label Align="Right" Text="product_name" Name="lb_product_name" readonly="true" Size="120,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_product_name" Name="product_name" readonly="true" Size="150,20">
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_product_name"><Ctrls> 
+<Label Align="Right" Text="product_name" Name="lb_product_name" readonly="true" Size="120,20"/> 
+<TextBox Weight="150" Text="" ToolTip="ttp_product_name" Name="product_name" readonly="true" Size="150,20">
 <DbDetails> <Index>item_id_m</Index> <DbTable>mes_trace.item</DbTable> <Data>item_name,item_number,pallet_specification,receipt_sub_inventory,item_id_m</Data> <Where>item_id_m='%{wo_id[item_id_m]}'</Where> <queryFormat/></DbDetails>
 </TextBox> </Ctrls></GroupBox>
 
 <BR AutoHeight="1"/>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_bc"><Ctrls>
 <Label Align="Right" Text="item_bc" Name="lb_item_bc" readonly="true" Size="120,20"/>
-<TextBox Weight="150" Text="" ToolTip="ttp_item_scancode" Name="item_scancode" EnChangeDelay="1000" Size="150,20">
+<TextBox Weight="150" Text="" ToolTip="ttp_item_scancode" Name="item_scancode" EnChangeDelay="1000" Size="150,20" barcode="2">
 <OnEnChange><if cond="('%{item_scancode}').length&gt;=15">
 <submit next="item_bc"/><else/><submit next="item_bc" function="resetcontent"/></if></OnEnChange>
 <OnEnterKey><if cond="'%{doc_no}'&&('%{doc_type}'=='wo')">
@@ -60,7 +62,7 @@ GROUP_CONCAT(IF(rule_type=2,SUBSTR('%{item_scancode}',start_pos,data_len),'') SE
 
 <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pallet_id"><Ctrls>
 <Label Align="Right" Text="pallet_label" Name="lb_pallet_id" Size="120,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" Name="pallet_label" EnChangeDelay="1000" Size="170,20">
+<TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" Name="pallet_label" EnChangeDelay="1000" Size="170,20" barcode="2">
 <OnEnChange><submit next="pallet_id"/><!--submit next="gsearchpallet_transaction" function="click"/--></OnEnChange>
 <OnEnterKey><setfocus name="pallet_quantity" expr="1" delay="500"/></OnEnterKey>
 </TextBox>
