@@ -5,6 +5,7 @@
 <DbTable>mes_trace.pallet p left join mes_trace.pallet_specification p0 on p.specification=p0.specification_id</DbTable>
 <Data>p.bc_label,p0.specification_name specification,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.pallet_id</Data>
 <Order>pallet_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
 <operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
 <op text="modify"><DbDetails><Where>pallet_id='%{pallet_vLst[pallet_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.pallet.palletLst"/><assign name="$this.pallet.frmwndctrl" expr="%{this}"/></op>
 <op text="delete" needconfirm="1"><DbDetails>

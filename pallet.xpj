@@ -1,1 +1,18 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><biztoolcfg qryfmtOpCreate="" qryfmtOpUpdate="" loadedClick="0" tableNm="pallet" referLst="0" onLoadInit="0" tableTxt="pallet" LstTP="Lst" lines2Link="" jointbls="1" header2Link="" exdata4select=""><Ctrls><Ctrl Required="1" name="bc_label"/><Ctrl Required="1" ctrldbname="mes_trace." name="specification" ctrldbtable="pallet_specification" xTp="ComboBox" ctrldbdata="specification_name,specification_id" ctrldbdatarel="specification_id" ctrltype="ComboBox"><extattr><![CDATA[onload="init"]]></extattr><addon><![CDATA[<MagicCtrl Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20" Name="refresh%{colNm}"><OnClick><submit next="%{colNm}"/></OnClick></MagicCtrl>\r\n]]></addon></Ctrl><Ctrl noused="1" noquery="1" ctrlhide="1" name="org_id" insertparam="'%{orgid}'" noUpdate="1"/><Ctrl noused="1" name="status"/><Ctrl noquery="1" ctrlhide="1" name="created_by" insertparam="'%{operaid}'" noUpdate="1"/><Ctrl noquery="1" ctrlhide="1" name="creation_date" insertparam="now()" noUpdate="1"/><Ctrl noquery="1" ctrlhide="1" name="last_update_by" insertparam="'%{operaid}'" updateparam="'%{operaid}'"/><Ctrl noquery="1" ctrlhide="1" name="last_update_date" insertparam="now()" updateparam="now()"/><Ctrl noquery="1" nomodify="1" ctrlhide="1" name="pallet_id" noInsert="1" noInAndUp="1" noUpdate="1"/></Ctrls></biztoolcfg>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<biztoolcfg jointbls="1" tableTxt="pallet" header2Link="" qryfmtOpCreate="" referLst="0" lines2Link="" qryfmtOpUpdate="" exdata4select="" onLoadInit="0" loadedClick="0" tableNm="pallet" LstTP="Lst">
+  <DataLstExtElmt><![CDATA[<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>]]></DataLstExtElmt>
+  <Ctrls>
+    <Ctrl Required="1" name="bc_label"/>
+    <Ctrl ctrldbdata="specification_name,specification_id" Required="1" ctrldbdatarel="specification_id" ctrldbname="mes_trace." xTp="ComboBox" name="specification" ctrltype="ComboBox" ctrldbtable="pallet_specification">
+      <extattr><![CDATA[onload="init"]]></extattr>
+      <addon><![CDATA[<MagicCtrl Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20" Name="refresh%{colNm}"><OnClick><submit next="%{colNm}"/></OnClick></MagicCtrl>\r\n]]></addon>
+    </Ctrl>
+    <Ctrl insertparam="'%{orgid}'" noquery="1" noUpdate="1" noused="1" name="org_id" ctrlhide="1"/>
+    <Ctrl noused="1" name="status"/>
+    <Ctrl insertparam="'%{operaid}'" noquery="1" noUpdate="1" name="created_by" ctrlhide="1"/>
+    <Ctrl insertparam="now()" noquery="1" noUpdate="1" name="creation_date" ctrlhide="1"/>
+    <Ctrl insertparam="'%{operaid}'" noquery="1" updateparam="'%{operaid}'" name="last_update_by" ctrlhide="1"/>
+    <Ctrl insertparam="now()" noquery="1" updateparam="now()" name="last_update_date" ctrlhide="1"/>
+    <Ctrl noquery="1" noUpdate="1" noInsert="1" nomodify="1" name="pallet_id" ctrlhide="1" noInAndUp="1"/>
+  </Ctrls>
+</biztoolcfg>

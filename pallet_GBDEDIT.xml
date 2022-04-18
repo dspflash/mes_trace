@@ -1,36 +1,36 @@
 ﻿<GroupBox Name="GBDEDITpallet"><Ctrls>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bc_label"><Ctrls>
-<Label Align="Right" Text="bc_label" Name="lb_bc_label" Size="60,20"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_bc_label" Name="bc_label" Size="170,20"/>
+<GroupBox Multiline="0" Name="GB_bc_label" cols="xs12 sm6 md4"><Ctrls>
+<Label Align="Right" Size="60,20" Name="lb_bc_label" Text="bc_label"/>
+<TextBox Weight="170" Size="170,20" Name="bc_label" Text="" ToolTip="ttp_bc_label"/>
 </Ctrls></GroupBox>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_specification"><Ctrls>
-<Label Align="Right" Text="specification" onload="init" Name="lb_specification" Size="60,20"/>
-<ComboBox Weight="150" Text="" ToolTip="ttp_specification" onload="init" Name="specification" Size="150,100">
+<GroupBox Multiline="0" Name="GB_specification" cols="xs12 sm6 md4"><Ctrls>
+<Label Align="Right" Size="60,20" Name="lb_specification" Text="specification" onload="init"/>
+<ComboBox Weight="150" Size="150,100" Name="specification" Text="" ToolTip="ttp_specification" onload="init">
 	<DbDetails>
 <Index>specification_id</Index>
 <DbTable>mes_trace.pallet_specification</DbTable>
 <Data>specification_name,specification_id</Data>
 <Where/>
 <queryFormat/></DbDetails></ComboBox>
-<MagicCtrl Name="refreshspecification" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="specification"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
-<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+<MagicCtrl Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20" Name="refreshspecification"><OnClick><submit next="specification"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox overlap="pre" Multiline="0" Name="GB_created_by" Visible="false" cols="xs12 sm6 md4"><Ctrls>
+<Label Align="Right" overlap="pre" Size="60,20" Name="lb_created_by" Visible="false" Text="created_by"/>
+<TextBox overlap="pre" Weight="170" Size="170,20" Name="created_by" Visible="false" Text="" ToolTip="ttp_created_by"/>
 </Ctrls></GroupBox>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
-<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
-<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+<GroupBox overlap="pre" Multiline="0" Name="GB_creation_date" Visible="false" cols="xs12 sm6 md4"><Ctrls>
+<Label Align="Right" overlap="pre" Size="60,20" Name="lb_creation_date" Visible="false" Text="creation_date"/>
+<DateTime overlap="pre" Weight="170" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Name="creation_date" Visible="false" Text="" ToolTip="ttp_creation_date"/>
 </Ctrls></GroupBox>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
-<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+<GroupBox overlap="pre" Multiline="0" Name="GB_last_update_by" Visible="false" cols="xs12 sm6 md4"><Ctrls>
+<Label Align="Right" overlap="pre" Size="60,20" Name="lb_last_update_by" Visible="false" Text="last_update_by"/>
+<TextBox overlap="pre" Weight="170" Size="170,20" Name="last_update_by" Visible="false" Text="" ToolTip="ttp_last_update_by"/>
 </Ctrls></GroupBox>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
-<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
-<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+<GroupBox overlap="pre" Multiline="0" Name="GB_last_update_date" Visible="false" cols="xs12 sm6 md4"><Ctrls>
+<Label Align="Right" overlap="pre" Size="60,20" Name="lb_last_update_date" Visible="false" Text="last_update_date"/>
+<DateTime overlap="pre" Weight="170" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Name="last_update_date" Visible="false" Text="" ToolTip="ttp_last_update_date"/>
 </Ctrls></GroupBox>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_pallet_id" Visible="false"><Ctrls>
-<Label Align="Right" Text="pallet_id" overlap="pre" Name="lb_pallet_id" readonly="true" Size="60,20" Visible="false"/>
-<TextBox Weight="170" Text="" ToolTip="ttp_pallet_id" overlap="pre" Name="pallet_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{pallet_id}'"><SetVisible name="insertpallet" Visible="0"/><SetVisible name="modifypallet" Visible="1"/><else/><SetVisible name="insertpallet" Visible="1"/><SetVisible name="modifypallet" Visible="0"/></if></OnEnChange></TextBox>
+<GroupBox overlap="pre" Multiline="0" Name="GB_pallet_id" Visible="false" cols="xs12 sm6 md4"><Ctrls>
+<Label Align="Right" overlap="pre" Size="60,20" Name="lb_pallet_id" Visible="false" Text="pallet_id" readonly="true"/>
+<TextBox overlap="pre" Weight="170" Size="170,20" Name="pallet_id" Visible="false" Text="" ToolTip="ttp_pallet_id" readonly="true"><OnEnChange><if cond="'%{pallet_id}'"><SetVisible name="insertpallet" Visible="0"/><SetVisible name="modifypallet" Visible="1"/><else/><SetVisible name="insertpallet" Visible="1"/><SetVisible name="modifypallet" Visible="0"/></if></OnEnChange></TextBox>
 </Ctrls></GroupBox>
 </Ctrls></GroupBox>

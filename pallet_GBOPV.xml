@@ -1,17 +1,17 @@
-﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVpallet" Size="100,100"><Ctrls>
-<Button Text="delete" ToolTip="ttp_deletepallet" Name="deletepallet" Size="50,20">
-	<OnClick>
+﻿<GroupBox Size="100,100" Name="GBOPVpallet" cols="xs12 sm6 md4"><Ctrls>
+<Button Weight="50" Size="50,20" Name="deletepallet" Text="delete" ToolTip="ttp_deletepallet">
+<OnClick>
 	<DbDetails fcsm="1">
 <DbTable>mes_trace.pallet</DbTable>
 <Where>pallet_id='%{palletLst[pallet_id]}'</Where>
 <queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
-	<submit namelist="DbDetails"/><submit next="searchpallet" function="click"/>
+<submit namelist="DbDetails"/><submit function="click" next="searchpallet"/>
 	</OnClick>
-	</Button><TAB/>
-<Button Text="refresh" ToolTip="ttp_refreshpallet" Name="searchpallet" Size="50,20">
-			  <OnClick><submit next="palletLst"/>	</OnClick>
+</Button><TAB/>
+<Button Weight="50" Size="50,20" Name="searchpallet" Text="refresh" ToolTip="ttp_refreshpallet">
+<OnClick><submit next="palletLst"/>	</OnClick>
 </Button>
-<TAB/><TAB/><Button Text="firstpage" Name="FPpalletLst" OnClick="(palletLst)GetPage(First)" Size="50,20"/>
-<TAB/><Button Text="prepage" Name="PREpalletLst" OnClick="(palletLst)GetPage(Pre)" Size="50,20"/>
-<TAB/><Button Text="nextpage" Name="NPpalletLst" OnClick="(palletLst)GetPage(Next)" Size="50,20"/>
+<TAB/><TAB/><Button OnClick="(palletLst)GetPage(First)" Size="50,20" Name="FPpalletLst" Text="firstpage"/>
+<TAB/><Button Weight="50" OnClick="(palletLst)GetPage(Pre)" Size="50,20" Name="PREpalletLst" Text="prepage"/>
+<TAB/><Button Weight="50" OnClick="(palletLst)GetPage(Next)" Size="50,20" Name="NPpalletLst" Text="nextpage"/>
 </Ctrls></GroupBox>

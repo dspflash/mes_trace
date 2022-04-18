@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?><WndTap Text="pallet" Name="pallet" Ver="2">
-<var name="refreshAfterEdit" expr="1"/>
-<var name="dataRequired" expr="bc_label,specification[specification_id]"/>
-<var name="dataRequireless" expr=""/>
+﻿<?xml version="1.0" encoding="UTF-8"?><WndTap Name="pallet" Text="pallet" Ver="2">
+<var expr="1" name="refreshAfterEdit"/>
+<var expr="bc_label,specification[specification_id]" name="dataRequired"/>
+<var expr="" name="dataRequireless"/>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\pallet.xml"/>
 <Ctrls>
-<GroupBox Text="pallet" Name="GBpallet" id="pallet" Size="100,100"><Ctrls>
+<GroupBox id="pallet" Size="100,100" Name="GBpallet" Text="pallet"><Ctrls>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_GBOPE.xml"></xi:include>
 <TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_GBOPV.xml"></xi:include>
 <BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_GBDV.xml"></xi:include></Ctrls></GroupBox>

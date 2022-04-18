@@ -1,7 +1,7 @@
 ﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGpallet"><Ctrls>
 <Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
-<TextBox Weight="30" ToolTip="ttp_records" Name="records_pallet" Size="40,20" OnLoad="init" readonly="1">
-	<DbDetails fcsm="1">
+<TextBox Weight="40" ToolTip="ttp_records" Name="records_pallet" Size="40,20" OnLoad="init" readonly="1">
+<DbDetails fcsm="1">
 <Index>pallet_id</Index>
 <DbTable>mes_trace.pallet p left join mes_trace.pallet_specification p0 on p.specification=p0.specification_id</DbTable>
 <Data>count(*) records</Data>
