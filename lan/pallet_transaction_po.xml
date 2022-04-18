@@ -8,4 +8,6 @@
 <Lang name="lot_number_id" value="批    次"/>
 <Lang name="pallet_quantity" value="数    量(3)"/>
 <Lang name="pallet_label" value="容器条码(2)"/>
+<Lang name="ttp_gsearchpallet_transaction" value="销售单号（选填填，模糊匹配）作为唯一查询条件，查询本人（管理员可查所有人）"/>
+<Lang name="ttp_initial" value="查询本人（管理员可查所有人），10条/页"/>
 </Language>

@@ -6,7 +6,7 @@
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_transaction_Ve.xml" popup="1"/>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_inv_print_v.xml" popup="1"/>
 </WndTaps>
-<var name="searchtmpl"><!--pallet_label format="p.pallet_id=(select pallet_id from mes_trace.pallet where bc_label='%{opvalue}')"/--></var>
+<var name="searchtmpl"><doc_no format="document_number like '%%{opvalue}%'"/><!--pallet_label format="p.pallet_id=(select pallet_id from mes_trace.pallet where bc_label='%{opvalue}')"/--></var>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\pallet_transaction_po.xml"/>
 <Ctrls><GroupBox  Name="GBpallet_transaction" id="pallet_transaction" Text="pallet_transaction" Size="100,100"><Ctrls>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_transaction_GBDEDITx.xml"/>

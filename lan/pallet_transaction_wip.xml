@@ -12,4 +12,7 @@
 <Lang name="wo_bom_qtyneed" value="耗 用 量"/>
 <Lang name="pallet_quantity" value="数    量(3)"/>
 <Lang name="pallet_label" value="容器条码(2)"/>
+<Lang name="ttp_gsearchpallet_transaction" value="工单号（必填，完全匹配）作为唯一查询条件，查询本人（管理员可查所有人）"/>
+<Lang name="ttp_export" value="导出下表中显示的数据保存至文件"/>
+<Lang name="ttp_initial" value="查询本人（管理员可查所有人），1000条/页"/>
 </Language>
