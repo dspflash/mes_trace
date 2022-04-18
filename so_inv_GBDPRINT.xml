@@ -54,7 +54,7 @@
 <GroupBox Multiline="0" Name="GB_quantityx" printborder="1"><Ctrls>
 <Label Align="Right" Text="quantity" Name="lb_quantity" Size="60,20"/>
 </Ctrls></GroupBox>
-<TextBox Text="" Name="quantity" ToolTip="回车生成二维码" Size="60,20">
+<TextBox Text="" Name="quantity" ToolTip="回车生成二维码" Size="60,20" Number="1">
 <OnEnterKey>
 <magicdata filename="data/qr_wip_wo_inv_number.png"><data>%{item_name[bc_label]},%{lot_number_id},%{completion_date},%{quantity}</data></magicdata>
 <submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>

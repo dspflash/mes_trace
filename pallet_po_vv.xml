@@ -10,6 +10,24 @@
 <op text="cancel" needconfirm="1"><DbDetails>
 <queryFormat>SELECT if(mes_trace.pallet_trans(%{pallet_transaction_vLst[pallet_id]},%{pallet_transaction_vLst[item_id_m]},%{pallet_transaction_vLst[inv_lot_number_id]},%{transtype},'%{pallet_transaction_vLst[document_type]}','%{pallet_transaction_vLst[document_number]}',if('%{role_id}'=1,-%{pallet_transaction_vLst[pallet_quantity]},0), 'inv_transaction','%{pallet_transaction_vLst[inv_transaction_id]}','%{operaid}','') is not null,'OK','Fail') as cancel;</queryFormat></DbDetails>
 <submit namelist="DbDetails"/></op>
+<op text="print"><if cond="'%{doc_type}'!='so'">
+	<submit next="$this.po_inv_print.GBwip_wo_header" function="resetcontent"/>
+	<submit next="$this.po_inv_print.qr_itemname" function="resetcontent"/>
+	<DbDetails><Where>item_id_m='%{pallet_transaction_vLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="$this.po_inv_print.item_id_m"/>
+	<DbDetails fcsm="1"><queryFormat>SELECT lot_number,creation_date completion_date,inv_lot_number_id FROM mes_trace.inv_lot_number WHERE inv_lot_number_id='%{pallet_transaction_vLst[inv_lot_number_id]}'</queryFormat></DbDetails>
+	<submit namelist="DbDetails" next="$this.po_inv_print.lot_number_id"/>
+	<magicdata filename="data/qr_wip_wo_inv_number.png"><data>%{pallet_transaction_vLst[bc_label]}</data></magicdata>
+	<submit next="$this.po_inv_print.qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+<else/>
+	<submit next="$this.so_inv_print.item_name" function="resetcontent"/>
+	<submit next="$this.so_inv_print.lot_number_id" function="resetcontent"/>
+	<submit next="$this.so_inv_print.qr_itemname" function="resetcontent"/>
+	<DbDetails><Where>item_id_m='%{pallet_transaction_vLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="$this.so_inv_print.item_name"/>
+	<DbDetails fcsm="1"><queryFormat>SELECT lot_number,creation_date completion_date,inv_lot_number_id FROM mes_trace.inv_lot_number WHERE inv_lot_number_id='%{pallet_transaction_vLst[inv_lot_number_id]}'</queryFormat></DbDetails>
+	<submit namelist="DbDetails" next="$this.so_inv_print.lot_number_id"/>
+</if></op>
 </operator>
 <OnChanged>
 <assign name="pgcur_pallet_transaction" expr="js(%{pallet_transaction_vLst[currentpage]}+1)"/>

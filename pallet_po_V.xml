@@ -24,6 +24,7 @@
 </OnClick></Button><TAB/>
 <Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20">	<OnClick>
 	<submit next="$this.po_inv_print.GBwip_wo_header" function="resetcontent"/>
+	<submit next="$this.po_inv_print.qr_itemname" function="resetcontent"/>
 	<DbDetails><Where>item_id_m='%{item_id_m[item_id_m]}'</Where></DbDetails>
 	<submit namelist="DbDetails" next="$this.po_inv_print.item_id_m"/>
 	<DbDetails fcsm="1"><queryFormat>SELECT lot_number,creation_date completion_date,inv_lot_number_id FROM mes_trace.inv_lot_number WHERE inv_lot_number_id='%{lot_number_id[lot_id]}'</queryFormat></DbDetails>
