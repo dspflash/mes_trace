@@ -21,8 +21,11 @@
 - MySQL
 
 ## 演示地址及截图(3UCS XOne客户端登陆)：http://0mes.github.io; http://3ucs.com/plg/firm/firm.php?d.7.123
+
+Windows客户端XOne操作演示截图动画
 ![](https://dspflash.github.io/res/mes_trace/mes_trace.gif).
 
+Android手机客户端操作演示截图动画
 ![](https://dspflash.github.io/res/mes_trace/mobile.gif).
 
 ![](https://dspflash.github.io/res/mes_trace/tech.gif).
