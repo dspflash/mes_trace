@@ -20,7 +20,7 @@
 - 3UCS xPlus (http://3ucs.com/x/)
 - MySQL
 
-## 演示地址及截图(3UCS XOne客户端登陆)：http://0mes.github.io; http://3ucs.com/plg/firm/firm.php?d.7.123
+## 演示地址及截图(3UCS XOne客户端登陆)：http://mes.3ucs.com; http://0mes.github.io; http://3ucs.com/plg/firm/firm.php?d.7.123
 
 Windows客户端XOne操作演示截图动画
 
