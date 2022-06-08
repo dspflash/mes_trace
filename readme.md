@@ -23,9 +23,9 @@
 ## 演示地址及截图(3UCS XOne客户端登陆)：http://0mes.github.io
 ![](https://dspflash.github.io/res/mes_trace/mes_trace.gif).
 
-![](imgs/xbsmobile.gif).
+![](https://dspflash.github.io/res/mes_trace/mobile.gif).
 
-![](imgs/xbstech.gif).
+![](https://dspflash.github.io/res/mes_trace/tech.gif).
 
 音视频演示(3UCS ERP安装部署) http://3ucs.com/video.php?vid=45
 
