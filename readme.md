@@ -28,6 +28,7 @@ Windows客户端XOne操作演示截图动画
 Android手机客户端操作演示截图动画
 ![](https://dspflash.github.io/res/mes_trace/mobile.gif).
 
+技术资料设定演示动画
 ![](https://dspflash.github.io/res/mes_trace/tech.gif).
 
 音视频演示(3UCS ERP安装部署) http://3ucs.com/video.php?vid=45
