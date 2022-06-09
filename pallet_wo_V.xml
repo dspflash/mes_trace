@@ -7,6 +7,7 @@
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_inv_print_v.xml" popup="1"/>
 </WndTaps>
 <var name="searchtmpl"><doc_no format="document_number='%{opvalue}'"/><!--pallet_label format="p.pallet_id=(select pallet_id from mes_trace.pallet where bc_label='%{opvalue}')"/--></var>
+<var name="searchtmplpallet"><pallet_label format="p.pallet_id=(select pallet_id from mes_trace.pallet where bc_label='%{opvalue}')"/></var>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\pallet_transaction_wo.xml"/>
 <Ctrls><GroupBox  Name="GBpallet_transaction" id="pallet_transaction" Text="pallet_transaction" Size="100,100"><Ctrls>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pallet_transaction_GBDEDITx.xml"/>
@@ -21,6 +22,10 @@
 <Button Text="Search" ToolTip="ttp_gsearchpallet_transaction" Name="gsearchpallet_transaction" Size="50,20">	<OnClick>	
 <search next="pallet_transaction_vLst" listed="1" prefixwhere="0" prefixand="1" inputed="0">%{searchtmpl}</search><submit next="GBDEDITpallet_transaction" namelist="search" function="search"/>	
 <search next="records_pallet_transaction" listed="1" prefixwhere="0" prefixand="1"  inputed="0">%{searchtmpl}</search><submit next="GBDEDITpallet_transaction" namelist="search" function="search"/>	
+</OnClick></Button><TAB/>
+<Button Text="搜工单" ToolTip="按容器条码查询工单" Name="gsearchpallet_transactionp" Size="50,20">	<OnClick>	
+<search next="pallet_transaction_vLst" listed="1" prefixwhere="0" prefixand="1" inputed="0">%{searchtmplpallet}</search><submit next="GBDEDITpallet_transaction" namelist="search" function="search"/>	
+<search next="records_pallet_transaction" listed="1" prefixwhere="0" prefixand="1"  inputed="0">%{searchtmplpallet}</search><submit next="GBDEDITpallet_transaction" namelist="search" function="search"/>	
 </OnClick></Button><TAB/>
 <Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20">	<OnClick>
 	<submit next="$this.po_inv_print.GBwip_wo_header" function="resetcontent"/>
