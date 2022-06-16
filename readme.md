@@ -1,7 +1,7 @@
 ﻿## 3UCS MES_TRACE（条码(二维码)批次追溯）	(http://3ucs.com/x/xworks)
 源代码在 mes_trace 文件夹中(90%以上的代码都是使用3UCS BizTool 自动化工具生成，给个性化定制节省了大量的时间，带来了极大的便利，参见http://3ucs.com/x)，而安装包带有完整源代码，安装完成后源代码在安装目录下（mes_trace文件夹，直接下载release的exe安装包，简单方便）。
 
-或下载<a href="https://dspflash.github.io/xrel/xmes_trace_setup_1001.exe">mes_trace 安装包</a>
+或下载<a href="https://dspflash.github.io/xrel/xMes_trace_setup_1021.exe">mes_trace 安装包</a>
 
 升级时可将新的代码直接覆盖mes_trace文件夹的代码
 
